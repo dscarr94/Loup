@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minWidth="25px"
+    android:minHeight="25px"
+    android:background="#FFFFFF">
+    <TextView
+        android:text="Build your Profile"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="55.0dp"
+        android:id="@+id/textView1"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:background="#D24F11"
+        android:layout_marginBottom="20dp" />
+    <TextView
+        android:text="Let's get started! Please select which category you fall under."
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="313.5dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2"
+        android:textColor="#000000"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_marginBottom="10dp" />
+    <Button
+        android:text="STUDENT"
+        android:layout_height="125dp"
+        android:id="@+id/studentIdentify"
+        android:background="@drawable/roundedbutton"
+        android:layout_width="125dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"
+        android:textStyle="bold"
+        android:textSize="15dp" />
+    <Button
+        android:text="RECRUITER"
+        android:layout_height="125dp"
+        android:id="@+id/recruiterIdentify"
+        android:background="@drawable/roundedbutton"
+        android:layout_width="125dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"
+        android:textStyle="bold"
+        android:textSize="15dp" />
+    <Button
+        android:text="CAREER SERVICES"
+        android:layout_height="125dp"
+        android:id="@+id/CSIdentify"
+        android:background="@drawable/roundedbutton"
+        android:layout_width="125dp"
+        android:layout_gravity="center"
+        android:textStyle="bold"
+        android:textSize="15dp" />
+</LinearLayout>
