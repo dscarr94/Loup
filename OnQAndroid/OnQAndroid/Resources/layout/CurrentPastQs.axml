@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:minWidth="25px"
+    android:minHeight="25px"
+    android:weightSum="100">
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/space1"
+        android:layout_weight="45" />
+    <Button
+        android:text="Current Q's"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:id="@+id/currentQs"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/turquoisebutton"
+        android:textStyle="bold"
+        android:textColor="@color/textcolorswitcher" />
+    <Button
+        android:text="Past Q's"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:id="@+id/pastQs"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/turquoisebutton"
+        android:textStyle="bold"
+        android:textColor="@color/textcolorswitcher" />
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/space1"
+        android:layout_weight="55" />
+</LinearLayout>

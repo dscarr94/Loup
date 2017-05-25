@@ -1,0 +1,1 @@
+<FrameLayout android:layout_width="match_parent" android:background="#000" android:layout_height="match_parent" android:id="@+id/qs_root_frame" xmlns:tools="http://schemas.android.com/tools" xmlns:android="http://schemas.android.com/apk/res/android" />

@@ -1,0 +1,358 @@
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\bin\Debug\OnQAndroid.dll
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\bin\Debug\OnQAndroid.pdb
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\bin\Debug\OnQAndroid.OnQAndroid.apk
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\bin\Debug\OnQAndroid.OnQAndroid-Signed.apk
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\bin\Debug\AWSSDK.CognitoIdentity.dll
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\bin\Debug\AWSSDK.Core.dll
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\bin\Debug\AWSSDK.SecurityToken.dll
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\bin\Debug\crypto.dll
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\bin\Debug\Firebase.Xamarin.dll
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\bin\Debug\JWT.dll
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\bin\Debug\PCLCrypto.dll
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\bin\Debug\PCLStorage.Abstractions.dll
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\bin\Debug\PCLStorage.dll
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\bin\Debug\SQLite-net.dll
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\bin\Debug\SQLitePCLRaw.batteries_green.dll
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\bin\Debug\SQLitePCLRaw.batteries_v2.dll
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\bin\Debug\SQLitePCLRaw.core.dll
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\bin\Debug\SQLitePCLRaw.lib.e_sqlite3.dll
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\bin\Debug\SQLitePCLRaw.provider.e_sqlite3.dll
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\bin\Debug\System.Reactive.Core.dll
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\bin\Debug\System.Reactive.Interfaces.dll
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\bin\Debug\System.Reactive.Linq.dll
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\bin\Debug\System.Reactive.PlatformServices.dll
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\bin\Debug\Validation.dll
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\bin\Debug\Xamarin.Android.Support.v4.dll
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\bin\Debug\AWSSDK.CognitoIdentity.xml
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\bin\Debug\AWSSDK.Core.pdb
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\bin\Debug\AWSSDK.Core.xml
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\bin\Debug\AWSSDK.SecurityToken.xml
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\bin\Debug\PCLCrypto.xml
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\bin\Debug\PCLStorage.xml
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\bin\Debug\PCLStorage.Abstractions.xml
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\bin\Debug\SQLite-net.xml
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\bin\Debug\SQLite-net.dll.mdb
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\bin\Debug\Validation.xml
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\OnQAndroid.dll
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\OnQAndroid.pdb
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\android\bin\OnQAndroid.OnQAndroid.apk
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\R.cs.flag
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\uploadflags.txt
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\homescreen.xml
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\identifyusertype.xml
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\loginsignup.xml
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\passwordrecover.xml
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\recruiterbuildprofile.xml
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\signupscreen.xml
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\studentbuildprofile.xml
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\csbuildprofile.xml
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\uploadresume.xml
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\successscreen.xml
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\hometab.xml
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\myqstab.xml
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\settingstab.xml
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\pager_item.xml
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\registertab.xml
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\gotoregister.xml
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\confirmcf.xml
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\main.xml
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\values\strings.xml
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\icon.png
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\rectangleborder.xml
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\roundedbutton.xml
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\onqlogo.png
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\onqlogosmall.png
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\camera.png
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\pdf2.png
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\checkmark.png
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\turquoisebutton.xml
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\blackborderwhitebutton.xml
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\x.png
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\q.png
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\facebook.png
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\info.png
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\qbutton.xml
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\qpressed.png
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\stryker.png
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\amazon.png
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\boeing.png
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\google.png
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\aerojetrocketdyne.png
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\questionmark.png
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\scrollhand.png
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\selectschool.xml
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\calpolysanluisobispo.png
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\selectyourschool.png
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\studentprofiletab.xml
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\companieslistview_row.xml
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\starunfilled.png
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\starfilled.png
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\XbdMerge\Xamarin.Android.Support.Annotations.dll.stamp
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\XbdMerge\Xamarin.Android.Support.Compat.dll.stamp
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\XbdMerge\Xamarin.Android.Support.Core.UI.dll.stamp
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\XbdMerge\Xamarin.Android.Support.Core.Utils.dll.stamp
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\XbdMerge\Xamarin.Android.Support.Media.Compat.dll.stamp
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\XbdMerge\Xamarin.Android.Support.Fragment.dll.stamp
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\XbdMerge\Xamarin.Android.Support.Transition.dll.stamp
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\XbdMerge\Xamarin.Android.Support.v7.RecyclerView.dll.stamp
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\XbdMerge\Xamarin.Android.Support.Vector.Drawable.dll.stamp
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\XbdMerge\Xamarin.Android.Support.Animated.Vector.Drawable.dll.stamp
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\XbdMerge\Xamarin.Android.Support.v7.AppCompat.dll.stamp
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\XbdMerge\Xamarin.Android.Support.Design.dll.stamp
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\bin\Debug\Xamarin.Android.Support.Animated.Vector.Drawable.dll
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\bin\Debug\Xamarin.Android.Support.Annotations.dll
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\bin\Debug\Xamarin.Android.Support.Compat.dll
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\bin\Debug\Xamarin.Android.Support.Core.UI.dll
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\bin\Debug\Xamarin.Android.Support.Core.Utils.dll
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\bin\Debug\Xamarin.Android.Support.Design.dll
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\bin\Debug\Xamarin.Android.Support.Fragment.dll
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\bin\Debug\Xamarin.Android.Support.Media.Compat.dll
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\bin\Debug\Xamarin.Android.Support.Transition.dll
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\bin\Debug\Xamarin.Android.Support.v7.AppCompat.dll
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\bin\Debug\Xamarin.Android.Support.v7.RecyclerView.dll
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\bin\Debug\Xamarin.Android.Support.Vector.Drawable.dll
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\homescreen2.xml
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\devtools.xml
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\cfidinfo.xml
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\register_root_fragment.xml
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\img12345678.png
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\companies_root_fragment.xml
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\companyinfo.xml
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\profile_root_fragment.xml
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\redbutton.xml
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\qs_root_fragment.xml
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\bin\Debug\Refractored.PagerSlidingTabStrip.dll
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\bin\Debug\Refractored.PagerSlidingTabStrip.pdb
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\bin\Debug\Refractored.PagerSlidingTabStrip.xml
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\XbdMerge\Xamarin.Android.Support.v4.dll.stamp
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\back.png
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\companybuilding.png
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\tab_layout.xml
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\gear.png
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\profile.png
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\qblack.png
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\register.png
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\favoritecompanieslistview_row.xml
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\studenteditprofiletab.xml
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\recruiterprofiletab.xml
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\recruitereditprofiletab.xml
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\recruiterhometab.xml
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\radio_checked.png
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\radio_unchecked.png
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\plus.png
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\minus.png
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\confirmq.xml
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\recruiterqspresent.xml
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\qrow.xml
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\studentqspresent.xml
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\studentprofilerecview.xml
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\heartunfilled.png
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\heartfilled.png
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\currentpastqs.xml
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\rightarrow.png
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\color\textcolorswitcher.xml
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\pastqs.xml
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\OnQAndroid.csprojResolveAssemblyReference.cache
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\bin\Debug\Java.Interop.dll.mdb
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\bin\Debug\Microsoft.CSharp.dll.mdb
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\bin\Debug\Mono.Android.dll.mdb
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\bin\Debug\Mono.Android.Export.dll.mdb
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\bin\Debug\Mono.CSharp.dll.mdb
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\bin\Debug\mscorlib.dll.mdb
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\bin\Debug\System.ComponentModel.Composition.dll.mdb
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\bin\Debug\System.Core.dll.mdb
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\bin\Debug\System.dll.mdb
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\bin\Debug\System.IO.Compression.dll.mdb
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\bin\Debug\System.Net.Http.dll.mdb
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\bin\Debug\System.Runtime.Serialization.dll.mdb
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\bin\Debug\System.ServiceModel.Internals.dll.mdb
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\bin\Debug\System.Xml.dll.mdb
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\bin\Debug\System.Xml.Linq.dll.mdb
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\android\assets\Java.Interop.dll.mdb
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\android\assets\Microsoft.CSharp.dll.mdb
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\android\assets\Mono.Android.dll.mdb
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\android\assets\Mono.Android.Export.dll.mdb
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\android\assets\Mono.CSharp.dll.mdb
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\android\assets\mscorlib.dll.mdb
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\android\assets\SQLite-net.dll.mdb
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\android\assets\System.ComponentModel.Composition.dll.mdb
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\android\assets\System.Core.dll.mdb
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\android\assets\System.dll.mdb
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\android\assets\System.IO.Compression.dll.mdb
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\android\assets\System.Net.Http.dll.mdb
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\android\assets\System.Runtime.Serialization.dll.mdb
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\android\assets\System.ServiceModel.Internals.dll.mdb
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\android\assets\System.Xml.dll.mdb
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\android\assets\System.Xml.Linq.dll.mdb
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\settings_root_fragment.xml
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\values\styles.xml
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\asset14t.png
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\obj\Debug\OnQAndroid.dll.mdb
+C:\Users\Josh\Documents\College\Senior\ENGR-459-07 (Senior Project)\Loup\OnQAndroid\OnQAndroid\bin\Debug\OnQAndroid.dll.mdb
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\OnQAndroid.csprojResolveAssemblyReference.cache
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\XbdMerge\Xamarin.Android.Support.Annotations.dll.stamp
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\XbdMerge\Xamarin.Android.Support.Compat.dll.stamp
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\XbdMerge\Xamarin.Android.Support.Core.UI.dll.stamp
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\XbdMerge\Xamarin.Android.Support.Core.Utils.dll.stamp
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\XbdMerge\Xamarin.Android.Support.Media.Compat.dll.stamp
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\XbdMerge\Xamarin.Android.Support.Fragment.dll.stamp
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\XbdMerge\Xamarin.Android.Support.Transition.dll.stamp
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\XbdMerge\Xamarin.Android.Support.v7.RecyclerView.dll.stamp
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\XbdMerge\Xamarin.Android.Support.Vector.Drawable.dll.stamp
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\XbdMerge\Xamarin.Android.Support.Animated.Vector.Drawable.dll.stamp
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\XbdMerge\Xamarin.Android.Support.v7.AppCompat.dll.stamp
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\XbdMerge\Xamarin.Android.Support.Design.dll.stamp
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\XbdMerge\Xamarin.Android.Support.v4.dll.stamp
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\OnQAndroid.dll
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\OnQAndroid.pdb
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\bin\Debug\OnQAndroid.dll
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\bin\Debug\OnQAndroid.pdb
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\bin\Debug\OnQAndroid.OnQAndroid.apk
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\bin\Debug\OnQAndroid.OnQAndroid-Signed.apk
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\bin\Debug\AWSSDK.CognitoIdentity.dll
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\bin\Debug\AWSSDK.Core.dll
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\bin\Debug\AWSSDK.SecurityToken.dll
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\bin\Debug\crypto.dll
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\bin\Debug\Firebase.Xamarin.dll
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\bin\Debug\JWT.dll
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\bin\Debug\PCLCrypto.dll
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\bin\Debug\PCLStorage.Abstractions.dll
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\bin\Debug\PCLStorage.dll
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\bin\Debug\Refractored.PagerSlidingTabStrip.dll
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\bin\Debug\SQLite-net.dll
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\bin\Debug\SQLitePCLRaw.batteries_green.dll
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\bin\Debug\SQLitePCLRaw.batteries_v2.dll
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\bin\Debug\SQLitePCLRaw.core.dll
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\bin\Debug\SQLitePCLRaw.lib.e_sqlite3.dll
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\bin\Debug\SQLitePCLRaw.provider.e_sqlite3.dll
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\bin\Debug\System.Reactive.Core.dll
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\bin\Debug\System.Reactive.Interfaces.dll
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\bin\Debug\System.Reactive.Linq.dll
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\bin\Debug\System.Reactive.PlatformServices.dll
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\bin\Debug\Validation.dll
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\bin\Debug\Xamarin.Android.Support.Animated.Vector.Drawable.dll
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\bin\Debug\Xamarin.Android.Support.Annotations.dll
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\bin\Debug\Xamarin.Android.Support.Compat.dll
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\bin\Debug\Xamarin.Android.Support.Core.UI.dll
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\bin\Debug\Xamarin.Android.Support.Core.Utils.dll
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\bin\Debug\Xamarin.Android.Support.Design.dll
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\bin\Debug\Xamarin.Android.Support.Fragment.dll
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\bin\Debug\Xamarin.Android.Support.Media.Compat.dll
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\bin\Debug\Xamarin.Android.Support.Transition.dll
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\bin\Debug\Xamarin.Android.Support.v4.dll
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\bin\Debug\Xamarin.Android.Support.v7.AppCompat.dll
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\bin\Debug\Xamarin.Android.Support.v7.RecyclerView.dll
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\bin\Debug\Xamarin.Android.Support.Vector.Drawable.dll
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\bin\Debug\AWSSDK.CognitoIdentity.xml
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\bin\Debug\AWSSDK.Core.pdb
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\bin\Debug\AWSSDK.Core.xml
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\bin\Debug\AWSSDK.SecurityToken.xml
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\bin\Debug\PCLCrypto.xml
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\bin\Debug\PCLStorage.xml
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\bin\Debug\PCLStorage.Abstractions.xml
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\bin\Debug\Refractored.PagerSlidingTabStrip.pdb
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\bin\Debug\Refractored.PagerSlidingTabStrip.xml
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\bin\Debug\SQLite-net.xml
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\bin\Debug\SQLite-net.dll.mdb
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\bin\Debug\Validation.xml
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\android\bin\OnQAndroid.OnQAndroid.apk
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\homescreen.xml
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\identifyusertype.xml
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\loginsignup.xml
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\passwordrecover.xml
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\recruiterbuildprofile.xml
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\signupscreen.xml
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\studentbuildprofile.xml
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\csbuildprofile.xml
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\uploadresume.xml
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\successscreen.xml
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\hometab.xml
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\myqstab.xml
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\studentprofiletab.xml
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\settingstab.xml
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\pager_item.xml
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\companieslistview_row.xml
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\registertab.xml
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\gotoregister.xml
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\confirmcf.xml
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\selectschool.xml
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\homescreen2.xml
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\devtools.xml
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\cfidinfo.xml
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\register_root_fragment.xml
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\companies_root_fragment.xml
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\companyinfo.xml
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\profile_root_fragment.xml
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\studenteditprofiletab.xml
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\qs_root_fragment.xml
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\tab_layout.xml
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\favoritecompanieslistview_row.xml
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\recruiterprofiletab.xml
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\recruitereditprofiletab.xml
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\recruiterhometab.xml
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\confirmq.xml
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\recruiterqspresent.xml
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\qrow.xml
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\studentqspresent.xml
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\studentprofilerecview.xml
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\currentpastqs.xml
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\pastqs.xml
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\settings_root_fragment.xml
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\layout\main.xml
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\values\strings.xml
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\icon.png
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\rectangleborder.xml
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\roundedbutton.xml
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\onqlogo.png
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\onqlogosmall.png
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\camera.png
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\pdf2.png
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\checkmark.png
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\turquoisebutton.xml
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\blackborderwhitebutton.xml
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\x.png
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\q.png
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\facebook.png
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\qbutton.xml
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\qpressed.png
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\stryker.png
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\amazon.png
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\boeing.png
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\google.png
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\aerojetrocketdyne.png
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\questionmark.png
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\calpolysanluisobispo.png
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\selectyourschool.png
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\img12345678.png
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\info.png
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\redbutton.xml
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\back.png
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\companybuilding.png
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\gear.png
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\profile.png
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\qblack.png
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\register.png
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\starfilled.png
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\starunfilled.png
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\scrollhand.png
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\radio_checked.png
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\radio_unchecked.png
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\plus.png
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\minus.png
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\heartunfilled.png
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\heartfilled.png
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\rightarrow.png
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\color\textcolorswitcher.xml
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\values\styles.xml
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\asset14t.png
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\R.cs.flag
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\uploadflags.txt
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\bin\Debug\AWSSDK.Core.dll.mdb
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\bin\Debug\Refractored.PagerSlidingTabStrip.dll.mdb
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\bin\Debug\OnQAndroid.dll.mdb
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\android\assets\AWSSDK.Core.dll.mdb
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\android\assets\OnQAndroid.dll.mdb
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\android\assets\Refractored.PagerSlidingTabStrip.dll.mdb
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\android\assets\SQLite-net.dll.mdb

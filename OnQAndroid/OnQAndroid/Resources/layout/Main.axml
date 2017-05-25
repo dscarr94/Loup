@@ -6,12 +6,13 @@
     android:minWidth="25px"
     android:minHeight="25px">
     <ImageView
-        android:src="@drawable/onqlogosmall"
+        android:src="@drawable/asset14t"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/imageView1"
         android:scaleType="centerCrop"
-        android:layout_marginTop="0dp" />
+        android:layout_marginTop="0dp"
+        android:background="#FFFFFF" />
     <ProgressBar
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
@@ -26,5 +27,6 @@
         android:layout_marginRight="5dp"
         android:layout_marginBottom="5dp"
         android:layout_height="40dp"
-        android:background="@drawable/turquoisebutton" />
+        android:background="@drawable/turquoisebutton"
+        android:textColor="@color/textcolorswitcher" />
 </LinearLayout>

@@ -26,33 +26,58 @@
         android:layout_gravity="center"
         android:gravity="center"
         android:layout_marginBottom="10dp" />
-    <Button
-        android:text="STUDENT"
-        android:layout_height="125dp"
-        android:id="@+id/studentIdentify"
-        android:background="@drawable/roundedbutton"
-        android:layout_width="125dp"
-        android:layout_gravity="center"
-        android:layout_marginBottom="10dp"
-        android:textStyle="bold"
-        android:textSize="15dp" />
-    <Button
-        android:text="RECRUITER"
-        android:layout_height="125dp"
-        android:id="@+id/recruiterIdentify"
-        android:background="@drawable/roundedbutton"
-        android:layout_width="125dp"
-        android:layout_gravity="center"
-        android:layout_marginBottom="10dp"
-        android:textStyle="bold"
-        android:textSize="15dp" />
-    <Button
-        android:text="CAREER SERVICES"
-        android:layout_height="125dp"
-        android:id="@+id/CSIdentify"
-        android:background="@drawable/roundedbutton"
-        android:layout_width="125dp"
-        android:layout_gravity="center"
-        android:textStyle="bold"
-        android:textSize="15dp" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/linearLayout1"
+        android:weightSum="99">
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="15"
+            android:id="@+id/space4" />
+        <Button
+            android:text="Student"
+            android:textStyle="bold"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:id="@+id/studentIdentify"
+            android:background="@drawable/roundedbutton"
+            android:layout_gravity="center" 
+            android:textColor="@color/textcolorswitcher"/>
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="15"
+            android:id="@+id/space1" />
+        <Button
+            android:text="Recruiter"
+            android:textStyle="bold"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:id="@+id/recruiterIdentify"
+            android:background="@drawable/roundedbutton"
+            android:layout_gravity="center" 
+            android:textColor="@color/textcolorswitcher"/>
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="15"
+            android:id="@+id/space2" />
+        <Button
+            android:text="Career    Services"
+            android:textStyle="bold"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:id="@+id/CSIdentify"
+            android:background="@drawable/roundedbutton"
+            android:layout_gravity="center" 
+            android:textColor="@color/textcolorswitcher"/>
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="15"
+            android:id="@+id/space3" />
+    </LinearLayout>
 </LinearLayout>

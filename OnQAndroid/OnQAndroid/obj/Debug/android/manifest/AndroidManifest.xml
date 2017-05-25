@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="OnQAndroid.OnQAndroid" android:versionCode="1" android:versionName="1.0">
+  <!--suppress UsesMinSdkAttributes-->
+  <uses-sdk android:minSdkVersion="16" />
+  <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+  <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+  <application android:label="OnQAndroid" android:name="android.app.Application" android:allowBackup="true" android:debuggable="true">
+    <activity android:label="devTools" android:name="md51bb072e7791e14d9f8299f0dc14fbaad.devTools" />
+    <activity android:screenOrientation="portrait" android:name="md51bb072e7791e14d9f8299f0dc14fbaad.homeScreen2" />
+    <activity android:label="CSScreen1" android:name="md51bb072e7791e14d9f8299f0dc14fbaad.csBuildProfile" />
+    <activity android:label="IdentifyUserType" android:name="md51bb072e7791e14d9f8299f0dc14fbaad.IdentifyUserType" />
+    <activity android:label="LoginSignup" android:name="md51bb072e7791e14d9f8299f0dc14fbaad.LoginSignup" />
+    <activity android:icon="@drawable/onqlogo" android:label="OnQ" android:name="md51bb072e7791e14d9f8299f0dc14fbaad.MainActivity">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
+    </activity>
+    <activity android:label="passwordRecover" android:name="md51bb072e7791e14d9f8299f0dc14fbaad.passwordRecover" />
+    <activity android:label="RecruiterScreen" android:name="md51bb072e7791e14d9f8299f0dc14fbaad.recruiterBuildProfile" />
+    <activity android:label="selectSchool" android:name="md51bb072e7791e14d9f8299f0dc14fbaad.selectSchool" />
+    <activity android:label="signupScreen" android:name="md51bb072e7791e14d9f8299f0dc14fbaad.signupScreen" />
+    <activity android:label="OnQ" android:name="md51bb072e7791e14d9f8299f0dc14fbaad.studentBuildProfile" />
+    <activity android:label="successScreen" android:name="md51bb072e7791e14d9f8299f0dc14fbaad.successScreen" />
+    <activity android:label="uploadResume" android:name="md51bb072e7791e14d9f8299f0dc14fbaad.uploadResume" />
+    <receiver android:name="md5e6df0d51c0b26573e8336e434596095c.NetworkReachability_NetworkStatusChangeBroadcastReceiver" />
+    <provider android:name="mono.MonoRuntimeProvider" android:exported="false" android:initOrder="2147483647" android:authorities="OnQAndroid.OnQAndroid.mono.MonoRuntimeProvider.__mono_init__" />
+    <!--suppress ExportedReceiver-->
+    <receiver android:name="mono.android.Seppuku">
+      <intent-filter>
+        <action android:name="mono.android.intent.action.SEPPUKU" />
+        <category android:name="mono.android.intent.category.SEPPUKU.OnQAndroid.OnQAndroid" />
+      </intent-filter>
+    </receiver>
+  </application>
+  <meta-data android:name="android.support.VERSION" android:value="25.3.1" />
+</manifest>

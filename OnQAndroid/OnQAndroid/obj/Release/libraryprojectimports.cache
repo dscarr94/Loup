@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Paths>
+  <Jars></Jars>
+  <ResolvedResourceDirectories>
+    <ResolvedResourceDirectory>C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Release\__library_projects__\AWSSDK.Core\library_project_imports\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Release\__library_projects__\PCLCrypto\library_project_imports\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Release\__library_projects__\PCLStorage\library_project_imports\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Release\__library_projects__\Refractored.PagerSlidingTabStrip\library_project_imports\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Release\__library_projects__\SQLitePCLRaw.batteries_green\library_project_imports\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Release\__library_projects__\SQLitePCLRaw.batteries_v2\library_project_imports\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Release\__library_projects__\SQLitePCLRaw.core\library_project_imports\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Release\__library_projects__\SQLitePCLRaw.lib.e_sqlite3\library_project_imports\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Release\__library_projects__\SQLitePCLRaw.provider.e_sqlite3\library_project_imports\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Release\__library_projects__\Xamarin.Android.Support.Design\library_project_imports\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Release\__library_projects__\Xamarin.Android.Support.Transition\library_project_imports\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Release\__library_projects__\Xamarin.Android.Support.v7.AppCompat\library_project_imports\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Release\__library_projects__\Xamarin.Android.Support.v7.RecyclerView\library_project_imports\res</ResolvedResourceDirectory>
+  </ResolvedResourceDirectories>
+  <ResolvedAssetDirectories>
+    <ResolvedAssetDirectory>obj\Release\__library_projects__\AWSSDK.Core\library_project_imports\assets</ResolvedAssetDirectory>
+    <ResolvedAssetDirectory>obj\Release\__library_projects__\PCLCrypto\library_project_imports\assets</ResolvedAssetDirectory>
+    <ResolvedAssetDirectory>obj\Release\__library_projects__\PCLStorage\library_project_imports\assets</ResolvedAssetDirectory>
+    <ResolvedAssetDirectory>obj\Release\__library_projects__\Refractored.PagerSlidingTabStrip\library_project_imports\assets</ResolvedAssetDirectory>
+    <ResolvedAssetDirectory>obj\Release\__library_projects__\SQLitePCLRaw.batteries_green\library_project_imports\assets</ResolvedAssetDirectory>
+    <ResolvedAssetDirectory>obj\Release\__library_projects__\SQLitePCLRaw.batteries_v2\library_project_imports\assets</ResolvedAssetDirectory>
+    <ResolvedAssetDirectory>obj\Release\__library_projects__\SQLitePCLRaw.core\library_project_imports\assets</ResolvedAssetDirectory>
+    <ResolvedAssetDirectory>obj\Release\__library_projects__\SQLitePCLRaw.lib.e_sqlite3\library_project_imports\assets</ResolvedAssetDirectory>
+    <ResolvedAssetDirectory>obj\Release\__library_projects__\SQLitePCLRaw.provider.e_sqlite3\library_project_imports\assets</ResolvedAssetDirectory>
+  </ResolvedAssetDirectories>
+  <ResolvedEnvironmentFiles />
+  <ResolvedResourceDirectoryStamps>
+    <ResolvedResourceDirectoryStamp>C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Release\__library_projects__\AWSSDK.Core.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Release\__library_projects__\PCLCrypto.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Release\__library_projects__\PCLStorage.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Release\__library_projects__\Refractored.PagerSlidingTabStrip.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Release\__library_projects__\SQLitePCLRaw.batteries_green.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Release\__library_projects__\SQLitePCLRaw.batteries_v2.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Release\__library_projects__\SQLitePCLRaw.core.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Release\__library_projects__\SQLitePCLRaw.lib.e_sqlite3.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Release\__library_projects__\SQLitePCLRaw.provider.e_sqlite3.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Release\__library_projects__\Xamarin.Android.Support.Design.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Release\__library_projects__\Xamarin.Android.Support.Transition.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Release\__library_projects__\Xamarin.Android.Support.v7.AppCompat.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Release\__library_projects__\Xamarin.Android.Support.v7.RecyclerView.stamp</ResolvedResourceDirectoryStamp>
+  </ResolvedResourceDirectoryStamps>
+</Paths>

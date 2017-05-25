@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+  <style name="CircularProgress" parent="Theme.AppCompat.Light">
+    <item name="colorAccent">#1C2451</item>
+  </style>
+</resources>

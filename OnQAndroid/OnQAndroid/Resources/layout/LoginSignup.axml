@@ -12,8 +12,18 @@
         android:id="@+id/textView1"
         android:background="#D24F11"
         android:textStyle="bold"
-        android:gravity="center"
-        android:layout_marginBottom="10dp" />
+        android:gravity="center" />
+    <ProgressBar
+        android:id="@+id/circularProgress"
+        android:theme="@style/CircularProgress"
+        android:visibility="invisible"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        style="@style/Widget.AppCompat.ProgressBar"
+        android:layout_marginTop="-50dp"
+        android:layout_marginBottom="15dp"
+        android:layout_gravity="right"
+        android:layout_marginRight="5dp" />
     <TextView
         android:text="Email:"
         android:textAppearance="?android:attr/textAppearanceMedium"
@@ -30,7 +40,11 @@
         android:background="@drawable/rectangleborder"
         android:layout_marginBottom="10.0dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp" />
+        android:layout_marginRight="20dp"
+        android:maxLines="1"
+        android:lines="1"
+        android:inputType="textEmailAddress"
+        android:paddingLeft="5dp" />
     <TextView
         android:text="Password:"
         android:textAppearance="?android:attr/textAppearanceMedium"
@@ -49,17 +63,38 @@
         android:background="@drawable/rectangleborder"
         android:layout_marginBottom="10.0dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp" />
+        android:layout_marginRight="20dp"
+        android:lines="1"
+        android:paddingLeft="5dp" />
     <Button
         android:text="Log In"
         android:layout_width="148dp"
         android:layout_height="wrap_content"
         android:id="@+id/LoginButton"
         android:layout_marginLeft="20dp" />
+    <ImageView
+        android:src="@drawable/radio_unchecked"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:id="@+id/rememberMe"
+        android:layout_marginTop="-35dp"
+        android:layout_marginLeft="175dp"
+        android:clickable="true" />
+    <TextView
+        android:text="Remember Me"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rememberMeText"
+        android:textColor="#000000"
+        android:layout_marginLeft="200dp"
+        android:layout_marginTop="-18dp"
+        android:layout_marginBottom="20dp"
+        android:clickable="true" />
     <TextView
         android:text="Forgot Password?"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/forgotpassword"
         android:textColor="#0059FF"
@@ -80,4 +115,11 @@
         android:layout_height="wrap_content"
         android:id="@+id/SignupButton"
         android:layout_marginLeft="20dp" />
+    <Button
+        android:text="Dev Tools"
+        android:layout_width="148dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/devTools"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp" />
 </LinearLayout>

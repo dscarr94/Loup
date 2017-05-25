@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:weightSum="100">
+    <TextView
+        android:text="You are registering for:"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView1"
+        android:textColor="#000000"
+        android:gravity="center"
+        android:layout_weight="10" />
+    <TextView
+        android:text="This Career Fair"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/thisCareerFair"
+        android:textColor="#000000"
+        android:gravity="center"
+        android:layout_weight="10" />
+    <ImageView
+        android:src="@android:drawable/ic_menu_gallery"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/cfImage"
+        android:layout_weight="50" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout1"
+        android:layout_weight="30"
+        android:weightSum="100">
+        <TextView
+            android:text="Are you sure?"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView2"
+            android:textColor="#000000"
+            android:layout_weight="30"
+            android:gravity="center" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/linearLayout2"
+            android:layout_weight="70">
+            <Button
+                android:text="Cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:id="@+id/cancelCF"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="50"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/redbutton" />
+            <Button
+                android:text="Yes!"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:id="@+id/yes"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="50"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/turquoisebutton" 
+                android:textColor="@color/textcolorswitcher"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
