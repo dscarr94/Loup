@@ -5,6 +5,9 @@ using Android.Content;
 using Android.OS;
 using Android.Widget;
 using SQLite;
+using Android.Views;
+using Firebase.Xamarin.Database;
+using OnQAndroid.FirebaseObjects;
 
 namespace OnQAndroid
 {
@@ -14,6 +17,7 @@ namespace OnQAndroid
         public static readonly int PickImageId = 1000;
         private ImageButton imageButton;
         private Button addPhoto;
+        private const string FirebaseURL = "https://onqfirebase.firebaseio.com/";
         //LoginTable newRecord = new LoginTable();
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -57,23 +61,39 @@ namespace OnQAndroid
             nextButton.Click += NextButton_Click;
         }
 
-        private void NextButton_Click(object sender, EventArgs e)
+        private async void NextButton_Click(object sender, EventArgs e)
         {
             // Call UI Controls
+            ProgressBar progressBar = FindViewById<ProgressBar>(Resource.Id.circularProgress);
             EditText editName = FindViewById<EditText>(Resource.Id.nameField);
             EditText editEmail = FindViewById<EditText>(Resource.Id.emailField);
             Spinner companySpinner = FindViewById<Spinner>(Resource.Id.companyspinner);
             EditText rakField = FindViewById<EditText>(Resource.Id.rak); // rak = recruiter access key
 
+            progressBar.Visibility = ViewStates.Visible;
             // connect to companies database
-            string dbPath_companies = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "allcompanies.db3");
-            var db_companies = new SQLiteConnection(dbPath_companies);
+            //string dbPath_companies = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "allcompanies.db3");
+            //var db_companies = new SQLiteConnection(dbPath_companies);
             string company = string.Format("{0}", companySpinner.SelectedItem); // get value of company spinner
 
             // query database for matching company and recruiter access key
-            var queryResults = db_companies.Query<Companies>("SELECT * FROM Companies WHERE name = ? AND rak = ?", company, rakField.Text);
-            
-            if (queryResults.Count != 0) // if query returned results
+            //var queryResults = db_companies.Query<Companies>("SELECT * FROM Companies WHERE name = ? AND rak = ?", company, rakField.Text);
+            var firebase = new FirebaseClient(FirebaseURL);
+            var companyItems = await firebase.Child("companies").OnceAsync<Company>();
+            bool fieldsMatch = false;
+
+            foreach (var item in companyItems)
+            {
+                string thiscompany = item.Object.name;
+                string rak = item.Object.rak;
+                if (company == thiscompany && rakField.Text == rak)
+                {
+                    fieldsMatch = true;
+                    break;
+                }
+            }
+
+            if (fieldsMatch == true) // if query returned results
             {
                 // Get user data (attributes)
                 string dbPath_attributes = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "attributes.db3");
@@ -94,7 +114,8 @@ namespace OnQAndroid
 
                 // Put Recruiter info into attributes database
                 db_attributes.InsertOrReplace(updateAttributes);
-                
+
+                progressBar.Visibility = ViewStates.Invisible;
                 // Next
                 var advanceIntent = new Intent(this, typeof(successScreen));
                 StartActivity(advanceIntent); // go to successScreen
@@ -102,6 +123,7 @@ namespace OnQAndroid
             }
             else // if query did not return results
             {
+                progressBar.Visibility = ViewStates.Invisible;
                 Toast.MakeText(this, "Invalid Recruiter Access Key", ToastLength.Short).Show();
             }
             

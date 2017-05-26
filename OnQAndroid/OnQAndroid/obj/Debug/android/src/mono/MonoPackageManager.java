@@ -99,9 +99,6 @@ class MonoPackageManager_Resources {
 	public static final String[] Assemblies = new String[]{
 		/* We need to ensure that "OnQAndroid.dll" comes first in this list. */
 		"OnQAndroid.dll",
-		"AWSSDK.CognitoIdentity.dll",
-		"AWSSDK.Core.dll",
-		"AWSSDK.SecurityToken.dll",
 		"crypto.dll",
 		"Firebase.Xamarin.dll",
 		"JWT.dll",
@@ -134,6 +131,10 @@ class MonoPackageManager_Resources {
 		"Xamarin.Android.Support.v7.AppCompat.dll",
 		"Xamarin.Android.Support.v7.RecyclerView.dll",
 		"Xamarin.Android.Support.Vector.Drawable.dll",
+		"Xamarin.GooglePlayServices.Base.dll",
+		"Xamarin.GooglePlayServices.Basement.dll",
+		"Xamarin.GooglePlayServices.Drive.dll",
+		"Xamarin.GooglePlayServices.Tasks.dll",
 	};
 	public static final String[] Dependencies = new String[]{
 	};

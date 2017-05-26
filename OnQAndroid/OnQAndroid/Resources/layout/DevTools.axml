@@ -3,6 +3,14 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <TextView
+        android:text="Always Clean Up before Deleting User Data!"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView1"
+        android:textStyle="bold"
+        android:gravity="center" />
     <Button
         android:text="Clean Up"
         android:layout_width="match_parent"
@@ -23,18 +31,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/deleteUserData" />
-    <TextView
-        android:text="Always Clean Up before Deleting User Data!"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView1"
-        android:textStyle="bold" />
     <Button
         android:text="Generate Firebase Companies"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/fbCompanies" />
+    <Button
+        android:text="Generate Firebase CF 12345678"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/generatefbcf" />
     <ProgressBar
         android:id="@+id/circularProgress"
         android:theme="@style/CircularProgress"

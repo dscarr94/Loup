@@ -109,6 +109,9 @@ namespace OnQAndroid
                 int numUsers = items.Count();
                 newUser.uid = (numUsers + 1).ToString();
 
+                userAttributes.loginid = Convert.ToInt32(newUser.uid);
+                db_attributes.Update(userAttributes);
+
                 // insert object into user database
                 var item = await firebase.Child("users").PostAsync(newUser);
 
@@ -128,7 +131,8 @@ namespace OnQAndroid
                     var studentItems = await firebase.Child("students").OnceAsync<Student>();
                     int numStudents = studentItems.Count();
                     newStudent.studentid = (numStudents + 1).ToString();
-
+                    userAttributes.typeid = numStudents + 1;
+                    db_attributes.Update(userAttributes);
                     // insert object into student database
                     var studentItem = await firebase.Child("students").PostAsync(newStudent);
                 }
@@ -144,7 +148,8 @@ namespace OnQAndroid
                     var recruiterItems = await firebase.Child("recruiters").OnceAsync<Recruiter>();
                     int numRecruiters = recruiterItems.Count();
                     newRecruiter.recruiterid = (numRecruiters + 1).ToString();
-
+                    userAttributes.typeid = numRecruiters + 1;
+                    db_attributes.Update(userAttributes);
                     // insert object into recruiter database
                     var recruiterItem = await firebase.Child("recruiters").PostAsync(newRecruiter);
                 }

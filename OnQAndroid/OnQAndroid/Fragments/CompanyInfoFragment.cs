@@ -5,12 +5,15 @@ using Android.OS;
 using Android.Views;
 using Android.Widget;
 using SQLite;
+using OnQAndroid.FirebaseObjects;
+using Firebase.Xamarin.Database;
 
 namespace OnQAndroid
 {
     public class CompanyInfoFragment : Android.Support.V4.App.Fragment
     {
         int companyInt;
+        private const string FirebaseURL = "https://onqfirebase.firebaseio.com/";
 
         public CompanyInfoFragment()
         {
@@ -31,26 +34,51 @@ namespace OnQAndroid
             companyInt = arguments.GetInt("CompanyInt");
             location = arguments.GetString("Sender");
         }
-        string fileName;
+        Company thisCompanyInfo = new Company();
+        TextView companyName;
+        ImageView companyLogo;
+        TextView description;
+        TextView website;
+
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             View view = inflater.Inflate(Resource.Layout.CompanyInfo, container, false);
-            TextView companyName = view.FindViewById<TextView>(Resource.Id.companyName);
-            ImageView companyLogo = view.FindViewById<ImageView>(Resource.Id.bigCompanyLogo);
-            TextView description = view.FindViewById<TextView>(Resource.Id.companyDescription);
-            TextView website = view.FindViewById<TextView>(Resource.Id.companyWebsite);
+            companyName = view.FindViewById<TextView>(Resource.Id.companyName);
+            companyLogo = view.FindViewById<ImageView>(Resource.Id.bigCompanyLogo);
+            description = view.FindViewById<TextView>(Resource.Id.companyDescription);
+            website = view.FindViewById<TextView>(Resource.Id.companyWebsite);
             Button backButton = view.FindViewById<Button>(Resource.Id.backButton);
 
+            //fileName = myCFID.ToString() + ".db3";
+
+            //string dbPath_myCF = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), fileName);
+            //var db_myCF = new SQLiteConnection(dbPath_myCF)
+
+            GetCompanyInfo();
+
+            backButton.Click += BackButton_Click;
+
+            return view;
+        }
+
+        private async void GetCompanyInfo()
+        {
             string dbPath_attributes = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "attributes.db3");
             var db_attributes = new SQLiteConnection(dbPath_attributes);
+            MyAttributes myAttributes = db_attributes.Get<MyAttributes>(1);
 
-            int myCFID = db_attributes.Get<MyAttributes>(1).cfid;
-            fileName = myCFID.ToString() + ".db3";
+            var firebase = new FirebaseClient(FirebaseURL);
+            var allCompanies = await firebase.Child(myAttributes.cfid.ToString()).OnceAsync<Company>();
+            foreach (var company in allCompanies)
+            {
+                if (company.Object.companyid == companyInt.ToString())
+                {
+                    thisCompanyInfo.name = company.Object.name;
+                    thisCompanyInfo.description = company.Object.description;
+                    thisCompanyInfo.website = company.Object.website;
+                }
+            }
 
-            string dbPath_myCF = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), fileName);
-            var db_myCF = new SQLiteConnection(dbPath_myCF);
-
-            Companies thisCompanyInfo = db_myCF.Get<Companies>(companyInt);
             companyName.Text = thisCompanyInfo.name;
 
             string imageName = thisCompanyInfo.name.ToLower().Replace(" ", "");
@@ -61,10 +89,6 @@ namespace OnQAndroid
 
             website.Text = thisCompanyInfo.website;
             website.Click += Website_Click;
-
-            backButton.Click += BackButton_Click;
-
-            return view;
         }
 
         private void BackButton_Click(object sender, EventArgs e)
@@ -91,10 +115,10 @@ namespace OnQAndroid
 
         private void Website_Click(object sender, EventArgs e)
         {
-            string dbPath_myCF = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), fileName);
-            var db_myCF = new SQLiteConnection(dbPath_myCF);
+            //string dbPath_myCF = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), fileName);
+            //var db_myCF = new SQLiteConnection(dbPath_myCF);
 
-            Intent intent = new Intent(Intent.ActionView, Android.Net.Uri.Parse(db_myCF.Get<Companies>(companyInt).website));
+            Intent intent = new Intent(Intent.ActionView, Android.Net.Uri.Parse(thisCompanyInfo.website));
             StartActivity(intent);
         }
     }

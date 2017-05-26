@@ -164,6 +164,16 @@
                 android:id="@+id/space1" />
         </LinearLayout>
     </LinearLayout>
+    <ProgressBar
+        android:id="@+id/circularProgress"
+        android:theme="@style/CircularProgress"
+        android:visibility="invisible"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        style="@style/Widget.AppCompat.ProgressBar"
+        android:layout_gravity="center"
+        android:layout_marginBottom="-20dp"
+        android:layout_marginTop="-10dp" />
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -191,7 +201,7 @@
             android:layout_weight="50"
             android:layout_marginRight="20dp"
             android:layout_gravity="center"
-            android:background="@drawable/turquoisebutton" 
-            android:textColor="@color/textcolorswitcher"/>
+            android:background="@drawable/turquoisebutton"
+            android:textColor="@color/textcolorswitcher" />
     </LinearLayout>
 </LinearLayout>

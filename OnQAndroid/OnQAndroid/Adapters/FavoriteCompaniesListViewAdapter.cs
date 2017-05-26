@@ -13,11 +13,13 @@ namespace OnQAndroid
     {
         private List<int> mItems;
         private Context mContext;
+        private List<string> mCompanies;
 
-        public FavoriteCompaniesListViewAdapter(Context context, List<int> items)
+        public FavoriteCompaniesListViewAdapter(Context context, List<int> items, List<string> companies)
         {
             mItems = items;
             mContext = context;
+            mCompanies = companies;
         }
         public override int Count
         {
@@ -49,14 +51,14 @@ namespace OnQAndroid
             var myAttributes = db_attributes.Get<MyAttributes>(1);
             int myCFID = myAttributes.cfid;
 
-            string dbPath_login = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "user.db3");
-            var db_login = new SQLiteConnection(dbPath_login);
+            //string dbPath_login = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "user.db3");
+            //var db_login = new SQLiteConnection(dbPath_login);
 
-            string dbPath_companies = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), myCFID.ToString() + ".db3");
-            var db_companies = new SQLiteConnection(dbPath_companies);
+            //string dbPath_companies = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), myCFID.ToString() + ".db3");
+            //var db_companies = new SQLiteConnection(dbPath_companies);
 
-            var loginQueryResults = db_login.Query<LoginTable>("SELECT * FROM LoginTable WHERE email = ?", myAttributes.email);
-            LoginTable myLogInInfo = loginQueryResults.First();
+            //var loginQueryResults = db_login.Query<LoginTable>("SELECT * FROM LoginTable WHERE email = ?", myAttributes.email);
+            //LoginTable myLogInInfo = loginQueryResults.First();
 
             //string favoritesFileName = "fav_" + myCFID.ToString() + "_" + myLogInInfo.id.ToString() + ".db3";
             //string dbPath_favorites = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), favoritesFileName);
@@ -71,7 +73,7 @@ namespace OnQAndroid
             ImageView companyLogo = row.FindViewById<ImageView>(Resource.Id.companyLogo);
             LinearLayout info = row.FindViewById<LinearLayout>(Resource.Id.ll_info);
 
-            companyName.Text = db_companies.Get<Companies>(mItems[position]).name;
+            companyName.Text = mCompanies[position];
             string fileName = companyName.Text.ToLower().Replace(" ", "");
             int resourceId = (int)typeof(Resource.Drawable).GetField(fileName).GetValue(null);
             companyLogo.SetImageResource(resourceId);            

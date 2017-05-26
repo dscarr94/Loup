@@ -5,6 +5,8 @@ using Android.OS;
 using Android.Views;
 using Android.Widget;
 using SQLite;
+using Firebase.Xamarin.Database;
+using OnQAndroid.FirebaseObjects;
 
 namespace OnQAndroid
 {
@@ -46,12 +48,23 @@ namespace OnQAndroid
         int numGTPs;
         int numGPAs;
 
+        MyAttributes myAttributes;
+        string myCFName;
+        List<string> mItems;
+        TextView cfName;
+        ListView mListView;
+        ViewGroup mContainer;
+        ProgressBar progressBar;
+
+        private const string FirebaseURL = "https://onqfirebase.firebaseio.com/";
+
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
+            mContainer = container;
             string dbPath_attributes = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "attributes.db3");
             var db_attributes = new SQLiteConnection(dbPath_attributes);
 
-            var myAttributes = db_attributes.Get<MyAttributes>(1);
+            myAttributes = db_attributes.Get<MyAttributes>(1);
             int myCFID = myAttributes.cfid;
 
             if (myCFID == 0) // If not registered for a career fair
@@ -68,40 +81,14 @@ namespace OnQAndroid
                     View view = inflater.Inflate(Resource.Layout.HomeTab, container, false);
 
                     // Call UI Elements
-                    ListView mListView = view.FindViewById<ListView>(Resource.Id.listView1);
-                    LinearLayout companyInfo = mListView.FindViewById<LinearLayout>(Resource.Id.companyInfo);
-                    TextView cfName = view.FindViewById<TextView>(Resource.Id.cfName);
+                    mListView = view.FindViewById<ListView>(Resource.Id.listView1);
+                    cfName = view.FindViewById<TextView>(Resource.Id.cfName);
+                    progressBar = view.FindViewById<ProgressBar>(Resource.Id.circularProgress);
 
-                    // Connect to CFID database
-                    string dbPath_cfids = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "CFIDs.db3");
-                    var db_cfids = new SQLiteConnection(dbPath_cfids);
-                    db_cfids.CreateTable<Cfids>();
+                    mItems = new List<string>();
 
-                    // Query CFIDs table for myCFID
-                    var cfid_queryResults = db_cfids.Query<Cfids>("SELECT * FROM Cfids WHERE cfid = ?", myCFID.ToString());
-                    Cfids cfid = cfid_queryResults.First();
-                    cfName.Text = cfid.name;
-                    List<string> mItems = new List<string>();
+                    LoadCF();
 
-                    // Connect to myCFID database
-                    string fileName = myCFID.ToString() + ".db3";
-                    string dbPath_companies = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), fileName);
-                    var db_companies = new SQLiteConnection(dbPath_companies);
-
-                    // Get number of rows in myCFID Companies table
-                    int rows = db_companies.Table<Companies>().Count();
-
-                    // Populate list items
-                    for (int i = 1; i <= rows; i = i + 1)
-                    {
-                        var newRow = db_companies.Get<Companies>(i);
-                        string newItem = newRow.name;
-                        mItems.Add(newItem);
-                    }
-
-                    // Provide list items to list view adapter
-                    CompaniesListViewAdapter adapter = new CompaniesListViewAdapter(container.Context, mItems);
-                    mListView.Adapter = adapter;
                     return view;
                 }
                 else if (myAttributes.type == "Recruiter")
@@ -362,6 +349,7 @@ namespace OnQAndroid
                             hgtspinner3.Visibility = ViewStates.Gone;
                         }
                     };
+
                     return view;
                 }
                 else
@@ -369,6 +357,44 @@ namespace OnQAndroid
                     throw new NotImplementedException();
                 }
             }
+        }
+
+        private async void LoadCF()
+        {
+            progressBar.Visibility = ViewStates.Visible;
+            var firebase = new FirebaseClient(FirebaseURL);
+
+            var cfItems = await firebase.Child("cfids").OnceAsync<Cfid>();
+
+            foreach (var item in cfItems)
+            {
+                if (item.Object.cfid == myAttributes.cfid.ToString())
+                {
+                    myCFName = item.Object.name;
+                    break;
+                }
+            }
+
+            var myCFcompanies = await firebase.Child(myAttributes.cfid.ToString()).OnceAsync<Company>();
+
+            foreach (var company in myCFcompanies)
+            {
+                mItems.Add(company.Object.name);
+            }
+
+            string favoritesFileName = "fav_" + myAttributes.cfid.ToString() + "_" + myAttributes.loginid.ToString();
+            var myFavorites = await firebase.Child(favoritesFileName).OnceAsync<Favorite>();
+            List<bool> favList = new List<bool>();
+
+            foreach (var favorite in myFavorites)
+            {
+                favList.Add(favorite.Object.isFavorite);
+            }
+
+            cfName.Text = myCFName;
+            CompaniesListViewAdapter adapter = new CompaniesListViewAdapter(mContainer.Context, mItems, favList);
+            mListView.Adapter = adapter;
+            progressBar.Visibility = ViewStates.Invisible;
         }
 
         private void Plus_gt_Click(object sender, EventArgs e)
@@ -553,7 +579,6 @@ namespace OnQAndroid
             Spinner hmspinner5 = (Spinner)sender;
         }*/
 
-
         private void HGTAllRadio_Click(object sender, EventArgs e)
         {
             if (isHGTAll == true)
@@ -619,6 +644,7 @@ namespace OnQAndroid
                 hmspinner5.Visibility = ViewStates.Gone;       
             }
         }
+
         private void HGPANoneRadio_Click(object sender, EventArgs e)
         {
             if (isMinGPANone == true)

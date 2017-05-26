@@ -24,12 +24,78 @@ namespace OnQAndroid
             Button deleteCF = FindViewById<Button>(Resource.Id.deleteCF);
             Button cleanUp = FindViewById<Button>(Resource.Id.cleanUp);
             Button fbCompanies = FindViewById<Button>(Resource.Id.fbCompanies);
+            Button generateFBCF = FindViewById<Button>(Resource.Id.generatefbcf);
 
             generateCF.Click += GenerateCF_Click;
             deleteUserData.Click += DeleteUserData_Click;
             deleteCF.Click += DeleteCF_Click;
             cleanUp.Click += CleanUp_Click;
             fbCompanies.Click += FbCompanies_Click;
+            generateFBCF.Click += GenerateFBCF_Click;
+        }
+
+        private async void GenerateFBCF_Click(object sender, EventArgs e)
+        {
+            ProgressBar progressBar = FindViewById<ProgressBar>(Resource.Id.circularProgress);
+            progressBar.Visibility = ViewStates.Visible;
+            Company newCompany1 = new Company();
+            newCompany1.companyid = "1";
+            newCompany1.name = "Facebook";
+            newCompany1.description = "Description 1";
+            newCompany1.website = "https://newsroom.fb.com/";
+            newCompany1.rak = "facebook123";
+
+            Company newCompany2 = new Company();
+            newCompany2.companyid = "2";
+            newCompany2.name = "Google";
+            newCompany2.description = "Description 2";
+            newCompany2.website = "https://www.google.com/intl/en/about/products/";
+            newCompany2.rak = "google123";
+
+            Company newCompany3 = new Company();
+            newCompany3.companyid = "3";
+            newCompany3.name = "Stryker";
+            newCompany3.description = "Description 3";
+            newCompany3.website = "http://www.stryker.com/en-us/index.htm";
+            newCompany3.rak = "stryker123";
+
+            Company newCompany4 = new Company();
+            newCompany4.companyid = "4";
+            newCompany4.name = "Aerojet Rocketdyne";
+            newCompany4.description = "Description 4";
+            newCompany4.website = "http://www.rocket.com/";
+            newCompany4.rak = "ar123";
+
+            Company newCompany5 = new Company();
+            newCompany5.companyid = "5";
+            newCompany5.name = "Boeing";
+            newCompany5.description = "Description 5";
+            newCompany5.website = "http://www.boeing.com/";
+            newCompany5.rak = "boeing123";
+
+            Company newCompany6 = new Company();
+            newCompany6.companyid = "6";
+            newCompany6.name = "Amazon";
+            newCompany6.description = "Description 6";
+            newCompany6.website = "https://www.amazon.com/p/feature/rzekmvyjojcp6uc";
+            newCompany6.rak = "amazon123";
+
+            var firebase = new FirebaseClient(FirebaseURL);
+            var item1 = await firebase.Child("12345678").PostAsync(newCompany1);
+            var item2 = await firebase.Child("12345678").PostAsync(newCompany2);
+            var item3 = await firebase.Child("12345678").PostAsync(newCompany3);
+            var item4 = await firebase.Child("12345678").PostAsync(newCompany4);
+            var item5 = await firebase.Child("12345678").PostAsync(newCompany5);
+            var item6 = await firebase.Child("12345678").PostAsync(newCompany6);
+
+            Cfid newcfid = new Cfid();
+            newcfid.id = "1";
+            newcfid.cfid = "12345678";
+            newcfid.name = "Cal Poly Spring Career Fair 2017";
+            var cfid1 = await firebase.Child("cfids").PostAsync(newcfid);
+
+            progressBar.Visibility = ViewStates.Invisible;
+            Toast.MakeText(this, "Firebase Career Fair Generated!", ToastLength.Short).Show();
         }
 
         private async void FbCompanies_Click(object sender, EventArgs e)

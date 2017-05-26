@@ -200,7 +200,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Adapters\FavoriteCompaniesListViewAdapter.cs" />
+    <Compile Include="FirebaseObjects\Cfid.cs" />
     <Compile Include="FirebaseObjects\Company.cs" />
+    <Compile Include="FirebaseObjects\Favorite.cs" />
     <Compile Include="FirebaseObjects\Recruiter.cs" />
     <Compile Include="FirebaseObjects\Student.cs" />
     <Compile Include="FirebaseObjects\User.cs" />
@@ -405,9 +407,6 @@
     <AndroidResource Include="Resources\drawable\OnQLogo.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\OnQLogoSmall.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable\camera.png" />
   </ItemGroup>
   <ItemGroup>
@@ -530,7 +529,7 @@
     <AndroidResource Include="Resources\values\styles.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\asset14t.png" />
+    <AndroidResource Include="Resources\drawable\dotarray.PNG" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

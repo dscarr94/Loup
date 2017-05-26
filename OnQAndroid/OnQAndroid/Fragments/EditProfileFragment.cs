@@ -1,11 +1,13 @@
 using System;
-using System.Linq;
 using Android.App;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
 using System.IO;
 using SQLite;
+using Firebase.Xamarin.Database;
+using OnQAndroid.FirebaseObjects;
+using Firebase.Xamarin.Database.Query;
 
 namespace OnQAndroid
 {
@@ -18,7 +20,7 @@ namespace OnQAndroid
 
         public static EditProfileFragment newInstance()
         {
-            EditProfileFragment fragment = new OnQAndroid.EditProfileFragment();
+            EditProfileFragment fragment = new EditProfileFragment();
             return fragment;
         }
 
@@ -30,13 +32,20 @@ namespace OnQAndroid
         Spinner gpa;
         Spinner gradterm;
         Spinner company;
+        public bool loginExists;
+        string existingId;
+        MyAttributes myAttributes;
+        ProgressBar progressBar;
+        public string key;
+
+        private const string FirebaseURL = "https://onqfirebase.firebaseio.com/";
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             string dbPath_attributes = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "attributes.db3");
             var db_attributes = new SQLiteConnection(dbPath_attributes);
 
-            var myAttributes = db_attributes.Get<MyAttributes>(1);
+            myAttributes = db_attributes.Get<MyAttributes>(1);
 
             string type = myAttributes.type;
 
@@ -46,6 +55,7 @@ namespace OnQAndroid
                 updateName = view.FindViewById<EditText>(Resource.Id.updateName);
                 updateEmail = view.FindViewById<EditText>(Resource.Id.updateEmail);
 
+                progressBar = view.FindViewById<ProgressBar>(Resource.Id.circularProgress);
                 school = view.FindViewById<Spinner>(Resource.Id.updateSchool);
                 major = view.FindViewById<Spinner>(Resource.Id.updateMajor);
                 gpa = view.FindViewById<Spinner>(Resource.Id.updateGPA);
@@ -117,6 +127,7 @@ namespace OnQAndroid
                 updateEmail = view.FindViewById<EditText>(Resource.Id.updateEmail);
                 company = view.FindViewById<Spinner>(Resource.Id.updateMyCompany);
                 rakField = view.FindViewById<EditText>(Resource.Id.rak);
+                progressBar = view.FindViewById<ProgressBar>(Resource.Id.circularProgress);
 
                 Button confirmChanges = view.FindViewById<Button>(Resource.Id.saveChangesEditProfile);
                 Button cancel = view.FindViewById<Button>(Resource.Id.cancelEditProfile);
@@ -141,6 +152,7 @@ namespace OnQAndroid
 
                 return view;
             }
+
             else
             {
                 throw new NotImplementedException();
@@ -154,30 +166,50 @@ namespace OnQAndroid
             trans.Commit();
         }
 
-        private void ConfirmChanges_Click(object sender, EventArgs e)
+        private async void ConfirmChanges_Click(object sender, EventArgs e)
         {
-            string dbPath_user = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "user.db3");
-            var db_user = new SQLiteConnection(dbPath_user);
-
             string dbPath_attributes = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "attributes.db3");
             var db_attributes = new SQLiteConnection(dbPath_attributes);
 
-            MyAttributes myAttributes = db_attributes.Get<MyAttributes>(1);            
+            MyAttributes myAttributes = db_attributes.Get<MyAttributes>(1);
 
-            // Get Login ID
-            int id_login = db_user.Query<LoginTable>("SELECT * FROM LoginTable WHERE email = ?", myAttributes.email).First().id;
-            LoginTable myLogInInfo = db_user.Get<LoginTable>(id_login);
+            int id_login = myAttributes.loginid;
 
             if (myAttributes.type == "Student")
             {
                 // Get Student ID
-                int id_student = db_user.Query<StudentTable>("SELECT * FROM StudentTable WHERE email = ?", myAttributes.email).First().id;
+                int id_student = myAttributes.typeid;
 
-                var existingLogin = db_user.Query<LoginTable>("SELECT * FROM LoginTable WHERE email = ?", updateEmail.Text);
+                loginExists = false;
+                existingId = "";
 
-                if (existingLogin.Count != 0 && existingLogin.First().id != id_login)
+                progressBar.Visibility = ViewStates.Visible;
+                var firebase = new FirebaseClient(FirebaseURL);
+                var allLogins = await firebase.Child("users").OnceAsync<User>();
+
+                foreach (var login in allLogins)
+                {
+                    if (login.Object.email == updateEmail.Text)
+                    {
+                        loginExists = true;
+                        break;
+                    }
+                }
+
+                foreach (var login in allLogins)
+                {
+                    if (login.Object.email == myAttributes.email)
+                    {
+                        existingId = login.Object.uid;
+                        key = login.Key;
+                        break;
+                    }
+                }
+
+                if (loginExists == true && existingId != id_login.ToString())
                 {
                     Toast.MakeText(this.Activity, "Email Is Already In Use", ToastLength.Short).Show();
+                    progressBar.Visibility = ViewStates.Invisible;
                 }
                 else
                 {
@@ -186,26 +218,62 @@ namespace OnQAndroid
             }
             
             else if (myAttributes.type == "Recruiter")
-            {                
-                var existingLogin = db_user.Query<LoginTable>("SELECT * FROM LoginTable WHERE email = ?", updateEmail.Text);
+            {
+                loginExists = false;
+                existingId = "";
+                string myId = "";
 
-                if (existingLogin.Count != 0 && existingLogin.First().id != id_login)
+                progressBar.Visibility = ViewStates.Visible;
+                var firebase = new FirebaseClient(FirebaseURL);
+                var allLogins = await firebase.Child("users").OnceAsync<User>();
+
+                foreach (var login in allLogins)
                 {
+                    if (login.Object.email == updateEmail.Text)
+                    {
+                        loginExists = true;
+                        existingId = login.Object.uid;
+                        break;
+                    }
+                }
+
+                foreach (var login in allLogins)
+                {
+                    if (login.Object.email == myAttributes.email)
+                    {
+                        myId = login.Object.uid;
+                        key = login.Key;
+                        break;
+                    }
+                }
+
+                if (loginExists == true && existingId != id_login.ToString())
+                {
+                    progressBar.Visibility = ViewStates.Invisible;
                     Toast.MakeText(this.Activity, "Email Is Already In Use", ToastLength.Short).Show();
                 }
+
                 else if (company.SelectedItem.ToString() != myAttributes.attribute1)
                 {
-                    string dbPath_companies = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "allcompanies.db3");
-                    var db_companies = new SQLiteConnection(dbPath_companies);
-                    var queryResults = db_companies.Query<Companies>("SELECT * FROM Companies WHERE name = ? AND rak = ?", company.SelectedItem.ToString(), rakField.Text);
+                    bool match = false;
+                    var allCompanies = await firebase.Child("companies").OnceAsync<Company>();
 
-                    if (queryResults.Count != 0)
+                    foreach (var item in allCompanies)
+                    {
+                        if (item.Object.name == company.SelectedItem.ToString() && item.Object.rak == rakField.Text)
+                        {
+                            match = true;
+                        }
+                    }
+
+                    if (match == true)
                     {
                         UpdateRecruiter(true);
                     }
 
                     else
                     {
+                        progressBar.Visibility = ViewStates.Invisible;
                         Toast.MakeText(this.Activity, "Invalid Recruiter Access Key", ToastLength.Short).Show();
                     }
                 }
@@ -216,138 +284,150 @@ namespace OnQAndroid
             }            
         }
 
-        private void UpdateStudent()
+        private async void UpdateStudent()
         {
             try
             {
-                string dbPath_user = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "user.db3");
-                var db_user = new SQLiteConnection(dbPath_user);
-
                 string dbPath_attributes = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "attributes.db3");
                 var db_attributes = new SQLiteConnection(dbPath_attributes);
 
                 MyAttributes myAttributes = db_attributes.Get<MyAttributes>(1);
 
                 // Get Login ID
-                int id_login = db_user.Query<LoginTable>("SELECT * FROM LoginTable WHERE email = ?", myAttributes.email).First().id;
-                LoginTable myLogInInfo = db_user.Get<LoginTable>(id_login);
-                int id_student = db_user.Query<StudentTable>("SELECT * FROM StudentTable WHERE email = ?", myAttributes.email).First().id;
+                int id_login = myAttributes.loginid;
 
                 string username = updateEmail.Text.Split('@')[0];
                 string domain = updateEmail.Text.Split('@')[1];
                 string provider = domain.Split('.')[0];
                 string extension = domain.Split('.')[1];
 
-                // Update LoginTable
-                LoginTable updateLogin = new LoginTable();
-                updateLogin.id = id_login;
+                // Update Login
+                User updateLogin = new User();
+                updateLogin.uid = id_login.ToString();
                 updateLogin.name = updateName.Text;
                 updateLogin.email = updateEmail.Text;
-                updateLogin.password = myLogInInfo.password;
-                updateLogin.cfid = myLogInInfo.cfid;
+                updateLogin.password = myAttributes.password;
+                updateLogin.cfid = myAttributes.cfid.ToString();
                 updateLogin.type = "Student";
 
-                db_user.InsertOrReplace(updateLogin);
+                var firebase = new FirebaseClient(FirebaseURL);
+                await firebase.Child("users").Child(key).PutAsync(updateLogin);
 
-                // Update StudentTable
-                StudentTable updateStudent = new StudentTable();
-                updateStudent.id = id_student;
+                // Update Student
+                Student updateStudent = new Student();
+                updateStudent.studentid = myAttributes.typeid.ToString();
                 updateStudent.name = updateName.Text;
                 updateStudent.email = updateEmail.Text;
-                updateStudent.password = myLogInInfo.password;
+                updateStudent.password = myAttributes.password;
                 updateStudent.school = string.Format("{0}", school.SelectedItem);
                 updateStudent.gradterm = string.Format("{0}", gradterm.SelectedItem);
                 updateStudent.major = string.Format("{0}", major.SelectedItem);
                 updateStudent.gpa = string.Format("{0}", gpa.SelectedItem);
 
-                db_user.InsertOrReplace(updateStudent);
+                var allStudents = await firebase.Child("students").OnceAsync<Student>();
+                string studentKey = "";
+
+                foreach (var student in allStudents)
+                {
+                    if (student.Object.email == myAttributes.email)
+                    {
+                        studentKey = student.Key;
+                    }
+                }
+                await firebase.Child("students").Child(studentKey).PutAsync(updateStudent);
 
                 // Update MyAttributes
                 MyAttributes updateMyAttributes = new MyAttributes();
                 updateMyAttributes.id = 1;
                 updateMyAttributes.name = updateStudent.name;
                 updateMyAttributes.email = updateStudent.email;
+                updateMyAttributes.password = updateStudent.password;
                 updateMyAttributes.type = "Student";
                 updateMyAttributes.attribute1 = updateStudent.school;
                 updateMyAttributes.attribute2 = updateStudent.gradterm;
                 updateMyAttributes.attribute3 = updateStudent.major;
                 updateMyAttributes.attribute4 = updateStudent.gpa;
-                updateMyAttributes.cfid = updateLogin.cfid;
-                updateMyAttributes.loginid = myLogInInfo.id;
-                updateMyAttributes.typeid = id_student;
+                updateMyAttributes.cfid = Convert.ToInt32(updateLogin.cfid);
+                updateMyAttributes.loginid = myAttributes.loginid;
+                updateMyAttributes.typeid = myAttributes.typeid;
                 updateMyAttributes.rememberme = myAttributes.rememberme;
 
                 db_attributes.InsertOrReplace(updateMyAttributes);
 
+                progressBar.Visibility = ViewStates.Invisible;
+
                 Android.Support.V4.App.FragmentTransaction trans = FragmentManager.BeginTransaction();
                 trans.Replace(Resource.Id.profile_root_frame, new ProfileFragment());
                 trans.Commit();
-
-                /*Android.Support.V4.App.FragmentTransaction trans2 = FragmentManager.BeginTransaction();
-                trans2.Replace(Resource.Id.qs_root_frame, new QsFragment());
-                trans2.Commit();*/
             }
             catch
             {
+                progressBar.Visibility = ViewStates.Invisible;
                 Toast.MakeText(this.Activity, "Invalid Email Address", ToastLength.Short).Show();
             }
         }
 
-        private void UpdateRecruiter(bool isCompanyChanged)
+        private async void UpdateRecruiter(bool isCompanyChanged)
         {
             try
             {
-                string dbPath_user = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "user.db3");
-                var db_user = new SQLiteConnection(dbPath_user);
-
                 string dbPath_attributes = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "attributes.db3");
                 var db_attributes = new SQLiteConnection(dbPath_attributes);
 
                 MyAttributes myAttributes = db_attributes.Get<MyAttributes>(1);
 
-                // Get Login ID
-                int id_login = db_user.Query<LoginTable>("SELECT * FROM LoginTable WHERE email = ?", myAttributes.email).First().id;
-                int id_recruiter = db_user.Query<RecruiterTable>("SELECT * FROM RecruiterTable WHERE email = ?", myAttributes.email).First().id;
+                int id_login = myAttributes.loginid;
+                int id_recruiter = myAttributes.typeid;
 
-                LoginTable myLogInInfo = db_user.Get<LoginTable>(id_login);
                 string username = updateEmail.Text.Split('@')[0];
                 string domain = updateEmail.Text.Split('@')[1];
                 string provider = domain.Split('.')[0];
                 string extension = domain.Split('.')[1];
 
-                // Update LoginTable
-                LoginTable updateLogin = new LoginTable();
-                updateLogin.id = id_login;
+                // Update Login
+                User updateLogin = new User();
+                updateLogin.uid = id_login.ToString();
                 updateLogin.name = updateName.Text;
                 updateLogin.email = updateEmail.Text;
-                updateLogin.password = myLogInInfo.password;
+                updateLogin.password = myAttributes.password;
                 if (isCompanyChanged == true)
                 {
-                    updateLogin.cfid = 0;
+                    updateLogin.cfid = "0";
                 }
                 else if (isCompanyChanged == false)
                 {
-                    updateLogin.cfid = myAttributes.cfid;
+                    updateLogin.cfid = myAttributes.cfid.ToString();
                 }
                 updateLogin.type = "Recruiter";
+                var firebase = new FirebaseClient(FirebaseURL);
+                await firebase.Child("users").Child(key).PutAsync(updateLogin);
 
-                db_user.InsertOrReplace(updateLogin);
-
-                // Update RecruiterTable
-                RecruiterTable updateRecruiter = new RecruiterTable();
-                updateRecruiter.id = id_recruiter;
+                // Update Recruiter
+                Recruiter updateRecruiter = new Recruiter();
+                updateRecruiter.recruiterid = id_recruiter.ToString();
                 updateRecruiter.name = updateName.Text;
                 updateRecruiter.email = updateEmail.Text;
-                updateRecruiter.password = myLogInInfo.password;
+                updateRecruiter.password = myAttributes.password;
                 updateRecruiter.company = string.Format("{0}", company.SelectedItem);
 
-                db_user.InsertOrReplace(updateRecruiter);
+                var allRecruiters = await firebase.Child("recruiters").OnceAsync<Recruiter>();
+                string recruiterKey = "";
+
+                foreach (var recruiter in allRecruiters)
+                {
+                    if (recruiter.Object.email == myAttributes.email)
+                    {
+                        recruiterKey = recruiter.Key;
+                    }
+                }
+                await firebase.Child("recruiters").Child(recruiterKey).PutAsync(updateRecruiter);
 
                 // Update MyAttributes
                 MyAttributes updateMyAttributes = new MyAttributes();
                 updateMyAttributes.id = 1;
                 updateMyAttributes.name = updateRecruiter.name;
                 updateMyAttributes.email = updateRecruiter.email;
+                updateMyAttributes.password = myAttributes.password;
                 updateMyAttributes.type = "Recruiter";
                 updateMyAttributes.attribute1 = updateRecruiter.company;
                 updateMyAttributes.attribute2 = "";
@@ -368,12 +448,15 @@ namespace OnQAndroid
 
                 db_attributes.InsertOrReplace(updateMyAttributes);
 
+                progressBar.Visibility = ViewStates.Invisible;
+
                 Android.Support.V4.App.FragmentTransaction trans = FragmentManager.BeginTransaction();
                 trans.Replace(Resource.Id.profile_root_frame, new ProfileFragment());
                 trans.Commit();
             }
             catch
             {
+                progressBar.Visibility = ViewStates.Invisible;
                 Toast.MakeText(this.Activity, "Invalid Email Address", ToastLength.Short).Show();
             }
         }
@@ -397,6 +480,7 @@ namespace OnQAndroid
         {
             Spinner school = (Spinner)sender;
         }
+
         private void company_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {
             Spinner company = (Spinner)sender;
