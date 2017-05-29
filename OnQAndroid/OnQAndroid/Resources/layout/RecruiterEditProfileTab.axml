@@ -7,169 +7,171 @@
     android:minWidth="25px"
     android:minHeight="25px"
     android:weightSum="100">
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/linearLayout1"
-        android:weightSum="100">
-        <LinearLayout
-            android:orientation="vertical"
-            android:minWidth="25px"
-            android:minHeight="25px"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:id="@+id/linearLayout4"
-            android:layout_weight="40"
-            android:background="#FFFFFF">
-            <ImageView
-                android:src="@drawable/camera"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:id="@+id/imageView1"
-                android:layout_gravity="center" />
-        </LinearLayout>
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:id="@+id/linearLayout3"
-            android:layout_weight="60"
-            android:weightSum="100"
-            android:background="#BABABA">
-            <Space
+
+            <LinearLayout
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="30"
-                android:layout_marginTop="10dp" />
-            <EditText
-                android:text="Name"
-                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:id="@+id/linearLayout1"
+                android:weightSum="100">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:minWidth="25px"
+                    android:minHeight="25px"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/linearLayout4"
+                    android:layout_weight="40"
+                    android:background="#FFFFFF">
+                    <ImageView
+                        android:src="@drawable/camera"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:id="@+id/imageView1"
+                        android:layout_gravity="center" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/linearLayout3"
+                    android:layout_weight="60"
+                    android:weightSum="100"
+                    android:background="#BABABA">
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="30"
+                        android:layout_marginTop="10dp" />
+                    <EditText
+                        android:text="Name"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/updateName"
+                        android:textColor="#000000"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:layout_weight="15"
+                        android:background="@drawable/rectangleborder"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:inputType="textCapWords" />
+                    <EditText
+                        android:text="Email Address"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/updateEmail"
+                        android:textColor="#000000"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:layout_weight="15"
+                        android:background="@drawable/rectangleborder"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:inputType="textEmailAddress" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/updateName"
-                android:textColor="#000000"
+                android:id="@+id/linearLayout5"
+                android:layout_weight="40"
+                android:weightSum="100">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:minWidth="25px"
+                    android:minHeight="25px"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/linearLayout7"
+                    android:layout_weight="100"
+                    android:weightSum="100">
+                    <TextView
+                        android:text="Select your company:"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView1"
+                        android:textColor="#B4B4B4"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="5dp" />
+                    <Spinner
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:id="@+id/updateMyCompany"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        style="@android:style/Widget.Spinner"
+                        android:layout_marginTop="5dp" />
+                    <TextView
+                        android:text="Enter your Recruiter Access Key (if changing company):"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView2"
+                        android:textColor="#B4B4B4"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="5dp" />
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:id="@+id/rak"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/rectangleborder"
+                        android:paddingLeft="5dp"
+                        android:inputType="textPassword"
+                        android:textColor="#000000" />
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:id="@+id/space1" />
+                </LinearLayout>
+            </LinearLayout>
+            <ProgressBar
+                android:id="@+id/circularProgress"
+                android:theme="@style/CircularProgress"
+                android:visibility="invisible"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                style="@style/Widget.AppCompat.ProgressBar"
                 android:layout_gravity="center"
-                android:gravity="center"
-                android:layout_weight="15"
-                android:background="@drawable/rectangleborder"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="10dp"
-                android:inputType="textCapWords" />
-            <EditText
-                android:text="Email Address"
-                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_marginBottom="-20dp"
+                android:layout_marginTop="-15dp" />
+            <LinearLayout
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/updateEmail"
-                android:textColor="#000000"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:layout_weight="15"
-                android:background="@drawable/rectangleborder"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:inputType="textEmailAddress" />
-        </LinearLayout>
-    </LinearLayout>
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/linearLayout5"
-        android:layout_weight="40"
-        android:weightSum="100">
-        <LinearLayout
-            android:orientation="vertical"
-            android:minWidth="25px"
-            android:minHeight="25px"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:id="@+id/linearLayout7"
-            android:layout_weight="100"
-            android:weightSum="100">
-            <TextView
-                android:text="Select your company:"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView1"
-                android:textColor="#B4B4B4"
-                android:layout_marginTop="5dp"
-                android:layout_marginLeft="5dp" />
-            <Spinner
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:id="@+id/updateMyCompany"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                style="@android:style/Widget.Spinner"
-                android:layout_marginTop="5dp" />
-            <TextView
-                android:text="Enter your Recruiter Access Key (if changing company):"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView2"
-                android:textColor="#B4B4B4"
-                android:layout_marginTop="5dp"
-                android:layout_marginLeft="5dp" />
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:id="@+id/rak"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/rectangleborder"
-                android:paddingLeft="5dp"
-                android:inputType="textPassword"
-                android:textColor="#000000" />
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="5"
-                android:id="@+id/space1" />
-        </LinearLayout>
-    </LinearLayout>
-    <ProgressBar
-        android:id="@+id/circularProgress"
-        android:theme="@style/CircularProgress"
-        android:visibility="invisible"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        style="@style/Widget.AppCompat.ProgressBar"
-        android:layout_gravity="center"
-        android:layout_marginBottom="-20dp"
-        android:layout_marginTop="-10dp" />
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/linearLayout8"
-        android:layout_weight="60"
-        android:minWidth="25px"
-        android:minHeight="25px"
-        android:weightSum="100">
-        <Button
-            android:text="Cancel"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:id="@+id/cancelEditProfile"
-            android:layout_weight="50"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="40dp"
-            android:layout_gravity="center"
-            android:background="@drawable/redbutton" />
-        <Button
-            android:text="Save Changes"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:id="@+id/saveChangesEditProfile"
-            android:layout_weight="50"
-            android:layout_marginRight="20dp"
-            android:layout_gravity="center"
-            android:background="@drawable/turquoisebutton" />
-    </LinearLayout>
+                android:id="@+id/linearLayout8"
+                android:layout_weight="60"
+                android:minWidth="25px"
+                android:minHeight="25px"
+                android:weightSum="100">
+                <Button
+                    android:text="Cancel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:id="@+id/cancelEditProfile"
+                    android:layout_weight="50"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="40dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/redbutton" />
+                <Button
+                    android:text="Save Changes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:id="@+id/saveChangesEditProfile"
+                    android:layout_weight="50"
+                    android:layout_marginRight="20dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/turquoisebutton" />
+            </LinearLayout>
+
 </LinearLayout>

@@ -71,13 +71,8 @@ namespace OnQAndroid
             EditText rakField = FindViewById<EditText>(Resource.Id.rak); // rak = recruiter access key
 
             progressBar.Visibility = ViewStates.Visible;
-            // connect to companies database
-            //string dbPath_companies = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "allcompanies.db3");
-            //var db_companies = new SQLiteConnection(dbPath_companies);
             string company = string.Format("{0}", companySpinner.SelectedItem); // get value of company spinner
 
-            // query database for matching company and recruiter access key
-            //var queryResults = db_companies.Query<Companies>("SELECT * FROM Companies WHERE name = ? AND rak = ?", company, rakField.Text);
             var firebase = new FirebaseClient(FirebaseURL);
             var companyItems = await firebase.Child("companies").OnceAsync<Company>();
             bool fieldsMatch = false;

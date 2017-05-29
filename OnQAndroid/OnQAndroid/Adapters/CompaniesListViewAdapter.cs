@@ -33,7 +33,7 @@ namespace OnQAndroid
         {
             get
             {
-                return mItems.Count;
+                return mItems.Count;           
             }
         }
         public override long GetItemId(int position)

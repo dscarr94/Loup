@@ -94,7 +94,9 @@ namespace OnQAndroid
                 else if (myAttributes.type == "Recruiter")
                 {
                     View view = inflater.Inflate(Resource.Layout.RecruiterHomeTab, container, false);
-                    
+
+                    progressBar = view.FindViewById<ProgressBar>(Resource.Id.circularProgress);
+
                     HMAllRadio = view.FindViewById<Button>(Resource.Id.HMAllRadio);
                     HGTAllRadio = view.FindViewById<Button>(Resource.Id.HGTAllRadio);
                     HGPANoneRadio = view.FindViewById<Button>(Resource.Id.HGPANoneRadio);
@@ -115,7 +117,7 @@ namespace OnQAndroid
                     minGPAspinner = view.FindViewById<Spinner>(Resource.Id.minGPAspinner);
 
                     Button saveChanges = view.FindViewById<Button>(Resource.Id.saveChangesButton);
-                    TextView cfName = view.FindViewById<TextView>(Resource.Id.cfName);
+                    cfName = view.FindViewById<TextView>(Resource.Id.cfName);
                     TextView HMAllText = view.FindViewById<TextView>(Resource.Id.HMAllText);
                     TextView HGTAllText = view.FindViewById<TextView>(Resource.Id.HGTAllText);
                     TextView MinGPANoneText = view.FindViewById<TextView>(Resource.Id.MinGPANoneText);
@@ -123,41 +125,7 @@ namespace OnQAndroid
                     Space plus2extender = view.FindViewById<Space>(Resource.Id.plusspace2);
 
                     // Change name to my CF name
-                    string dbPath_cfids = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "CFIDs.db3");
-                    var db_cfids = new SQLiteConnection(dbPath_cfids);
-                    db_cfids.CreateTable<Cfids>();
-
-                    var cfid_queryResults = db_cfids.Query<Cfids>("SELECT * FROM Cfids WHERE cfid = ?", myCFID.ToString());
-                    Cfids cfid = cfid_queryResults.First();
-                    cfName.Text = cfid.name;
-
-                    // Item Selected Methods
-                    /*hmspinner1.ItemSelected += Hmspinner1_ItemSelected;
-                    hmspinner2.ItemSelected += Hmspinner2_ItemSelected;
-                    hmspinner3.ItemSelected += Hmspinner3_ItemSelected;
-                    hmspinner4.ItemSelected += Hmspinner4_ItemSelected;
-                    hmspinner5.ItemSelected += Hmspinner5_ItemSelected;*/
-
-                    // Populate list items in major spinner
-                    var majoradapter = ArrayAdapter.CreateFromResource(this.Activity, Resource.Array.major_array, Android.Resource.Layout.SimpleSpinnerItem);
-                    majoradapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
-                    hmspinner1.Adapter = majoradapter;
-                    hmspinner2.Adapter = majoradapter;
-                    hmspinner3.Adapter = majoradapter;
-                    hmspinner4.Adapter = majoradapter;
-                    hmspinner5.Adapter = majoradapter;
-
-                    // Populate list items in grad term spinner
-                    var gradtermadapter = ArrayAdapter.CreateFromResource(this.Activity, Resource.Array.year_array, Android.Resource.Layout.SimpleSpinnerItem);
-                    gradtermadapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
-                    hgtspinner1.Adapter = gradtermadapter;
-                    hgtspinner2.Adapter = gradtermadapter;
-                    hgtspinner3.Adapter = gradtermadapter;
-
-                    // Populate list items in gpa spinner
-                    var gpaadapter = ArrayAdapter.CreateFromResource(this.Activity, Resource.Array.gpa_array, Android.Resource.Layout.SimpleSpinnerItem);
-                    gpaadapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
-                    minGPAspinner.Adapter = gpaadapter;
+                    PopulateName();                   
 
                     // Click methods
                     HMAllRadio.Click += HMAllRadio_Click;
@@ -168,142 +136,8 @@ namespace OnQAndroid
                     MinGPANoneText.Click += HGPANoneRadio_Click;
                     saveChanges.Click += SaveChanges_Click;
 
-                    // Connect to preferences database
-                    string myCompany = myAttributes.attribute1;
-                    string mPreferences_fileName = "mp_" + myCFID + "_" + myCompany + ".db3";
-                    string dbPath_mPreferences = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), mPreferences_fileName);
-                    var db_mPreferences = new SQLiteConnection(dbPath_mPreferences);
-
-                    // Get number of major and grad term preferences
-                    numMPs = db_mPreferences.Table<SQLite_Tables.MajorPreferences>().Count();
-                    numGTPs = db_mPreferences.Table<SQLite_Tables.GradTermPreferences>().Count();
-                    numGPAs = db_mPreferences.Table<SQLite_Tables.GPAPreferences>().Count();
-
-                    // Populate gpa spinner with current preference
-                    if (numGPAs == 0)
-                    {
-                        isMinGPANone = true;
-
-                        minGPAspinner.Enabled = false;
-                        minGPAspinner.Visibility = ViewStates.Invisible;
-                    }
-                    if (numGPAs >= 1)
-                    {
-                        isMinGPANone = false;
-                        HGPANoneRadio.SetBackgroundResource(Resource.Drawable.radio_unchecked);
-                        string defaultGPA = db_mPreferences.Get<SQLite_Tables.GPAPreferences>(1).gpa;
-                        if (!defaultGPA.Equals(null))
-                        {
-                            int spinnerPosition = gpaadapter.GetPosition(defaultGPA);
-                            minGPAspinner.SetSelection(spinnerPosition);
-                        }
-                    }
-                    // Populate grad term spinners with current preferences
-                    if (numGTPs == 0)
-                    {
-                        isHGTAll = true;
-
-                        hgtspinner1.Enabled = false;
-                        hgtspinner1.Visibility = ViewStates.Invisible;
-                        plus_gt.Enabled = false;
-                        plus_gt.Visibility = ViewStates.Invisible;
-                    }
-                    if (numGTPs >= 1)
-                    {
-                        isHGTAll = false;
-                        HGTAllRadio.SetBackgroundResource(Resource.Drawable.radio_unchecked);
-                        string defaultGTP = db_mPreferences.Get<SQLite_Tables.GradTermPreferences>(1).gradterm;
-                        if (!defaultGTP.Equals(null))
-                        {
-                            int spinnerPosition = gradtermadapter.GetPosition(defaultGTP);
-                            hgtspinner1.SetSelection(spinnerPosition);
-                        }
-                    }
-                    if (numGTPs >= 2)
-                    {
-                        hgtspinner2.Visibility = ViewStates.Visible;
-                        minus_gt.Visibility = ViewStates.Visible;
-                        string defaultGTP = db_mPreferences.Get<SQLite_Tables.GradTermPreferences>(2).gradterm;
-                        if (!defaultGTP.Equals(null))
-                        {
-                            int spinnerPosition = gradtermadapter.GetPosition(defaultGTP);
-                            hgtspinner2.SetSelection(spinnerPosition);
-                        }
-                    }
-                    if (numGTPs >= 3)
-                    {
-                        hgtspinner3.Visibility = ViewStates.Visible;
-                        string defaultGTP = db_mPreferences.Get<SQLite_Tables.GradTermPreferences>(3).gradterm;
-                        if (!defaultGTP.Equals(null))
-                        {
-                            int spinnerPosition = gradtermadapter.GetPosition(defaultGTP);
-                            hgtspinner3.SetSelection(spinnerPosition);
-                        }
-                    }
-
-                    // Populate major spinners with current preferences
-                    if (numMPs == 0)
-                    {
-                        isHMAll = true;
-
-                        hmspinner1.Enabled = false;
-                        hmspinner1.Visibility = ViewStates.Invisible;
-                        plus_major.Enabled = false;
-                        plus_major.Visibility = ViewStates.Invisible;                        
-                    }
-                    if (numMPs >= 1)
-                    {
-                        isHMAll = false;
-                        HMAllRadio.SetBackgroundResource(Resource.Drawable.radio_unchecked);
-                        string defaultMP = db_mPreferences.Get<SQLite_Tables.MajorPreferences>(1).major;
-                        if (!defaultMP.Equals(null))
-                        {
-                            int spinnerPosition = majoradapter.GetPosition(defaultMP);
-                            hmspinner1.SetSelection(spinnerPosition);
-                        }
-
-                    }
-                    if (numMPs >= 2)
-                    {
-                        hmspinner2.Visibility = ViewStates.Visible;
-                        minus_major.Visibility = ViewStates.Visible;
-                        string defaultMP = db_mPreferences.Get<SQLite_Tables.MajorPreferences>(2).major;
-                        if (!defaultMP.Equals(null))
-                        {
-                            int spinnerPosition = majoradapter.GetPosition(defaultMP);
-                            hmspinner2.SetSelection(spinnerPosition);
-                        }                  
-                    }
-                    if (numMPs >= 3)
-                    {
-                        hmspinner3.Visibility = ViewStates.Visible;
-                        string defaultMP = db_mPreferences.Get<SQLite_Tables.MajorPreferences>(3).major;
-                        if (!defaultMP.Equals(null))
-                        {
-                            int spinnerPosition = majoradapter.GetPosition(defaultMP);
-                            hmspinner3.SetSelection(spinnerPosition);
-                        }
-                    }
-                    if (numMPs >= 4)
-                    {
-                        hmspinner4.Visibility = ViewStates.Visible;
-                        string defaultMP = db_mPreferences.Get<SQLite_Tables.MajorPreferences>(4).major;
-                        if (!defaultMP.Equals(null))
-                        {
-                            int spinnerPosition = majoradapter.GetPosition(defaultMP);
-                            hmspinner4.SetSelection(spinnerPosition);
-                        }
-                    }
-                    if (numMPs >= 5)
-                    {
-                        hmspinner5.Visibility = ViewStates.Visible;
-                        string defaultMP = db_mPreferences.Get<SQLite_Tables.MajorPreferences>(5).major;
-                        if (!defaultMP.Equals(null))
-                        {
-                            int spinnerPosition = majoradapter.GetPosition(defaultMP);
-                            hmspinner5.SetSelection(spinnerPosition);
-                        }
-                    }
+                    // connect to firebase preferences database
+                    PopulatePreferences();                   
 
                     // On plus major click
                     plus_major.Click += Plus_major_Click;
@@ -359,6 +193,211 @@ namespace OnQAndroid
             }
         }
 
+        private async void PopulateName()
+        {
+            progressBar.Visibility = ViewStates.Visible;
+            var firebase = new FirebaseClient(FirebaseURL);
+
+            var allCFs = await firebase.Child("cfids").OnceAsync<Cfid>();
+
+            foreach (var cf in allCFs)
+            {
+                if (cf.Object.cfid == myAttributes.cfid.ToString())
+                {
+                    cfName.Text = cf.Object.name;
+                }
+            }
+        }
+
+        private async void PopulatePreferences()
+        {
+            //progressBar.Visibility = ViewStates.Visible;
+            var firebase = new FirebaseClient(FirebaseURL);
+            // Get number of major and grad term preferences
+            List<string> majorPreferences = new List<string>();
+            List<string> gradtermPreferences = new List<string>();
+            List<string> gpaPreferences = new List<string>();
+
+            string majorFileName = "mps_" + myAttributes.cfid.ToString() + "_" + myAttributes.attribute1;
+            var majorPrefs = await firebase.Child(majorFileName).OnceAsync<MajorPreference>();
+            numMPs = majorPrefs.Count();
+            foreach (var mp in majorPrefs)
+            {
+                majorPreferences.Add(mp.Object.major);
+            }
+
+            string gradtermFileName = "gtps_" + myAttributes.cfid.ToString() + "_" + myAttributes.attribute1;
+            var gradtermPrefs = await firebase.Child(gradtermFileName).OnceAsync<GradTermPreference>();
+            numGTPs = gradtermPrefs.Count();
+            foreach (var gtp in gradtermPrefs)
+            {
+                gradtermPreferences.Add(gtp.Object.gradterm);
+            }
+
+            string gpaFileName = "gpas_" + myAttributes.cfid.ToString() + "_" + myAttributes.attribute1;
+            var gpaPrefs = await firebase.Child(gpaFileName).OnceAsync<GPAPreference>();
+            numGPAs = gpaPrefs.Count();
+            foreach (var gpap in gpaPrefs)
+            {
+                gpaPreferences.Add(gpap.Object.gpa);
+            }
+
+            // Populate list items in major spinner
+            var majoradapter = ArrayAdapter.CreateFromResource(this.Activity, Resource.Array.major_array, Android.Resource.Layout.SimpleSpinnerItem);
+            majoradapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+            hmspinner1.Adapter = majoradapter;
+            hmspinner2.Adapter = majoradapter;
+            hmspinner3.Adapter = majoradapter;
+            hmspinner4.Adapter = majoradapter;
+            hmspinner5.Adapter = majoradapter;
+
+            // Populate list items in grad term spinner
+            var gradtermadapter = ArrayAdapter.CreateFromResource(this.Activity, Resource.Array.year_array, Android.Resource.Layout.SimpleSpinnerItem);
+            gradtermadapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+            hgtspinner1.Adapter = gradtermadapter;
+            hgtspinner2.Adapter = gradtermadapter;
+            hgtspinner3.Adapter = gradtermadapter;
+
+            // Populate list items in gpa spinner
+            var gpaadapter = ArrayAdapter.CreateFromResource(this.Activity, Resource.Array.gpa_array, Android.Resource.Layout.SimpleSpinnerItem);
+            gpaadapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+            minGPAspinner.Adapter = gpaadapter;
+
+            // Populate gpa spinner with current preference
+            if (numGPAs == 0)
+            {
+                isMinGPANone = true;
+
+                minGPAspinner.Enabled = false;
+                minGPAspinner.Visibility = ViewStates.Invisible;
+            }
+            if (numGPAs >= 1)
+            {
+                isMinGPANone = false;
+                HGPANoneRadio.SetBackgroundResource(Resource.Drawable.radio_unchecked);
+                minGPAspinner.Visibility = ViewStates.Visible;
+                string defaultGPA = gpaPreferences[0];
+                if (!defaultGPA.Equals(null))
+                {
+                    int spinnerPosition = gpaadapter.GetPosition(defaultGPA);
+                    minGPAspinner.SetSelection(spinnerPosition);
+                }
+            }
+
+            // Populate grad term spinners with current preferences
+            if (numGTPs == 0)
+            {
+                isHGTAll = true;
+
+                hgtspinner1.Enabled = false;
+                hgtspinner1.Visibility = ViewStates.Invisible;
+                plus_gt.Enabled = false;
+                plus_gt.Visibility = ViewStates.Invisible;
+            }
+            if (numGTPs >= 1)
+            {
+                isHGTAll = false;
+                HGTAllRadio.SetBackgroundResource(Resource.Drawable.radio_unchecked);
+                hgtspinner1.Visibility = ViewStates.Visible;
+                plus_gt.Visibility = ViewStates.Visible;
+                string defaultGTP = gradtermPreferences[0];
+                if (!defaultGTP.Equals(null))
+                {
+                    int spinnerPosition = gradtermadapter.GetPosition(defaultGTP);
+                    hgtspinner1.SetSelection(spinnerPosition);
+                }
+            }
+            if (numGTPs >= 2)
+            {
+                hgtspinner2.Visibility = ViewStates.Visible;
+                minus_gt.Visibility = ViewStates.Visible;
+                string defaultGTP = gradtermPreferences[1];
+                if (!defaultGTP.Equals(null))
+                {
+                    int spinnerPosition = gradtermadapter.GetPosition(defaultGTP);
+                    hgtspinner2.SetSelection(spinnerPosition);
+                }
+            }
+            if (numGTPs >= 3)
+            {
+                hgtspinner3.Visibility = ViewStates.Visible;
+                string defaultGTP = gradtermPreferences[2];
+                if (!defaultGTP.Equals(null))
+                {
+                    int spinnerPosition = gradtermadapter.GetPosition(defaultGTP);
+                    hgtspinner3.SetSelection(spinnerPosition);
+                }
+            }
+
+            // Populate major spinners with current preferences
+            if (numMPs == 0)
+            {
+                isHMAll = true;
+
+                hmspinner1.Enabled = false;
+                hmspinner1.Visibility = ViewStates.Invisible;
+                plus_major.Enabled = false;
+                plus_major.Visibility = ViewStates.Invisible;
+            }
+
+            if (numMPs >= 1)
+            {
+                isHMAll = false;
+                HMAllRadio.SetBackgroundResource(Resource.Drawable.radio_unchecked);
+                hmspinner1.Visibility = ViewStates.Visible;
+                plus_major.Visibility = ViewStates.Visible;
+                string defaultMP = majorPreferences[0];
+                if (!defaultMP.Equals(null))
+                {
+                    int spinnerPosition = majoradapter.GetPosition(defaultMP);
+                    hmspinner1.SetSelection(spinnerPosition);
+                }
+
+            }
+            if (numMPs >= 2)
+            {
+                hmspinner2.Visibility = ViewStates.Visible;
+                minus_major.Visibility = ViewStates.Visible;
+                string defaultMP = majorPreferences[1];
+                if (!defaultMP.Equals(null))
+                {
+                    int spinnerPosition = majoradapter.GetPosition(defaultMP);
+                    hmspinner2.SetSelection(spinnerPosition);
+                }
+            }
+            if (numMPs >= 3)
+            {
+                hmspinner3.Visibility = ViewStates.Visible;
+                string defaultMP = majorPreferences[2];
+                if (!defaultMP.Equals(null))
+                {
+                    int spinnerPosition = majoradapter.GetPosition(defaultMP);
+                    hmspinner3.SetSelection(spinnerPosition);
+                }
+            }
+            if (numMPs >= 4)
+            {
+                hmspinner4.Visibility = ViewStates.Visible;
+                string defaultMP = majorPreferences[3];
+                if (!defaultMP.Equals(null))
+                {
+                    int spinnerPosition = majoradapter.GetPosition(defaultMP);
+                    hmspinner4.SetSelection(spinnerPosition);
+                }
+            }
+            if (numMPs >= 5)
+            {
+                hmspinner5.Visibility = ViewStates.Visible;
+                string defaultMP = majorPreferences[4];
+                if (!defaultMP.Equals(null))
+                {
+                    int spinnerPosition = majoradapter.GetPosition(defaultMP);
+                    hmspinner5.SetSelection(spinnerPosition);
+                }
+            }
+            progressBar.Visibility = ViewStates.Invisible;
+        }
+
         private async void LoadCF()
         {
             progressBar.Visibility = ViewStates.Visible;
@@ -382,7 +421,7 @@ namespace OnQAndroid
                 mItems.Add(company.Object.name);
             }
 
-            string favoritesFileName = "fav_" + myAttributes.cfid.ToString() + "_" + myAttributes.loginid.ToString();
+            string favoritesFileName = "fav_" + myAttributes.cfid.ToString() + "_" + myAttributes.typeid.ToString();
             var myFavorites = await firebase.Child(favoritesFileName).OnceAsync<Favorite>();
             List<bool> favList = new List<bool>();
 
@@ -445,112 +484,113 @@ namespace OnQAndroid
             }
         }
 
-        private void SaveChanges_Click(object sender, EventArgs e)
+        private async void SaveChanges_Click(object sender, EventArgs e)
         {
-            string dbPath_attributes = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "attributes.db3");
-            var db_attributes = new SQLiteConnection(dbPath_attributes);
-            MyAttributes myAttributes = db_attributes.Get<MyAttributes>(1);
-            int myCFID = myAttributes.cfid;
+            progressBar.Visibility = ViewStates.Visible;
 
-            string mPreferences_fileName = "mp_" + myCFID.ToString() + "_" + myAttributes.attribute1 + ".db3";
-            string dbPath_mPreferences = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), mPreferences_fileName);
-            var db_mPreferences = new SQLiteConnection(dbPath_mPreferences);
+            var firebase = new FirebaseClient(FirebaseURL);
+            string majorFileName = "mps_" + myAttributes.cfid.ToString() + "_" + myAttributes.attribute1;
+            string gradtermFileName = "gtps_" + myAttributes.cfid.ToString() + "_" + myAttributes.attribute1;
+            string gpaFileName = "gpas_" + myAttributes.cfid.ToString() + "_" + myAttributes.attribute1;
+
+            await firebase.Child(majorFileName).DeleteAsync();
+            await firebase.Child(gradtermFileName).DeleteAsync();
+            await firebase.Child(gpaFileName).DeleteAsync();
+
             if (isHMAll == true)
             {
-                db_mPreferences.DeleteAll<SQLite_Tables.MajorPreferences>();
+                //do nothing
             }
             else
             {
-                db_mPreferences.DeleteAll<SQLite_Tables.MajorPreferences>();
                 if (numMPs >= 1)
                 {
-                    SQLite_Tables.MajorPreferences majorPrefs1 = new SQLite_Tables.MajorPreferences();
-                    majorPrefs1.id = 1;
+                    MajorPreference majorPrefs1 = new MajorPreference();
+                    majorPrefs1.id = "1";
                     majorPrefs1.major = hmspinner1.SelectedItem.ToString();
 
-                    db_mPreferences.InsertOrReplace(majorPrefs1);
+                    await firebase.Child(majorFileName).PostAsync(majorPrefs1);
                 }
                 if (numMPs >= 2)
-                {                    
-                    SQLite_Tables.MajorPreferences majorPrefs2 = new SQLite_Tables.MajorPreferences();
-                    majorPrefs2.id = 2;
+                {
+                    MajorPreference majorPrefs2 = new MajorPreference();
+                    majorPrefs2.id = "2";
                     majorPrefs2.major = hmspinner2.SelectedItem.ToString();
 
-                    db_mPreferences.InsertOrReplace(majorPrefs2);                    
+                    await firebase.Child(majorFileName).PostAsync(majorPrefs2);
                 }
                 if (numMPs >= 3)
                 {
-                    SQLite_Tables.MajorPreferences majorPrefs3 = new SQLite_Tables.MajorPreferences();
-                    majorPrefs3.id = 3;
+                    MajorPreference majorPrefs3 = new MajorPreference();
+                    majorPrefs3.id = "3";
                     majorPrefs3.major = hmspinner3.SelectedItem.ToString();
 
-                    db_mPreferences.InsertOrReplace(majorPrefs3);
+                    await firebase.Child(majorFileName).PostAsync(majorPrefs3);
                 }
                 if (numMPs >= 4)
                 {
-                    SQLite_Tables.MajorPreferences majorPrefs4 = new SQLite_Tables.MajorPreferences();
-                    majorPrefs4.id = 4;
+                    MajorPreference majorPrefs4 = new MajorPreference();
+                    majorPrefs4.id = "4";
                     majorPrefs4.major = hmspinner4.SelectedItem.ToString();
 
-                    db_mPreferences.InsertOrReplace(majorPrefs4);
+                    await firebase.Child(majorFileName).PostAsync(majorPrefs4);
                 }
                 if (numMPs >= 5)
                 {
-                    SQLite_Tables.MajorPreferences majorPrefs5 = new SQLite_Tables.MajorPreferences();
-                    majorPrefs5.id = 5;
+                    MajorPreference majorPrefs5 = new MajorPreference();
+                    majorPrefs5.id = "5";
                     majorPrefs5.major = hmspinner5.SelectedItem.ToString();
 
-                    db_mPreferences.InsertOrReplace(majorPrefs5);
+                    await firebase.Child(majorFileName).PostAsync(majorPrefs5);
                 }
             }
             if (isHGTAll == true)
             {
-                db_mPreferences.DeleteAll<SQLite_Tables.GradTermPreferences>();
+                //do nothing
             }
             else
             {
-                db_mPreferences.DeleteAll<SQLite_Tables.GradTermPreferences>();
                 if (numGTPs >= 1)
                 {
-                    SQLite_Tables.GradTermPreferences gradtermPrefs1 = new SQLite_Tables.GradTermPreferences();
-                    gradtermPrefs1.id = 1;
+                    GradTermPreference gradtermPrefs1 = new GradTermPreference();
+                    gradtermPrefs1.id = "1";
                     gradtermPrefs1.gradterm = hgtspinner1.SelectedItem.ToString();
 
-                    db_mPreferences.InsertOrReplace(gradtermPrefs1);
+                    await firebase.Child(gradtermFileName).PostAsync(gradtermPrefs1);
                 }
                 if (numGTPs >= 2)
                 {
-                    SQLite_Tables.GradTermPreferences gradtermPrefs2 = new SQLite_Tables.GradTermPreferences();
-                    gradtermPrefs2.id = 2;
+                    GradTermPreference gradtermPrefs2 = new GradTermPreference();
+                    gradtermPrefs2.id = "2";
                     gradtermPrefs2.gradterm = hgtspinner2.SelectedItem.ToString();
 
-                    db_mPreferences.InsertOrReplace(gradtermPrefs2);
+                    await firebase.Child(gradtermFileName).PostAsync(gradtermPrefs2);
                 }
                 if (numGTPs >= 3)
                 {
-                    SQLite_Tables.GradTermPreferences gradtermPrefs3 = new SQLite_Tables.GradTermPreferences();
-                    gradtermPrefs3.id = 3;
+                    GradTermPreference gradtermPrefs3 = new GradTermPreference();
+                    gradtermPrefs3.id = "3";
                     gradtermPrefs3.gradterm = hgtspinner3.SelectedItem.ToString();
 
-                    db_mPreferences.InsertOrReplace(gradtermPrefs3);
+                    await firebase.Child(gradtermFileName).PostAsync(gradtermPrefs3);
                 }
             }
             if (isMinGPANone == true)
             {
-                db_mPreferences.DeleteAll<SQLite_Tables.GPAPreferences>();
+                //do nothing
             }
             else
             {
-                db_mPreferences.DeleteAll<SQLite_Tables.GPAPreferences>();
                 if (numGPAs == 1)
                 {
-                    SQLite_Tables.GPAPreferences gpaPrefs = new SQLite_Tables.GPAPreferences();
-                    gpaPrefs.id = 1;
+                    GPAPreference gpaPrefs = new GPAPreference();
+                    gpaPrefs.id = "1";
                     gpaPrefs.gpa = minGPAspinner.SelectedItem.ToString();
 
-                    db_mPreferences.InsertOrReplace(gpaPrefs);
+                    await firebase.Child(gpaFileName).PostAsync(gpaPrefs);
                 }
             }
+            progressBar.Visibility = ViewStates.Invisible;
             Toast.MakeText(this.Activity, "Changes Saved", ToastLength.Short).Show();
         }
 

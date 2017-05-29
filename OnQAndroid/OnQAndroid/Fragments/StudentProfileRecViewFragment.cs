@@ -7,6 +7,9 @@ using Android.Views;
 using Android.Widget;
 using SQLite;
 using Android.Views.InputMethods;
+using Firebase.Xamarin.Database;
+using OnQAndroid.FirebaseObjects;
+using Firebase.Xamarin.Database.Query;
 
 namespace OnQAndroid.Fragments
 {
@@ -17,18 +20,26 @@ namespace OnQAndroid.Fragments
             // Required empty public constructor
         }
 
-        public static StudentProfileRecViewFragment newInstance()
+        public static StudentProfileRecViewFragment NewInstance()
         {
             StudentProfileRecViewFragment fragment = new StudentProfileRecViewFragment();
             return fragment;
         }
 
-        int student_id;
+        string student_id;
         View view;
         EditText notes;
         int rating = 0;
         ImageView star;
         ImageView heart;
+        private const string FirebaseURL = "https://onqfirebase.firebaseio.com/";
+        TextView candidateName;
+        TextView candidateEmail;
+        TextView candidateSchool;
+        TextView candidateMajor;
+        TextView candidateGT;
+        TextView candidateGPA;
+        ProgressBar progressBar;
 
         //bool doneIsVisible;
         public override void OnCreate(Bundle savedInstanceState)
@@ -36,23 +47,20 @@ namespace OnQAndroid.Fragments
             base.OnCreate(savedInstanceState);
 
             Bundle arguments = Arguments;
-            student_id = arguments.GetInt("StudentId");
+            student_id = arguments.GetString("StudentId");
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             view = inflater.Inflate(Resource.Layout.StudentProfileRecView, container, false);
-            string dbPath_login = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "user.db3");
-            SQLiteConnection db_login = new SQLiteConnection(dbPath_login);
 
-            StudentTable studentAttributes = db_login.Get<StudentTable>(student_id);
-
-            TextView candidateName = view.FindViewById<TextView>(Resource.Id.candidateName);
-            TextView candidateEmail = view.FindViewById<TextView>(Resource.Id.candidateEmail);
-            TextView candidateSchool = view.FindViewById<TextView>(Resource.Id.schoolText);
-            TextView candidateMajor = view.FindViewById<TextView>(Resource.Id.majorText);
-            TextView candidateGT = view.FindViewById<TextView>(Resource.Id.gradtermText);
-            TextView candidateGPA = view.FindViewById<TextView>(Resource.Id.gpaText);
+            progressBar = view.FindViewById<ProgressBar>(Resource.Id.circularProgress);
+            candidateName = view.FindViewById<TextView>(Resource.Id.candidateName);
+            candidateEmail = view.FindViewById<TextView>(Resource.Id.candidateEmail);
+            candidateSchool = view.FindViewById<TextView>(Resource.Id.schoolText);
+            candidateMajor = view.FindViewById<TextView>(Resource.Id.majorText);
+            candidateGT = view.FindViewById<TextView>(Resource.Id.gradtermText);
+            candidateGPA = view.FindViewById<TextView>(Resource.Id.gpaText);
             notes = view.FindViewById<EditText>(Resource.Id.notes);
             Button nextButton = view.FindViewById<Button>(Resource.Id.nextButton);
             star = view.FindViewById<ImageView>(Resource.Id.star);
@@ -60,6 +68,8 @@ namespace OnQAndroid.Fragments
             ImageView backButton = view.FindViewById<ImageView>(Resource.Id.backButton);
             Button hideKeyboard = view.FindViewById<Button>(Resource.Id.hideKeyboard);
             LinearLayout rootLayout = view.FindViewById<LinearLayout>(Resource.Id.rootLayout);
+
+            LoadCandidateInfo();
 
             hideKeyboard.Visibility = ViewStates.Invisible;
             hideKeyboard.Click += (sender, e) =>
@@ -74,7 +84,6 @@ namespace OnQAndroid.Fragments
                 hideKeyboard.Visibility = ViewStates.Visible;
             };
 
-
             backButton.Click += (sender, e) =>
             {
                 Android.Support.V4.App.FragmentTransaction trans = FragmentManager.BeginTransaction();
@@ -82,18 +91,33 @@ namespace OnQAndroid.Fragments
                 trans.Commit();
             };
 
-            candidateName.Text = studentAttributes.name;
-            candidateEmail.Text = studentAttributes.email;
-            candidateSchool.Text = studentAttributes.school;
-            candidateMajor.Text = studentAttributes.major;
-            candidateGT.Text = studentAttributes.gradterm;
-            candidateGPA.Text = studentAttributes.gpa;
-
             nextButton.Click += NextButton_Click;
             star.Click += Star_Click;
             heart.Click += Heart_Click;
 
             return view;
+        }
+
+        private async void LoadCandidateInfo()
+        {
+            progressBar.Visibility = ViewStates.Visible;
+            var firebase = new FirebaseClient(FirebaseURL);
+
+            var allStudents = await firebase.Child("students").OnceAsync<Student>();
+
+            foreach (var student in allStudents)
+            {
+                if (student.Object.studentid == student_id)
+                {
+                    candidateName.Text = student.Object.name;
+                    candidateEmail.Text = student.Object.email;
+                    candidateSchool.Text = student.Object.school;
+                    candidateMajor.Text = student.Object.major;
+                    candidateGT.Text = student.Object.gradterm;
+                    candidateGPA.Text = student.Object.gpa;
+                }
+            }
+            progressBar.Visibility = ViewStates.Invisible;
         }
 
         private void Heart_Click(object sender, EventArgs e)
@@ -128,132 +152,106 @@ namespace OnQAndroid.Fragments
             }
         }
 
-        private void NextButton_Click(object sender, EventArgs e)
+        private async void NextButton_Click(object sender, EventArgs e)
         {
+            progressBar.Visibility = ViewStates.Visible;
             string dbPath_attributes = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "attributes.db3");
             SQLiteConnection db_attributes = new SQLiteConnection(dbPath_attributes);
             MyAttributes myAttributes = db_attributes.Get<MyAttributes>(1);
 
-            string dbPath_login = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "user.db3");
-            SQLiteConnection db_login = new SQLiteConnection(dbPath_login);
+            var firebase = new FirebaseClient(FirebaseURL);
 
-            string myCompanyQFilename = "qs_" + myAttributes.cfid.ToString() + "_" + myAttributes.attribute1 + ".db3";
-            string dbPath_myCompanyQ = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), myCompanyQFilename);
-            var db_myCompanyQ = new SQLiteConnection(dbPath_myCompanyQ);
+            // move q to student's past qs, and move student to company pastqs
+            string fileName_companyPastQs = "pastqs_" + myAttributes.attribute1;
+            string fileName_studentPastQs = "pastqs_" + student_id.ToString();
 
-            int studentid = db_myCompanyQ.Get<SQLite_Tables.Queue>(1).studentid;
-            StudentTable thisStudentAttributes = db_login.Get<StudentTable>(studentid);
-            LoginTable thisStudentLogin = db_login.Query<LoginTable>("SELECT * FROM LoginTable WHERE email = ?", thisStudentAttributes.email).First();
+            StudentQ pastStudentQ = new StudentQ();
+            pastStudentQ.company = myAttributes.attribute1;
 
-            string fileName_studentQ = "myqs_" + thisStudentLogin.cfid + "_" + thisStudentLogin.id.ToString() + ".db3";
-            string dbPath_studentQ = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), fileName_studentQ);
-            var db_studentQ = new SQLiteConnection(dbPath_studentQ);
+            PastQ pastCompanyQ = new PastQ();
+            pastCompanyQ.name = candidateName.Text;
+            pastCompanyQ.studentid = student_id.ToString();
+            pastCompanyQ.notes = notes.Text;
+            pastCompanyQ.rating = rating.ToString();
 
-            SQLite_Tables.MyQueue thisQ = db_studentQ.Query<SQLite_Tables.MyQueue>("SELECT * FROM MyQueue WHERE company = ?", myAttributes.attribute1).First();
-            int thisQid = thisQ.id;
-            int numStudentQs = db_studentQ.Table<SQLite_Tables.MyQueue>().Count();
+            // check to see if student is already in past q's
+            var companyPastQs = await firebase.Child(fileName_companyPastQs).OnceAsync<PastQ>();
+            bool studentExists = false;
 
-            // Check to see if this student is already in past Q's
-
-            string fileName_pastQs = "pastqs_" + myAttributes.attribute1 + ".db3";
-            string dbPath_pastQs = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), fileName_pastQs);
-            var db_pastQs = new SQLiteConnection(dbPath_pastQs);
-
-            string fileName_studentpastQs = "pastqs_" + thisStudentLogin.id.ToString() + ".db3";
-            string dbPath_studentpastQs = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), fileName_studentpastQs);
-            var db_studentpastQs = new SQLiteConnection(dbPath_studentpastQs);
-
-            var queryResults = db_pastQs.Query<SQLite_Tables.PastQueue>("SELECT * FROM PastQueue WHERE studentid = ?", studentid);
-
-            if (queryResults.Count == 0)
+            foreach (var pastq in companyPastQs)
             {
-                SQLite_Tables.PastQueue pastQ = new SQLite_Tables.PastQueue();
-                pastQ.studentid = studentid;
-                pastQ.notes = notes.Text;
-                pastQ.rating = rating;
-
-                db_pastQs.Insert(pastQ);
-
-                SQLite_Tables.MyPastQueue studentpastQ = new SQLite_Tables.MyPastQueue();
-                studentpastQ.company = myAttributes.attribute1;
-
-                db_studentpastQs.Insert(studentpastQ);
+                if (pastq.Object.studentid == student_id.ToString())
+                {
+                    studentExists = true;
+                    break;
+                }
             }
 
-            db_studentQ.Delete<SQLite_Tables.MyQueue>(thisQ.id);
-            for (int i = thisQid; i <= numStudentQs - 1; i++)
+            if (studentExists == false)
             {
-                SQLite_Tables.MyQueue currentEntry = db_studentQ.Get<SQLite_Tables.MyQueue>(i + 1);
-                SQLite_Tables.MyQueue newEntry = new SQLite_Tables.MyQueue();
-                newEntry.id = i;
-                newEntry.company = currentEntry.company;
-                newEntry.position = currentEntry.position;
-
-                db_studentQ.InsertOrReplace(newEntry);
+                await firebase.Child(fileName_companyPastQs).PostAsync(pastCompanyQ);
+                await firebase.Child(fileName_studentPastQs).PostAsync(pastStudentQ);
             }
-            db_studentQ.Delete<SQLite_Tables.MyQueue>(numStudentQs);
 
-            int numStudents = db_myCompanyQ.Table<SQLite_Tables.Queue>().Count();
+            // remove student from q, and remove q from student's current qs
+            string fileName_companyQ = "qs_" + myAttributes.cfid.ToString() + "_" + myAttributes.attribute1;
+            string fileName_studentQ = "myqs_" + myAttributes.cfid.ToString() + "_" + student_id;
 
-            db_myCompanyQ.Delete<SQLite_Tables.Queue>(1);
-            for (int i = 1; i <= numStudents - 1; i++)
+            var companyQ = await firebase.Child(fileName_companyQ).OnceAsync<Queue>();
+            var studentQ = await firebase.Child(fileName_studentQ).OnceAsync<StudentQ>();
+
+            int numStudentsInQ = companyQ.Count;
+
+            string key1 = "";
+            foreach (var q in companyQ)
             {
-                SQLite_Tables.Queue newStudent = new SQLite_Tables.Queue();
-                newStudent.id = i;
-                newStudent.studentid = db_myCompanyQ.Get<SQLite_Tables.Queue>(i + 1).studentid;
+                if (q.Object.position != "1")
+                {
+                    Queue newQ = new Queue();
+                    int currentPos = Convert.ToInt32(q.Object.position);
+                    int newPos = currentPos - 1;
+                    newQ.position = newPos.ToString();
+                    newQ.studentid = q.Object.studentid;
+                    newQ.studentname = q.Object.studentname;
+                    string thisKey = q.Key;
 
-                db_myCompanyQ.InsertOrReplace(newStudent);
+                    await firebase.Child(fileName_companyQ).Child(thisKey).PutAsync(newQ);
+
+                    string fileName_thisStudentQ = "myqs_" + myAttributes.cfid.ToString() + "_" + q.Object.studentid;
+
+                    var thisStudentQ = await firebase.Child(fileName_thisStudentQ).OnceAsync<StudentQ>();
+                    foreach (var p in thisStudentQ)
+                    {
+                        if (p.Object.company == myAttributes.attribute1)
+                        {
+                            string companyKey = p.Key;
+                            StudentQ newStudentQ = new StudentQ();
+                            newStudentQ.position = newPos.ToString();
+                            newStudentQ.company = myAttributes.attribute1;
+                            await firebase.Child(fileName_thisStudentQ).Child(companyKey).PutAsync(newStudentQ);
+                        }
+                    }
+                }
+                else
+                {
+                    key1 = q.Key;
+                    await firebase.Child(fileName_companyQ).Child(key1).DeleteAsync();
+                }
             }
-            db_myCompanyQ.Delete<SQLite_Tables.Queue>(numStudents);
 
+            foreach (var q in studentQ)
+            {
+                if (q.Object.company == myAttributes.attribute1)
+                {
+                    string thisKey = q.Key;
+                    await firebase.Child(fileName_studentQ).Child(thisKey).DeleteAsync();
+                }
+            }
+
+            progressBar.Visibility = ViewStates.Invisible;
             Android.Support.V4.App.FragmentTransaction trans = FragmentManager.BeginTransaction();
             trans.Replace(Resource.Id.qs_root_frame, new QsFragment());
             trans.Commit();
         }
-
-        /*private void Notes_Touch(object sender, View.TouchEventArgs e)
-        {
-            Button doneButton = view.FindViewById<Button>(Resource.Id.doneButton);
-            EditText notes = view.FindViewById<EditText>(Resource.Id.notes);
-            //InputMethodManager imm = (InputMethodManager)this.Activity.GetSystemService(Context.InputMethodService);
-            //imm.ShowSoftInputFromInputMethod(notes.WindowToken, 0);
-            doneButton.Visibility = ViewStates.Visible;
-            notes.RequestFocus();
-        }*/
-
-        /*private void Notes_FocusChange(object sender, View.FocusChangeEventArgs e)
-        {
-            
-            Button doneButton = view.FindViewById<Button>(Resource.Id.doneButton);
-            if (doneIsVisible == false)
-            {
-                doneButton.Visibility = ViewStates.Visible;
-                doneIsVisible = true;
-            }
-            else if (doneIsVisible == true)
-            {
-                doneButton.Visibility = ViewStates.Gone;
-                doneIsVisible = false;
-            }
-        }*/
-
-        /*private void DoneButton_Click(object sender, EventArgs e)
-        {
-            EditText notes = view.FindViewById<EditText>(Resource.Id.notes);
-            InputMethodManager imm = (InputMethodManager)this.Activity.GetSystemService(Context.InputMethodService);
-            imm.HideSoftInputFromWindow(notes.WindowToken, 0);
-            Button doneButton = view.FindViewById<Button>(Resource.Id.doneButton);
-            doneButton.Visibility = ViewStates.Gone;
-            doneIsVisible = false;
-            notes.ClearFocus();
-            //LinearLayout root = view.FindViewById<LinearLayout>(Resource.Id.rootLayout);
-            //root.RequestFocus();           
-        }*/
-
-        /*private void Notes_Click(object sender, EventArgs e)
-        {
-            Button doneButton = view.FindViewById<Button>(Resource.Id.doneButton);
-            doneButton.Visibility = ViewStates.Visible;
-        }*/
     }
 }

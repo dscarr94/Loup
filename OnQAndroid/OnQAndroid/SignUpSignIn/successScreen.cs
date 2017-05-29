@@ -36,51 +36,12 @@ namespace OnQAndroid
             var db_attributes = new SQLiteConnection(dbPath_attributes);
             MyAttributes userAttributes = db_attributes.Get<MyAttributes>(1);
 
-            // connect to user database
-            string dbPath_user = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "user.db3");
-            var db_user = new SQLiteConnection(dbPath_user);
 
             // Update User Attributes
             userAttributes.cfid = 0; // no career fair id
             userAttributes.rememberme = false; // force log in on next use
 
             db_attributes.Update(userAttributes); // update attributes row
-            
-            // Create new LoginTable entry - converted to firebase
-            LoginTable logintbl = new OnQAndroid.LoginTable();
-            logintbl.name = userAttributes.name;
-            logintbl.email = userAttributes.email;
-            logintbl.password = userAttributes.password;
-            logintbl.type = userAttributes.type;
-
-            db_user.Insert(logintbl); // insert login information
-
-            // Create new typeTable entry
-
-            if (userAttributes.type == "Student")
-            {
-                StudentTable studenttbl = new StudentTable();
-                studenttbl.name = userAttributes.name;
-                studenttbl.email = userAttributes.email;
-                studenttbl.password = userAttributes.password;
-                studenttbl.school = userAttributes.attribute1;
-                studenttbl.gradterm = userAttributes.attribute2;
-                studenttbl.major = userAttributes.attribute3;
-                studenttbl.gpa = userAttributes.attribute4;
-
-                db_user.Insert(studenttbl); // insert student information
-            }
-
-            else if (userAttributes.type == "Recruiter")
-            {
-                RecruiterTable rectbl = new OnQAndroid.RecruiterTable();
-                rectbl.name = userAttributes.name;
-                rectbl.email = userAttributes.email;
-                rectbl.password = userAttributes.password;
-                rectbl.company = userAttributes.attribute1;
-
-                db_user.Insert(rectbl); // insert recruiter attributes
-            }
 
             CreateUser();
         }

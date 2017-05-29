@@ -6,20 +6,30 @@ using Android.Views;
 using Android.Widget;
 using SQLite;
 using Android.Support.V4.App;
+using Firebase.Xamarin.Database;
+using OnQAndroid.FirebaseObjects;
+using Firebase.Xamarin.Database.Query;
 
 namespace OnQAndroid
 {
     class QsListViewAdapter : BaseAdapter<string>
     {
         private List<string> mItems;
+        private List<bool> mFavs;
         private Context mContext;
         private string mSender;
+        private const string FirebaseURL = "https://onqfirebase.firebaseio.com/";
+        bool isFavorite;
+        public string favoritesFileName;
+        private List<int> mCompanyIds;
 
-        public QsListViewAdapter(Context context, List<string> items, string sender)
+        public QsListViewAdapter(Context context, List<string> items, string sender, List<bool> favs, List<int> companyIds)
         {
+            mCompanyIds = companyIds;
             mItems = items;
             mContext = context;
             mSender = sender;
+            mFavs = favs;
         }
 
         public override int Count
@@ -54,26 +64,14 @@ namespace OnQAndroid
             var myAttributes = db_attributes.Get<MyAttributes>(1);
             int myCFID = myAttributes.cfid;
 
-            string dbPath_login = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "user.db3");
-            var db_login = new SQLiteConnection(dbPath_login);
+            int companyId = mCompanyIds[position];
 
-            var loginQueryResults = db_login.Query<LoginTable>("SELECT * FROM LoginTable WHERE email = ?", myAttributes.email);
-            LoginTable myLogInInfo = loginQueryResults.First();
-
-            string favoritesFileName = "fav_" + myCFID.ToString() + "_" + myLogInInfo.id.ToString() + ".db3";
-            string dbPath_favorites = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), favoritesFileName);
-            var db_favorites = new SQLiteConnection(dbPath_favorites);
+            favoritesFileName = "fav_" + myCFID.ToString() + "_" + myAttributes.typeid.ToString();
 
             if (row == null)
             {
                 row = LayoutInflater.From(mContext).Inflate(Resource.Layout.companieslistview_row, null, false);
             }
-
-            string fileName_companies = myCFID.ToString() + ".db3";
-            string dbPath_companies = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), fileName_companies);
-            var db_companies = new SQLiteConnection(dbPath_companies);
-
-            int companyId = db_companies.Query<Companies>("SELECT * FROM Companies WHERE name = ?", mItems[position]).First().id;
 
             TextView companyName = row.FindViewById<TextView>(Resource.Id.companyName);
             ImageView companyLogo = row.FindViewById<ImageView>(Resource.Id.companyLogo);
@@ -89,7 +87,8 @@ namespace OnQAndroid
             int resourceId = (int)typeof(Resource.Drawable).GetField(fileName).GetValue(null);
             companyLogo.SetImageResource(resourceId);
 
-            bool isFavorite = db_favorites.Get<SQLite_Tables.MyFavorites>(companyId).isFavorite;
+            isFavorite = mFavs[position];
+
             if (isFavorite == true)
             {
                 star.SetImageResource(Resource.Drawable.starfilled);
@@ -101,24 +100,20 @@ namespace OnQAndroid
 
             favorite.Click += (sender, e) =>
             {
-                //bool isFavorite = db_favorites.Get<SQLite_Tables.MyFavorites>(position + 1).isFavorite;
-                if (isFavorite == true)
+                bool thisFavorite = mFavs[position];
+                if (thisFavorite == true)
                 {
-                    SQLite_Tables.MyFavorites newIsFavorite = new SQLite_Tables.MyFavorites();
-                    newIsFavorite.id = companyId;
-                    newIsFavorite.isFavorite = false;
                     star.SetImageResource(Resource.Drawable.starunfilled);
-                    isFavorite = false;
-                    db_favorites.Update(newIsFavorite);
+                    bool newFavorite = false;
+                    mFavs[position] = false;
+                    UpdateIsFavorite(newFavorite, companyId);
                 }
-                else if (isFavorite == false)
+                else if (thisFavorite == false)
                 {
-                    SQLite_Tables.MyFavorites newIsFavorite = new SQLite_Tables.MyFavorites();
-                    newIsFavorite.id = companyId;
-                    newIsFavorite.isFavorite = true;
                     star.SetImageResource(Resource.Drawable.starfilled);
-                    isFavorite = true;
-                    db_favorites.Update(newIsFavorite);
+                    bool newFavorite = true;
+                    mFavs[position] = true;
+                    UpdateIsFavorite(newFavorite, companyId);
                 }
             };
 
@@ -142,13 +137,33 @@ namespace OnQAndroid
                 }
                 fragment.Arguments = arguments;
                 trans.Replace(Resource.Id.qs_root_frame, fragment);
-
-                //trans.AddToBackStack(null);
-
                 trans.Commit();
             };
 
             return row;
+        }
+        private async void UpdateIsFavorite(bool newIsFavorite, int companyid)
+        {
+            var firebase = new FirebaseClient(FirebaseURL);
+            var allFavorites = await firebase.Child(favoritesFileName).OnceAsync<Favorite>();
+            string key = "";
+            string name = "";
+
+            foreach (var favorite in allFavorites)
+            {
+                if (favorite.Object.companyid == companyid.ToString())
+                {
+                    key = favorite.Key;
+                    name = favorite.Object.name;
+                }
+            }
+
+            Favorite updateFavorite = new Favorite();
+            updateFavorite.companyid = companyid.ToString();
+            updateFavorite.isFavorite = newIsFavorite;
+            updateFavorite.name = name;
+
+            await firebase.Child(favoritesFileName).Child(key).PutAsync(updateFavorite);
         }
     }
 }

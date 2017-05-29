@@ -3,7 +3,10 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF">
+    android:background="#FFFFFF"
+                  android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true"
+    android:id="@+id/rootLayout">>
     <TextView
         android:text="Sign Up"
         android:textAppearance="?android:attr/textAppearanceLarge"

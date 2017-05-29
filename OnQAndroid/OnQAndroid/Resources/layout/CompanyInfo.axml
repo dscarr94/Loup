@@ -29,7 +29,6 @@
                 android:layout_marginTop="10dp"
                 android:padding="10dp" />
             <TextView
-                android:text="Company"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -40,14 +39,12 @@
                 android:layout_weight="70"
                 android:layout_gravity="center" />
             <ImageView
-                android:src="@android:drawable/ic_menu_gallery"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:id="@+id/bigCompanyLogo"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp" />
             <TextView
-                android:text="Description"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -57,7 +54,6 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp" />
             <TextView
-                android:text="Website"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

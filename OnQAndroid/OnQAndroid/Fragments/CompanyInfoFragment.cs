@@ -22,7 +22,7 @@ namespace OnQAndroid
 
         public static CompanyInfoFragment newInstance()
         {
-            CompanyInfoFragment fragment = new OnQAndroid.CompanyInfoFragment();
+            CompanyInfoFragment fragment = new CompanyInfoFragment();
             return fragment;
         }
         string location;
@@ -49,13 +49,8 @@ namespace OnQAndroid
             website = view.FindViewById<TextView>(Resource.Id.companyWebsite);
             Button backButton = view.FindViewById<Button>(Resource.Id.backButton);
 
-            //fileName = myCFID.ToString() + ".db3";
-
-            //string dbPath_myCF = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), fileName);
-            //var db_myCF = new SQLiteConnection(dbPath_myCF)
-
             GetCompanyInfo();
-            
+
             backButton.Click += BackButton_Click;
 
             return view;
@@ -115,9 +110,6 @@ namespace OnQAndroid
 
         private void Website_Click(object sender, EventArgs e)
         {
-            //string dbPath_myCF = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), fileName);
-            //var db_myCF = new SQLiteConnection(dbPath_myCF);
-
             Intent intent = new Intent(Intent.ActionView, Android.Net.Uri.Parse(thisCompanyInfo.website));
             StartActivity(intent);
         }

@@ -95,7 +95,7 @@ namespace OnQAndroid
 
             if (myAttributes.type == "Student")
             {
-                string favorites_fileName = "fav_" + myCFID + "_" + myAttributes.loginid.ToString();
+                string favorites_fileName = "fav_" + myCFID + "_" + myAttributes.typeid.ToString();
 
                 var allCompanies = await firebase.Child(myAttributes.cfid.ToString()).OnceAsync<Company>();
 
@@ -118,22 +118,27 @@ namespace OnQAndroid
 
             else if (myAttributes.type == "Recruiter")
             {
-                string mPreferences_fileName = "mp_" + myCFID + "_" + myAttributes.attribute1;
-                /*string dbPath_mPreferences = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), mPreferences_fileName);
-                var db_mPreferences = new SQLiteConnection(dbPath_mPreferences);
-                db_mPreferences.CreateTable<OnQAndroid.SQLite_Tables.MajorPreferences>();
-                db_mPreferences.CreateTable<OnQAndroid.SQLite_Tables.GradTermPreferences>();
-                db_mPreferences.CreateTable<OnQAndroid.SQLite_Tables.GPAPreferences>();*/
+                var allCompanies = await firebase.Child(myAttributes.cfid.ToString()).OnceAsync<Company>();
 
-                string myCompanyQFilename = "qs_" + myCFID + "_" + myAttributes.attribute1;
-                /*string dbPath_myCompanyQ = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), myCompanyQFilename);
-                var db_myCompanyQ = new SQLiteConnection(dbPath_myCompanyQ);
-                db_myCompanyQ.CreateTable<OnQAndroid.SQLite_Tables.Queue>();*/
+                Company newCompany = new Company();
+                string companyKey = "";
 
-                string myCompanyPastQsFilename = "pastqs_" + myAttributes.attribute1;
-                /*string dbPath_pastqs = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), myCompanyPastQsFilename);
-                var db_pastqs = new SQLiteConnection(dbPath_pastqs);
-                db_pastqs.CreateTable<OnQAndroid.SQLite_Tables.PastQueue>();*/
+                foreach (var company in allCompanies)
+                {
+                    if (company.Object.name == myAttributes.attribute1)
+                    {
+                        companyKey = company.Key;
+                        newCompany.companyid = company.Object.companyid;
+                        newCompany.name = company.Object.name;
+                        newCompany.description = company.Object.description;
+                        newCompany.website = company.Object.website;
+                        newCompany.rak = company.Object.rak;
+                        newCompany.checkedIn = true;
+                    }
+                }
+
+                await firebase.Child(myAttributes.cfid.ToString()).Child(companyKey).PutAsync(newCompany);
+
 
                 Android.Support.V4.App.FragmentTransaction trans = FragmentManager.BeginTransaction();
                 trans.Replace(Resource.Id.register_root_frame, new RegisterFragment());

@@ -8,7 +8,6 @@ using Android.Views.InputMethods;
 using SQLite;
 using Android.Support.V4.View;
 using Firebase.Xamarin.Database;
-//using Android.Support.V4.App;
 
 namespace OnQAndroid
 {
@@ -19,7 +18,7 @@ namespace OnQAndroid
             // Required empty public constructor
         }
 
-        public static RegisterFragment newInstance()
+        public static RegisterFragment NewInstance()
         {
             RegisterFragment fragment = new OnQAndroid.RegisterFragment();
             return fragment;
@@ -61,6 +60,10 @@ namespace OnQAndroid
 
             imm = (InputMethodManager)this.Activity.GetSystemService(Context.InputMethodService);
 
+            viewPager.PageSelected += (sender, e) =>
+            {
+                imm.HideSoftInputFromInputMethod(cfID.WindowToken, 0);
+            };
             /*viewPager.LayoutChange += (sender, e) =>
             {
                 imm.HideSoftInputFromInputMethod(cfID.WindowToken, 0);

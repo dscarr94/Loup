@@ -15,7 +15,7 @@ namespace OnQAndroid
             mItems = items;
             mContext = context;
         }
-
+        
         public override int Count
         {
             get

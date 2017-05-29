@@ -22,6 +22,16 @@
         android:layout_gravity="center"
         android:layout_marginTop="-25dp"
         android:textStyle="bold" />
+    <ProgressBar
+        android:id="@+id/circularProgress"
+        android:theme="@style/CircularProgress"
+        android:visibility="invisible"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="-50dp"
+        style="@style/Widget.AppCompat.ProgressBar"
+        android:layout_gravity="center" />
     <ListView
         android:minWidth="25px"
         android:minHeight="25px"

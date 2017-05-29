@@ -9,6 +9,7 @@ using SQLite;
 using Firebase.Xamarin.Database;
 using OnQAndroid.FirebaseObjects;
 using Android.Views;
+using Android.Views.InputMethods;
 // converted to firebase vvv
 namespace OnQAndroid
 {
@@ -39,9 +40,15 @@ namespace OnQAndroid
             tfPassword = FindViewById<EditText>(Resource.Id.TFpassword);
             forgotPassword = FindViewById<TextView>(Resource.Id.forgotpassword);
             Button devTools = FindViewById<Button>(Resource.Id.devTools); // initializes and gets button from view
+            LinearLayout ll_main = FindViewById<LinearLayout>(Resource.Id.rootLayout);
             rememberMe = FindViewById<ImageView>(Resource.Id.rememberMe);
             TextView rememberMeText = FindViewById<TextView>(Resource.Id.rememberMeText);
             shouldRemember = false;
+
+
+            ll_main.RequestFocus();
+            //InputMethodManager imm = (InputMethodManager)this.GetSystemService(Context.InputMethodService);
+            //imm.HideSoftInputFromInputMethod(tfEmail.WindowToken, 0);
 
             rememberMe.Click  += (sender, e) =>
             {
@@ -70,9 +77,6 @@ namespace OnQAndroid
                     rememberMe.SetImageResource(Resource.Drawable.radio_unchecked);
                 }
             };
-
-            // Create Database
-            CreateDB(); // calls createDB method
 
             // Disable login button until username and password are entered
             loginButton.Enabled = false; // disables login button
@@ -244,15 +248,6 @@ namespace OnQAndroid
         private void SignupButton_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(signupScreen)); // start sign up screen
-        }
-
-        public void CreateDB()
-        {
-            string dbPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "user.db3"); // local path to database called user.db3
-            var db = new SQLiteConnection(dbPath); // make a connection to database at this path
-            db.CreateTable<LoginTable>(); // make a logintable
-            db.CreateTable<StudentTable>(); // make a studenttable
-            db.CreateTable<RecruiterTable>(); // make a recruitertable
         }
     }
 }

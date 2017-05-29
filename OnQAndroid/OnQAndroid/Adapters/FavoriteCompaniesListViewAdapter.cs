@@ -63,7 +63,7 @@ namespace OnQAndroid
             companyName.Text = mCompanies[position];
             string fileName = companyName.Text.ToLower().Replace(" ", "");
             int resourceId = (int)typeof(Resource.Drawable).GetField(fileName).GetValue(null);
-            companyLogo.SetImageResource(resourceId);
+            companyLogo.SetImageResource(resourceId);            
 
             info.Click += (sender, e) =>
             {

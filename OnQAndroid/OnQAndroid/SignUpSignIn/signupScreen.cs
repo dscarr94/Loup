@@ -38,6 +38,9 @@ namespace OnQAndroid
             newEmailAddress = FindViewById<EditText>(Resource.Id.NewEmail);
             newPassword = FindViewById<EditText>(Resource.Id.NewPassword);
             confirmNewPassword = FindViewById<EditText>(Resource.Id.ConfirmNewPassword);
+            LinearLayout ll_main = FindViewById<LinearLayout>(Resource.Id.rootLayout);
+
+            ll_main.RequestFocus();
 
             // On Button Clicks
             finishButton.Click += FinishButton_Click;

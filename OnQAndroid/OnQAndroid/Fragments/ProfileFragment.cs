@@ -30,6 +30,7 @@ namespace OnQAndroid
         ListView favListView;
         MyAttributes myAttributes;
         ProgressBar progressBar;
+        ListView lv_favorites;
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
@@ -79,6 +80,8 @@ namespace OnQAndroid
                 TextView email = view.FindViewById<TextView>(Resource.Id.myEmail);
                 TextView company = view.FindViewById<TextView>(Resource.Id.myCompany);
                 TextView editProfile = view.FindViewById<TextView>(Resource.Id.editProfile);
+                progressBar = view.FindViewById<ProgressBar>(Resource.Id.circularProgress);
+                lv_favorites = view.FindViewById<ListView>(Resource.Id.favoritesList);
 
                 name.Text = myAttributes.name;
                 email.Text = myAttributes.email;
@@ -90,29 +93,7 @@ namespace OnQAndroid
 
                 if (myCFID != 0)
                 {
-                    string fileName_pastqs = "pastqs_" + myAttributes.attribute1 + ".db3";
-                    string dbPath_pastqs = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), fileName_pastqs);
-                    SQLiteConnection db_pastqs = new SQLiteConnection(dbPath_pastqs);
-                    int numpastqs = db_pastqs.Table<SQLite_Tables.PastQueue>().Count();
-
-                    string dbPath_login = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "user.db3");
-                    SQLiteConnection db_login = new SQLiteConnection(dbPath_login);
-
-                    ListView lv_favorites = view.FindViewById<ListView>(Resource.Id.favoritesList);
-                    List<int> students = new List<int>();
-
-                    for (int i = 1; i <= numpastqs; i++)
-                    {
-                        SQLite_Tables.PastQueue thisPastQueue = db_pastqs.Get<SQLite_Tables.PastQueue>(i);
-                        if (thisPastQueue.rating != 0)
-                        {
-                            int newStudentid = thisPastQueue.studentid;
-                            students.Add(newStudentid);
-                        }
-
-                        PastQueuesListViewAdapter adapter = new PastQueuesListViewAdapter(container.Context, students, "Profile");
-                        lv_favorites.Adapter = adapter;
-                    }
+                    PopulateRecruiterList();
                 }
                 return view;
             }
@@ -123,13 +104,39 @@ namespace OnQAndroid
 
         }
 
+        private async void PopulateRecruiterList()
+        {
+            progressBar.Visibility = ViewStates.Visible;
+            string fileName_pastQs = "pastqs_" + myAttributes.attribute1;
+            var firebase = new FirebaseClient(FirebaseURL);
+            List<int> studentIds = new List<int>();
+            List<string> studentNames = new List<string>();
+            List<string> studentRatings = new List<string>();
+
+            var pastQs = await firebase.Child(fileName_pastQs).OnceAsync<PastQ>();
+
+            foreach (var pastq in pastQs)
+            {
+                if (pastq.Object.rating != "0")
+                {
+                    studentIds.Add(Convert.ToInt32(pastq.Object.studentid));
+                    studentNames.Add(pastq.Object.name);
+                    studentRatings.Add(pastq.Object.rating);
+                }
+            }
+
+            PastQueuesListViewAdapter adapter = new PastQueuesListViewAdapter(mContainer.Context, studentIds, "Profile", studentNames, studentRatings);
+            lv_favorites.Adapter = adapter;
+            progressBar.Visibility = ViewStates.Invisible;
+        }
+
         private async void PopulateList()
         {
             progressBar.Visibility = ViewStates.Visible;
             var firebase = new FirebaseClient(FirebaseURL);
             List<int> mItems = new List<int>();
             List<string> mCompanies = new List<string>();
-            string fileName = "fav_" + myAttributes.cfid.ToString() + "_" + myAttributes.loginid.ToString();
+            string fileName = "fav_" + myAttributes.cfid.ToString() + "_" + myAttributes.typeid.ToString();
 
             var favItems = await firebase.Child(fileName).OnceAsync<Favorite>();
 

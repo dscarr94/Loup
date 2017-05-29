@@ -15,7 +15,6 @@
         android:gravity="center"
         android:layout_marginTop="5dp" />
     <TextView
-        android:text="myCF Name"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -72,7 +71,8 @@
                 android:background="@drawable/plus"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="20dp"
-                android:paddingRight="8dp" />
+                android:paddingRight="8dp"
+                android:visibility="invisible" />
             <Space
                 android:layout_width="8dp"
                 android:layout_height="22dp"
@@ -87,7 +87,8 @@
                 android:layout_marginLeft="40dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="-32dp"
-                style="@android:style/Widget.Spinner" />
+                style="@android:style/Widget.Spinner"
+                android:visibility="invisible" />
             <Button
                 android:layout_width="22dp"
                 android:layout_height="22dp"
@@ -167,7 +168,8 @@
                 android:background="@drawable/plus"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="20dp"
-                android:paddingRight="8dp" />
+                android:paddingRight="8dp"
+                android:visibility="invisible" />
             <Space
                 android:layout_width="8dp"
                 android:layout_height="22dp"
@@ -182,7 +184,8 @@
                 android:layout_marginLeft="40dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="-32dp"
-                style="@android:style/Widget.Spinner" />
+                style="@android:style/Widget.Spinner"
+                android:visibility="invisible" />
             <Button
                 android:layout_width="22dp"
                 android:layout_height="22dp"
@@ -244,7 +247,17 @@
                 android:layout_marginRight="10dp"
                 android:id="@+id/minGPAspinner"
                 android:layout_marginTop="10dp"
-                style="@android:style/Widget.Spinner" />
+                style="@android:style/Widget.Spinner"
+                android:visibility="invisible" />
+            <ProgressBar
+                android:id="@+id/circularProgress"
+                android:theme="@style/CircularProgress"
+                android:visibility="invisible"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                style="@style/Widget.AppCompat.ProgressBar"
+                android:layout_gravity="center"
+                android:layout_marginBottom="-15dp" />
             <Button
                 android:text="Save Changes"
                 android:layout_width="match_parent"
@@ -253,8 +266,8 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:background="@drawable/turquoisebutton"
-                android:layout_marginTop="20dp" 
-                android:textColor="@color/textcolorswitcher"/>
+                android:layout_marginTop="20dp"
+                android:textColor="@color/textcolorswitcher" />
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="10dp"
