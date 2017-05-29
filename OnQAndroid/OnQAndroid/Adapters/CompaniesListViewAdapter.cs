@@ -33,7 +33,7 @@ namespace OnQAndroid
         {
             get
             {
-                return mItems.Count;           
+                return mItems.Count;
             }
         }
         public override long GetItemId(int position)
@@ -61,7 +61,7 @@ namespace OnQAndroid
 
             companyid = (position + 1).ToString();
 
-            favoritesFileName = "fav_" + myCFID.ToString() + "_" + myAttributes.loginid.ToString();
+            favoritesFileName = "fav_" + myCFID.ToString() + "_" + myAttributes.typeid.ToString();
 
             if (row == null)
             {
@@ -101,22 +101,22 @@ namespace OnQAndroid
                 trans.Replace(Resource.Id.companies_root_frame, fragment);
                 trans.Commit();
             };
-
             favorite.Click += (sender, e) =>
             {
-                if (isFavorite == true)
+                bool thisFavorite = mFavs[position];
+                if (thisFavorite == true)
                 {
                     star.SetImageResource(Resource.Drawable.starunfilled);
-                    isFavorite = false;
+                    bool newFavorite = false;
                     mFavs[position] = false;
-                    UpdateIsFavorite(isFavorite, position+1);
+                    UpdateIsFavorite(newFavorite, position + 1);
                 }
-                else if (isFavorite == false)
+                else if (thisFavorite == false)
                 {
                     star.SetImageResource(Resource.Drawable.starfilled);
-                    isFavorite = true;
+                    bool newFavorite = true;
                     mFavs[position] = true;
-                    UpdateIsFavorite(isFavorite, position+1);
+                    UpdateIsFavorite(newFavorite, position + 1);
                 }
             };
 

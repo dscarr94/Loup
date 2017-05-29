@@ -55,7 +55,7 @@ namespace OnQAndroid
             //var db_myCF = new SQLiteConnection(dbPath_myCF)
 
             GetCompanyInfo();
-
+            
             backButton.Click += BackButton_Click;
 
             return view;
