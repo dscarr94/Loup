@@ -149,6 +149,30 @@ namespace OnQAndroid.Fragments
                 }
             }
 
+            string fileName_careerFair = myAttributes.cfid.ToString();
+
+            var thisCareerFair = await firebase.Child(fileName_careerFair).OnceAsync<Company>();
+            Company newCompanyInfo = new Company();
+            string thisCompanyKey = "";
+
+            foreach (var company in thisCareerFair)
+            {
+                if (company.Object.name == myAttributes.attribute1)
+                {
+                    thisCompanyKey = company.Key;
+                    newCompanyInfo.companyid = company.Object.companyid;
+                    newCompanyInfo.name = company.Object.name;
+                    newCompanyInfo.description = company.Object.description;
+                    newCompanyInfo.website = company.Object.website;
+                    newCompanyInfo.rak = company.Object.rak;
+                    newCompanyInfo.checkedIn = company.Object.checkedIn;
+                    newCompanyInfo.waittime = company.Object.waittime;
+                    newCompanyInfo.numstudents = (numStudentsInQ - 1).ToString();
+                }
+            }
+
+            await firebase.Child(fileName_careerFair).Child(thisCompanyKey).PutAsync(newCompanyInfo);
+
             progressBar.Visibility = ViewStates.Invisible;
             Android.Support.V4.App.FragmentTransaction trans = FragmentManager.BeginTransaction();
             trans.Replace(Resource.Id.qs_root_frame, new QsFragment());

@@ -73,6 +73,8 @@ namespace OnQAndroid.Fragments
             List<string> companies = new List<string>();
             List<bool> favorites = new List<bool>();
             List<int> companyIds = new List<int>();
+            List<string> positionBlank = new List<string>();
+            List<string> timeBlank = new List<string>();
 
             foreach (var pastq in pastQs)
             {
@@ -87,7 +89,7 @@ namespace OnQAndroid.Fragments
                 }
             }
 
-            QsListViewAdapter adapter = new QsListViewAdapter(mContainer.Context, companies, "PastQs", favorites, companyIds);
+            QsListViewAdapter adapter = new QsListViewAdapter(mContainer.Context, companies, "PastQs", favorites, companyIds, timeBlank, positionBlank);
             lv_pastqs.Adapter = adapter;
             progressBar.Visibility = ViewStates.Invisible;
         }

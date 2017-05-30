@@ -134,11 +134,12 @@ namespace OnQAndroid
                         newCompany.website = company.Object.website;
                         newCompany.rak = company.Object.rak;
                         newCompany.checkedIn = true;
+                        newCompany.waittime = company.Object.waittime;
+                        newCompany.numstudents = company.Object.numstudents;
                     }
                 }
 
                 await firebase.Child(myAttributes.cfid.ToString()).Child(companyKey).PutAsync(newCompany);
-
 
                 Android.Support.V4.App.FragmentTransaction trans = FragmentManager.BeginTransaction();
                 trans.Replace(Resource.Id.register_root_frame, new RegisterFragment());

@@ -415,10 +415,19 @@ namespace OnQAndroid
             }
 
             var myCFcompanies = await firebase.Child(myAttributes.cfid.ToString()).OnceAsync<Company>();
+            List<string> mWaitTimes = new List<string>();
+            List<string> mNumStudents = new List<string>();
 
             foreach (var company in myCFcompanies)
             {
                 mItems.Add(company.Object.name);
+                long totalNumStudents = Convert.ToInt32(company.Object.numstudents);
+                long partialWaitTime = Convert.ToInt64(company.Object.waittime);
+                long totalWaitTime = partialWaitTime * totalNumStudents;
+                TimeSpan ts = TimeSpan.FromTicks(totalWaitTime);
+                string waittime = String.Format("{0:00}:{1:00}:{2:00}", ts.Hours, ts.Minutes, ts.Seconds);
+                mWaitTimes.Add(waittime);
+                mNumStudents.Add(totalNumStudents.ToString());
             }
 
             string favoritesFileName = "fav_" + myAttributes.cfid.ToString() + "_" + myAttributes.typeid.ToString();
@@ -431,7 +440,7 @@ namespace OnQAndroid
             }
 
             cfName.Text = myCFName;
-            CompaniesListViewAdapter adapter = new CompaniesListViewAdapter(mContainer.Context, mItems, favList);
+            CompaniesListViewAdapter adapter = new CompaniesListViewAdapter(mContainer.Context, mItems, favList, mWaitTimes, mNumStudents);
             mListView.Adapter = adapter;
             progressBar.Visibility = ViewStates.Invisible;
         }

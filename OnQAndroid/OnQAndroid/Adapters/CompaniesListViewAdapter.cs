@@ -18,16 +18,21 @@ namespace OnQAndroid
         private List<string> mItems;
         private List<bool> mFavs;
         private Context mContext;
+        private List<string> mTimes;
+        private List<string> mNumStudents;
         private const string FirebaseURL = "https://onqfirebase.firebaseio.com/";
         bool isFavorite;
         public string companyid;
         public string favoritesFileName;
+        
 
-        public CompaniesListViewAdapter(Context context, List<string> items, List<bool> favs)
+        public CompaniesListViewAdapter(Context context, List<string> items, List<bool> favs, List<string> times, List<string> numStudents)
         {
             mItems = items;
             mContext = context;
             mFavs = favs;
+            mTimes = times;
+            mNumStudents = numStudents;
         }
         public override int Count
         {
@@ -74,11 +79,16 @@ namespace OnQAndroid
             LinearLayout favorite = row.FindViewById<LinearLayout>(Resource.Id.favorite);
             LinearLayout q_ll = row.FindViewById<LinearLayout>(Resource.Id.q_ll);
             ImageView star = row.FindViewById<ImageView>(Resource.Id.star);
+            TextView timeText = row.FindViewById<TextView>(Resource.Id.timeText);
+            TextView positionText = row.FindViewById<TextView>(Resource.Id.positionText);
 
             companyName.Text = mItems[position];
             string fileName = companyName.Text.ToLower().Replace(" ", "");
             int resourceId = (int)typeof(Resource.Drawable).GetField(fileName).GetValue(null);
             companyLogo.SetImageResource(resourceId);
+
+            timeText.Text = mTimes[position];
+            positionText.Text = mNumStudents[position];
 
             isFavorite = mFavs[position];
 

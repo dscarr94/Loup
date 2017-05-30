@@ -7,6 +7,7 @@ using SQLite;
 using Android.Support.V4.View;
 using Firebase.Xamarin.Database;
 using OnQAndroid.FirebaseObjects;
+using Firebase.Xamarin.Database.Query;
 
 namespace OnQAndroid.Fragments
 {
@@ -94,6 +95,7 @@ namespace OnQAndroid.Fragments
             progressBar.Visibility = ViewStates.Visible;            
             string fileName_myQs = "myqs_" + myAttributes.cfid.ToString() + "_" + myAttributes.typeid;
             string fileName_Q = "qs_" + myAttributes.cfid.ToString() + "_" + thisCompany;
+            string fileName_careerFair = myAttributes.cfid.ToString();
 
             var firebase = new FirebaseClient(FirebaseURL);
 
@@ -119,6 +121,8 @@ namespace OnQAndroid.Fragments
                 else
                 {
                     var Qs = await firebase.Child(fileName_Q).OnceAsync<Queue>();
+                    var thisCareerFair = await firebase.Child(fileName_careerFair).OnceAsync<Company>();
+
                     int numQs = Qs.Count; // number of people in the queue
                     int numMyQs = myQs.Count; // number of q's a student has, may want to limit???
 
@@ -131,8 +135,30 @@ namespace OnQAndroid.Fragments
                     newMyQ.position = (numQs + 1).ToString();
                     newMyQ.company = thisCompany;
 
+                    Company newCompanyInfo = new Company();
+                    string companyKey = "";
+
+                    foreach (var company in thisCareerFair)
+                    {
+                        if (company.Object.name == thisCompany)
+                        {
+                            companyKey = company.Key;
+                            newCompanyInfo.companyid = company.Object.companyid;
+                            newCompanyInfo.name = company.Object.name;
+                            newCompanyInfo.description = company.Object.description;
+                            newCompanyInfo.website = company.Object.website;
+                            newCompanyInfo.rak = company.Object.rak;
+                            newCompanyInfo.checkedIn = company.Object.checkedIn;
+                            newCompanyInfo.waittime = company.Object.waittime;
+                            int newNumStudents = Convert.ToInt32(company.Object.numstudents) + 1;
+                            newCompanyInfo.numstudents = newNumStudents.ToString();
+                            break;
+                        }
+                    }
+
                     await firebase.Child(fileName_Q).PostAsync(newQ);
                     await firebase.Child(fileName_myQs).PostAsync(newMyQ);
+                    await firebase.Child(fileName_careerFair).Child(companyKey).PutAsync(newCompanyInfo);
 
                     Toast.MakeText(this.Activity, "You are onQ in Position " + (numQs + 1).ToString() + "!", ToastLength.Short).Show();
                     progressBar.Visibility = ViewStates.Invisible;

@@ -6,5 +6,6 @@
         public string studentid { get; set; }
         public string notes { get; set; }
         public string rating { get; set; }
+        public string time { get; set; }
     }
 }

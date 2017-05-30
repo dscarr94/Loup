@@ -65,16 +65,39 @@ namespace OnQAndroid.Fragments
         {
             progressBar.Visibility = ViewStates.Visible;
             string fileName_myQs = "myqs_" + myAttributes.cfid.ToString() + "_" + myAttributes.typeid.ToString();
+            string fileName_myCareerFair = myAttributes.cfid.ToString();
 
             var firebase = new FirebaseClient(FirebaseURL);
 
             var myQs = await firebase.Child(fileName_myQs).OnceAsync<StudentQ>();
 
             List<int> companyIds = new List<int>();
+            List<string> mPositions = new List<string>();
+            List<string> mWaitTimes = new List<string>();
 
             foreach (var q in myQs)
             {
                 mItems.Add(q.Object.company);
+                mPositions.Add(q.Object.position);
+            }
+
+            var myCareerFair = await firebase.Child(fileName_myCareerFair).OnceAsync<Company>();
+
+            foreach (var company in myCareerFair)
+            {
+                int position = -1;
+                foreach (var q in mItems)
+                {
+                    position = position + 1;
+                    if (q == company.Object.name)
+                    {
+                        long partialWaitTime = Convert.ToInt64(company.Object.waittime);
+                        long totalWaitTime = partialWaitTime * Convert.ToInt32(mPositions[position]);
+                        TimeSpan ts = TimeSpan.FromTicks(totalWaitTime);
+                        string waittime = String.Format("{0:00}:{1:00}:{2:00}", ts.Hours, ts.Minutes, ts.Seconds);
+                        mWaitTimes.Add(waittime);
+                    }
+                }
             }
 
             string fileName_favorites = "fav_" + myAttributes.cfid.ToString() + "_" + myAttributes.typeid.ToString();
@@ -93,7 +116,7 @@ namespace OnQAndroid.Fragments
                 }
             }
 
-            QsListViewAdapter adapter = new QsListViewAdapter(mContainer.Context, mItems, "CurrentQs", favs, companyIds);
+            QsListViewAdapter adapter = new QsListViewAdapter(mContainer.Context, mItems, "CurrentQs", favs, companyIds, mWaitTimes, mPositions);
             mListView.Adapter = adapter;
             progressBar.Visibility = ViewStates.Invisible;
         }

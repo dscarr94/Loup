@@ -22,14 +22,18 @@ namespace OnQAndroid
         bool isFavorite;
         public string favoritesFileName;
         private List<int> mCompanyIds;
+        private List<string> mTimes;
+        private List<string> mPositions;
 
-        public QsListViewAdapter(Context context, List<string> items, string sender, List<bool> favs, List<int> companyIds)
+        public QsListViewAdapter(Context context, List<string> items, string sender, List<bool> favs, List<int> companyIds, List<string> times, List<string> positions)
         {
             mCompanyIds = companyIds;
             mItems = items;
             mContext = context;
             mSender = sender;
             mFavs = favs;
+            mPositions = positions;
+            mTimes = times;
         }
 
         public override int Count
@@ -79,8 +83,21 @@ namespace OnQAndroid
             LinearLayout favorite = row.FindViewById<LinearLayout>(Resource.Id.favorite);
             LinearLayout q_ll = row.FindViewById<LinearLayout>(Resource.Id.q_ll);
             ImageView star = row.FindViewById<ImageView>(Resource.Id.star);
+            TextView timeText = row.FindViewById<TextView>(Resource.Id.timeText);
+            TextView positionText = row.FindViewById<TextView>(Resource.Id.positionText);
 
             q_ll.Enabled = false;
+
+            if (mSender == "CurrentQs")
+            {
+                timeText.Text = mTimes[position];
+                positionText.Text = mPositions[position];
+            }
+            else if (mSender == "PastQs")
+            {
+                timeText.Visibility = ViewStates.Invisible;
+                positionText.Visibility = ViewStates.Invisible;
+            }
 
             companyName.Text = mItems[position];
             string fileName = companyName.Text.ToLower().Replace(" ", "");

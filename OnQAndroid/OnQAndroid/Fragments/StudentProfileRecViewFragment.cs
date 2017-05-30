@@ -10,6 +10,8 @@ using Android.Views.InputMethods;
 using Firebase.Xamarin.Database;
 using OnQAndroid.FirebaseObjects;
 using Firebase.Xamarin.Database.Query;
+using System.Diagnostics;
+using System.Collections.Generic;
 
 namespace OnQAndroid.Fragments
 {
@@ -40,6 +42,7 @@ namespace OnQAndroid.Fragments
         TextView candidateGT;
         TextView candidateGPA;
         ProgressBar progressBar;
+        Stopwatch stopwatch;
 
         //bool doneIsVisible;
         public override void OnCreate(Bundle savedInstanceState)
@@ -53,6 +56,9 @@ namespace OnQAndroid.Fragments
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             view = inflater.Inflate(Resource.Layout.StudentProfileRecView, container, false);
+
+            stopwatch = new Stopwatch();
+            stopwatch.Start();
 
             progressBar = view.FindViewById<ProgressBar>(Resource.Id.circularProgress);
             candidateName = view.FindViewById<TextView>(Resource.Id.candidateName);
@@ -155,6 +161,8 @@ namespace OnQAndroid.Fragments
         private async void NextButton_Click(object sender, EventArgs e)
         {
             progressBar.Visibility = ViewStates.Visible;
+            stopwatch.Stop();
+
             string dbPath_attributes = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "attributes.db3");
             SQLiteConnection db_attributes = new SQLiteConnection(dbPath_attributes);
             MyAttributes myAttributes = db_attributes.Get<MyAttributes>(1);
@@ -164,6 +172,7 @@ namespace OnQAndroid.Fragments
             // move q to student's past qs, and move student to company pastqs
             string fileName_companyPastQs = "pastqs_" + myAttributes.attribute1;
             string fileName_studentPastQs = "pastqs_" + student_id.ToString();
+            string fileName_careerFair = myAttributes.cfid.ToString();
 
             StudentQ pastStudentQ = new StudentQ();
             pastStudentQ.company = myAttributes.attribute1;
@@ -173,10 +182,13 @@ namespace OnQAndroid.Fragments
             pastCompanyQ.studentid = student_id.ToString();
             pastCompanyQ.notes = notes.Text;
             pastCompanyQ.rating = rating.ToString();
+            pastCompanyQ.time = stopwatch.ElapsedTicks.ToString();
 
             // check to see if student is already in past q's
             var companyPastQs = await firebase.Child(fileName_companyPastQs).OnceAsync<PastQ>();
             bool studentExists = false;
+
+            List<string> times = new List<string>();
 
             foreach (var pastq in companyPastQs)
             {
@@ -185,7 +197,10 @@ namespace OnQAndroid.Fragments
                     studentExists = true;
                     break;
                 }
+                times.Add(pastq.Object.time);
             }
+
+            times.Add(stopwatch.ElapsedTicks.ToString());
 
             if (studentExists == false)
             {
@@ -247,6 +262,42 @@ namespace OnQAndroid.Fragments
                     await firebase.Child(fileName_studentQ).Child(thisKey).DeleteAsync();
                 }
             }
+
+            // Calculate average time, and update value in database
+            long fiveMinsInTicks = 3000000000;
+            long numTimes = times.Count;
+            long fiveMinsWeight = 10;
+            long otherWeight = 100 - fiveMinsWeight;
+            long indWeight = otherWeight / numTimes;
+
+            long sum = (fiveMinsInTicks * fiveMinsWeight)/100;
+            foreach (var time in times)
+            {
+                long timeContribution = (indWeight * Convert.ToInt64(time))/100;
+                sum = sum + timeContribution;
+            }
+
+            var thisCareerFair = await firebase.Child(fileName_careerFair).OnceAsync<Company>();
+            Company newCompanyInfo = new Company();
+            string thisCompanyKey = "";
+
+            foreach (var company in thisCareerFair)
+            {
+                if (company.Object.name == myAttributes.attribute1)
+                {
+                    thisCompanyKey = company.Key;
+                    newCompanyInfo.companyid = company.Object.companyid;
+                    newCompanyInfo.name = company.Object.name;
+                    newCompanyInfo.description = company.Object.description;
+                    newCompanyInfo.website = company.Object.website;
+                    newCompanyInfo.rak = company.Object.rak;
+                    newCompanyInfo.checkedIn = company.Object.checkedIn;
+                    newCompanyInfo.waittime = sum.ToString();
+                    newCompanyInfo.numstudents = (numStudentsInQ - 1).ToString();
+                }
+            }
+
+            await firebase.Child(fileName_careerFair).Child(thisCompanyKey).PutAsync(newCompanyInfo);
 
             progressBar.Visibility = ViewStates.Invisible;
             Android.Support.V4.App.FragmentTransaction trans = FragmentManager.BeginTransaction();

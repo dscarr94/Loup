@@ -8,5 +8,7 @@
         public string website { get; set; }
         public string rak { get; set; }
         public bool checkedIn { get; set; }
+        public string waittime { get; set; }
+        public string numstudents { get; set; }
     }
 }
