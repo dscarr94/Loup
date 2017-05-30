@@ -1,18 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
 using Android.App;
-using Android.Content;
 using Android.OS;
-using Android.Runtime;
-using Android.Util;
 using Android.Views;
 using Android.Widget;
 using Firebase.Xamarin.Database;
 using SQLite;
 using OnQAndroid.FirebaseObjects;
+using Firebase.Xamarin.Database.Query;
 
 namespace OnQAndroid.Fragments
 {
@@ -70,7 +65,7 @@ namespace OnQAndroid.Fragments
             var firebase = new FirebaseClient(FirebaseURL);
             string fileName_pastQs = "pastqs_" + myAttributes.attribute1;
 
-            var pastQs = await firebase.Child(fileName_pastQs).OnceAsync<PastQ>();
+            var pastQs = await firebase.Child("pastqs").Child(fileName_pastQs).OnceAsync<PastQ>();
 
             List<int> studentIds = new List<int>();
             List<string> studentNames = new List<string>();

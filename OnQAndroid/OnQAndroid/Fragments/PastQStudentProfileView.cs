@@ -145,7 +145,7 @@ namespace OnQAndroid.Fragments
 
             string fileName_pastQs = "pastqs_" + myAttributes.attribute1;
 
-            var pastQs = await firebase.Child(fileName_pastQs).OnceAsync<PastQ>();
+            var pastQs = await firebase.Child("pastqs").Child(fileName_pastQs).OnceAsync<PastQ>();
             string time = "";
 
             foreach (var q in pastQs)
@@ -164,7 +164,7 @@ namespace OnQAndroid.Fragments
             updatePastQ.rating = newRating.ToString();
             updatePastQ.time = time;
 
-            await firebase.Child(fileName_pastQs).Child(pastQkey).PutAsync(updatePastQ);
+            await firebase.Child("pastqs").Child(fileName_pastQs).Child(pastQkey).PutAsync(updatePastQ);
 
             Toast.MakeText(this.Activity, "Changes Saved", ToastLength.Short).Show();
             progressBar.Visibility = ViewStates.Invisible;
@@ -191,7 +191,7 @@ namespace OnQAndroid.Fragments
             }
 
             string fileName_pastQs = "pastqs_" + myAttributes.attribute1;
-            var pastQs = await firebase.Child(fileName_pastQs).OnceAsync<PastQ>();
+            var pastQs = await firebase.Child("pastqs").Child(fileName_pastQs).OnceAsync<PastQ>();
 
             foreach (var pastq in pastQs)
             {

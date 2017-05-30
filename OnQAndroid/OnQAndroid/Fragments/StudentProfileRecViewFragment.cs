@@ -185,7 +185,7 @@ namespace OnQAndroid.Fragments
             pastCompanyQ.time = stopwatch.ElapsedTicks.ToString();
 
             // check to see if student is already in past q's
-            var companyPastQs = await firebase.Child(fileName_companyPastQs).OnceAsync<PastQ>();
+            var companyPastQs = await firebase.Child("pastqs").Child(fileName_companyPastQs).OnceAsync<PastQ>();
             bool studentExists = false;
 
             List<string> times = new List<string>();
@@ -204,16 +204,16 @@ namespace OnQAndroid.Fragments
 
             if (studentExists == false)
             {
-                await firebase.Child(fileName_companyPastQs).PostAsync(pastCompanyQ);
-                await firebase.Child(fileName_studentPastQs).PostAsync(pastStudentQ);
+                await firebase.Child("pastqs").Child(fileName_companyPastQs).PostAsync(pastCompanyQ);
+                await firebase.Child("pastqs").Child(fileName_studentPastQs).PostAsync(pastStudentQ);
             }
 
             // remove student from q, and remove q from student's current qs
             string fileName_companyQ = "qs_" + myAttributes.cfid.ToString() + "_" + myAttributes.attribute1;
             string fileName_studentQ = "myqs_" + myAttributes.cfid.ToString() + "_" + student_id;
 
-            var companyQ = await firebase.Child(fileName_companyQ).OnceAsync<Queue>();
-            var studentQ = await firebase.Child(fileName_studentQ).OnceAsync<StudentQ>();
+            var companyQ = await firebase.Child("qs").Child(fileName_companyQ).OnceAsync<Queue>();
+            var studentQ = await firebase.Child("qs").Child(fileName_studentQ).OnceAsync<StudentQ>();
 
             int numStudentsInQ = companyQ.Count;
 
@@ -230,11 +230,11 @@ namespace OnQAndroid.Fragments
                     newQ.studentname = q.Object.studentname;
                     string thisKey = q.Key;
 
-                    await firebase.Child(fileName_companyQ).Child(thisKey).PutAsync(newQ);
+                    await firebase.Child("qs").Child(fileName_companyQ).Child(thisKey).PutAsync(newQ);
 
                     string fileName_thisStudentQ = "myqs_" + myAttributes.cfid.ToString() + "_" + q.Object.studentid;
 
-                    var thisStudentQ = await firebase.Child(fileName_thisStudentQ).OnceAsync<StudentQ>();
+                    var thisStudentQ = await firebase.Child("qs").Child(fileName_thisStudentQ).OnceAsync<StudentQ>();
                     foreach (var p in thisStudentQ)
                     {
                         if (p.Object.company == myAttributes.attribute1)
@@ -243,14 +243,14 @@ namespace OnQAndroid.Fragments
                             StudentQ newStudentQ = new StudentQ();
                             newStudentQ.position = newPos.ToString();
                             newStudentQ.company = myAttributes.attribute1;
-                            await firebase.Child(fileName_thisStudentQ).Child(companyKey).PutAsync(newStudentQ);
+                            await firebase.Child("qs").Child(fileName_thisStudentQ).Child(companyKey).PutAsync(newStudentQ);
                         }
                     }
                 }
                 else
                 {
                     key1 = q.Key;
-                    await firebase.Child(fileName_companyQ).Child(key1).DeleteAsync();
+                    await firebase.Child("qs").Child(fileName_companyQ).Child(key1).DeleteAsync();
                 }
             }
 
@@ -259,7 +259,7 @@ namespace OnQAndroid.Fragments
                 if (q.Object.company == myAttributes.attribute1)
                 {
                     string thisKey = q.Key;
-                    await firebase.Child(fileName_studentQ).Child(thisKey).DeleteAsync();
+                    await firebase.Child("qs").Child(fileName_studentQ).Child(thisKey).DeleteAsync();
                 }
             }
 
@@ -277,7 +277,7 @@ namespace OnQAndroid.Fragments
                 sum = sum + timeContribution;
             }
 
-            var thisCareerFair = await firebase.Child(fileName_careerFair).OnceAsync<Company>();
+            var thisCareerFair = await firebase.Child("careerfairs").Child(fileName_careerFair).OnceAsync<Company>();
             Company newCompanyInfo = new Company();
             string thisCompanyKey = "";
 
@@ -297,7 +297,7 @@ namespace OnQAndroid.Fragments
                 }
             }
 
-            await firebase.Child(fileName_careerFair).Child(thisCompanyKey).PutAsync(newCompanyInfo);
+            await firebase.Child("careerfairs").Child(fileName_careerFair).Child(thisCompanyKey).PutAsync(newCompanyInfo);
 
             progressBar.Visibility = ViewStates.Invisible;
             Android.Support.V4.App.FragmentTransaction trans = FragmentManager.BeginTransaction();

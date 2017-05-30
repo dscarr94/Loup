@@ -2,7 +2,7 @@
 <xs:schema xmlns:tools="http://schemas.android.com/tools" attributeFormDefault="qualified" targetNamespace="http://schemas.android.com/tools" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:annotation>
     <xs:documentation>v25</xs:documentation>
-    <xs:documentation>5/30/2017 1:01:01 AM</xs:documentation>
+    <xs:documentation>5/30/2017 2:46:41 PM</xs:documentation>
   </xs:annotation>
   <xs:attribute name="layout">
     <xs:annotation>
@@ -11,43 +11,7 @@
     <xs:simpleType>
       <xs:union memberTypes="xs:string">
         <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:enumeration value="@android:layout/activity_list_item" />
-            <xs:enumeration value="@android:layout/browser_link_context_header" />
-            <xs:enumeration value="@android:layout/expandable_list_content" />
-            <xs:enumeration value="@android:layout/list_content" />
-            <xs:enumeration value="@android:layout/preference_category" />
-            <xs:enumeration value="@android:layout/select_dialog_item" />
-            <xs:enumeration value="@android:layout/select_dialog_multichoice" />
-            <xs:enumeration value="@android:layout/select_dialog_singlechoice" />
-            <xs:enumeration value="@android:layout/simple_dropdown_item_1line" />
-            <xs:enumeration value="@android:layout/simple_expandable_list_item_1" />
-            <xs:enumeration value="@android:layout/simple_expandable_list_item_2" />
-            <xs:enumeration value="@android:layout/simple_gallery_item" />
-            <xs:enumeration value="@android:layout/simple_list_item_1" />
-            <xs:enumeration value="@android:layout/simple_list_item_2" />
-            <xs:enumeration value="@android:layout/simple_list_item_activated_1" />
-            <xs:enumeration value="@android:layout/simple_list_item_activated_2" />
-            <xs:enumeration value="@android:layout/simple_list_item_checked" />
-            <xs:enumeration value="@android:layout/simple_list_item_multiple_choice" />
-            <xs:enumeration value="@android:layout/simple_list_item_single_choice" />
-            <xs:enumeration value="@android:layout/simple_selectable_list_item" />
-            <xs:enumeration value="@android:layout/simple_spinner_dropdown_item" />
-            <xs:enumeration value="@android:layout/simple_spinner_item" />
-            <xs:enumeration value="@android:layout/test_list_item" />
-            <xs:enumeration value="@android:layout/two_line_list_item" />
-            <xs:enumeration value="?android:attr/dialogCustomTitleDecorLayout" />
-            <xs:enumeration value="?android:attr/dialogTitleDecorLayout" />
-            <xs:enumeration value="?android:attr/dialogTitleIconsDecorLayout" />
-            <xs:enumeration value="?android:attr/preferenceLayoutChild" />
-            <xs:enumeration value="?android:attr/textEditNoPasteWindowLayout" />
-            <xs:enumeration value="?android:attr/textEditPasteWindowLayout" />
-            <xs:enumeration value="?android:attr/textEditSideNoPasteWindowLayout" />
-            <xs:enumeration value="?android:attr/textEditSidePasteWindowLayout" />
-            <xs:enumeration value="?android:attr/textEditSuggestionContainerLayout" />
-            <xs:enumeration value="?android:attr/textEditSuggestionItemLayout" />
-            <xs:enumeration value="?android:attr/windowActionBarFullscreenDecorLayout" />
-          </xs:restriction>
+          <xs:restriction base="xs:string" />
         </xs:simpleType>
       </xs:union>
     </xs:simpleType>
@@ -59,43 +23,7 @@
     <xs:simpleType>
       <xs:union memberTypes="xs:string">
         <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:enumeration value="@android:layout/activity_list_item" />
-            <xs:enumeration value="@android:layout/browser_link_context_header" />
-            <xs:enumeration value="@android:layout/expandable_list_content" />
-            <xs:enumeration value="@android:layout/list_content" />
-            <xs:enumeration value="@android:layout/preference_category" />
-            <xs:enumeration value="@android:layout/select_dialog_item" />
-            <xs:enumeration value="@android:layout/select_dialog_multichoice" />
-            <xs:enumeration value="@android:layout/select_dialog_singlechoice" />
-            <xs:enumeration value="@android:layout/simple_dropdown_item_1line" />
-            <xs:enumeration value="@android:layout/simple_expandable_list_item_1" />
-            <xs:enumeration value="@android:layout/simple_expandable_list_item_2" />
-            <xs:enumeration value="@android:layout/simple_gallery_item" />
-            <xs:enumeration value="@android:layout/simple_list_item_1" />
-            <xs:enumeration value="@android:layout/simple_list_item_2" />
-            <xs:enumeration value="@android:layout/simple_list_item_activated_1" />
-            <xs:enumeration value="@android:layout/simple_list_item_activated_2" />
-            <xs:enumeration value="@android:layout/simple_list_item_checked" />
-            <xs:enumeration value="@android:layout/simple_list_item_multiple_choice" />
-            <xs:enumeration value="@android:layout/simple_list_item_single_choice" />
-            <xs:enumeration value="@android:layout/simple_selectable_list_item" />
-            <xs:enumeration value="@android:layout/simple_spinner_dropdown_item" />
-            <xs:enumeration value="@android:layout/simple_spinner_item" />
-            <xs:enumeration value="@android:layout/test_list_item" />
-            <xs:enumeration value="@android:layout/two_line_list_item" />
-            <xs:enumeration value="?android:attr/dialogCustomTitleDecorLayout" />
-            <xs:enumeration value="?android:attr/dialogTitleDecorLayout" />
-            <xs:enumeration value="?android:attr/dialogTitleIconsDecorLayout" />
-            <xs:enumeration value="?android:attr/preferenceLayoutChild" />
-            <xs:enumeration value="?android:attr/textEditNoPasteWindowLayout" />
-            <xs:enumeration value="?android:attr/textEditPasteWindowLayout" />
-            <xs:enumeration value="?android:attr/textEditSideNoPasteWindowLayout" />
-            <xs:enumeration value="?android:attr/textEditSidePasteWindowLayout" />
-            <xs:enumeration value="?android:attr/textEditSuggestionContainerLayout" />
-            <xs:enumeration value="?android:attr/textEditSuggestionItemLayout" />
-            <xs:enumeration value="?android:attr/windowActionBarFullscreenDecorLayout" />
-          </xs:restriction>
+          <xs:restriction base="xs:string" />
         </xs:simpleType>
       </xs:union>
     </xs:simpleType>
@@ -107,43 +35,7 @@
     <xs:simpleType>
       <xs:union memberTypes="xs:string">
         <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:enumeration value="@android:layout/activity_list_item" />
-            <xs:enumeration value="@android:layout/browser_link_context_header" />
-            <xs:enumeration value="@android:layout/expandable_list_content" />
-            <xs:enumeration value="@android:layout/list_content" />
-            <xs:enumeration value="@android:layout/preference_category" />
-            <xs:enumeration value="@android:layout/select_dialog_item" />
-            <xs:enumeration value="@android:layout/select_dialog_multichoice" />
-            <xs:enumeration value="@android:layout/select_dialog_singlechoice" />
-            <xs:enumeration value="@android:layout/simple_dropdown_item_1line" />
-            <xs:enumeration value="@android:layout/simple_expandable_list_item_1" />
-            <xs:enumeration value="@android:layout/simple_expandable_list_item_2" />
-            <xs:enumeration value="@android:layout/simple_gallery_item" />
-            <xs:enumeration value="@android:layout/simple_list_item_1" />
-            <xs:enumeration value="@android:layout/simple_list_item_2" />
-            <xs:enumeration value="@android:layout/simple_list_item_activated_1" />
-            <xs:enumeration value="@android:layout/simple_list_item_activated_2" />
-            <xs:enumeration value="@android:layout/simple_list_item_checked" />
-            <xs:enumeration value="@android:layout/simple_list_item_multiple_choice" />
-            <xs:enumeration value="@android:layout/simple_list_item_single_choice" />
-            <xs:enumeration value="@android:layout/simple_selectable_list_item" />
-            <xs:enumeration value="@android:layout/simple_spinner_dropdown_item" />
-            <xs:enumeration value="@android:layout/simple_spinner_item" />
-            <xs:enumeration value="@android:layout/test_list_item" />
-            <xs:enumeration value="@android:layout/two_line_list_item" />
-            <xs:enumeration value="?android:attr/dialogCustomTitleDecorLayout" />
-            <xs:enumeration value="?android:attr/dialogTitleDecorLayout" />
-            <xs:enumeration value="?android:attr/dialogTitleIconsDecorLayout" />
-            <xs:enumeration value="?android:attr/preferenceLayoutChild" />
-            <xs:enumeration value="?android:attr/textEditNoPasteWindowLayout" />
-            <xs:enumeration value="?android:attr/textEditPasteWindowLayout" />
-            <xs:enumeration value="?android:attr/textEditSideNoPasteWindowLayout" />
-            <xs:enumeration value="?android:attr/textEditSidePasteWindowLayout" />
-            <xs:enumeration value="?android:attr/textEditSuggestionContainerLayout" />
-            <xs:enumeration value="?android:attr/textEditSuggestionItemLayout" />
-            <xs:enumeration value="?android:attr/windowActionBarFullscreenDecorLayout" />
-          </xs:restriction>
+          <xs:restriction base="xs:string" />
         </xs:simpleType>
       </xs:union>
     </xs:simpleType>
@@ -155,43 +47,7 @@
     <xs:simpleType>
       <xs:union memberTypes="xs:string">
         <xs:simpleType>
-          <xs:restriction base="xs:string">
-            <xs:enumeration value="@android:layout/activity_list_item" />
-            <xs:enumeration value="@android:layout/browser_link_context_header" />
-            <xs:enumeration value="@android:layout/expandable_list_content" />
-            <xs:enumeration value="@android:layout/list_content" />
-            <xs:enumeration value="@android:layout/preference_category" />
-            <xs:enumeration value="@android:layout/select_dialog_item" />
-            <xs:enumeration value="@android:layout/select_dialog_multichoice" />
-            <xs:enumeration value="@android:layout/select_dialog_singlechoice" />
-            <xs:enumeration value="@android:layout/simple_dropdown_item_1line" />
-            <xs:enumeration value="@android:layout/simple_expandable_list_item_1" />
-            <xs:enumeration value="@android:layout/simple_expandable_list_item_2" />
-            <xs:enumeration value="@android:layout/simple_gallery_item" />
-            <xs:enumeration value="@android:layout/simple_list_item_1" />
-            <xs:enumeration value="@android:layout/simple_list_item_2" />
-            <xs:enumeration value="@android:layout/simple_list_item_activated_1" />
-            <xs:enumeration value="@android:layout/simple_list_item_activated_2" />
-            <xs:enumeration value="@android:layout/simple_list_item_checked" />
-            <xs:enumeration value="@android:layout/simple_list_item_multiple_choice" />
-            <xs:enumeration value="@android:layout/simple_list_item_single_choice" />
-            <xs:enumeration value="@android:layout/simple_selectable_list_item" />
-            <xs:enumeration value="@android:layout/simple_spinner_dropdown_item" />
-            <xs:enumeration value="@android:layout/simple_spinner_item" />
-            <xs:enumeration value="@android:layout/test_list_item" />
-            <xs:enumeration value="@android:layout/two_line_list_item" />
-            <xs:enumeration value="?android:attr/dialogCustomTitleDecorLayout" />
-            <xs:enumeration value="?android:attr/dialogTitleDecorLayout" />
-            <xs:enumeration value="?android:attr/dialogTitleIconsDecorLayout" />
-            <xs:enumeration value="?android:attr/preferenceLayoutChild" />
-            <xs:enumeration value="?android:attr/textEditNoPasteWindowLayout" />
-            <xs:enumeration value="?android:attr/textEditPasteWindowLayout" />
-            <xs:enumeration value="?android:attr/textEditSideNoPasteWindowLayout" />
-            <xs:enumeration value="?android:attr/textEditSidePasteWindowLayout" />
-            <xs:enumeration value="?android:attr/textEditSuggestionContainerLayout" />
-            <xs:enumeration value="?android:attr/textEditSuggestionItemLayout" />
-            <xs:enumeration value="?android:attr/windowActionBarFullscreenDecorLayout" />
-          </xs:restriction>
+          <xs:restriction base="xs:string" />
         </xs:simpleType>
       </xs:union>
     </xs:simpleType>

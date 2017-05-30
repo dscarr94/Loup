@@ -7,6 +7,7 @@ using Android.Widget;
 using SQLite;
 using OnQAndroid.FirebaseObjects;
 using Firebase.Xamarin.Database;
+using Firebase.Xamarin.Database.Query;
 
 namespace OnQAndroid
 {
@@ -63,7 +64,7 @@ namespace OnQAndroid
             MyAttributes myAttributes = db_attributes.Get<MyAttributes>(1);
 
             var firebase = new FirebaseClient(FirebaseURL);
-            var allCompanies = await firebase.Child(myAttributes.cfid.ToString()).OnceAsync<Company>();
+            var allCompanies = await firebase.Child("careerfairs").Child(myAttributes.cfid.ToString()).OnceAsync<Company>();
             foreach (var company in allCompanies)
             {
                 if (company.Object.companyid == companyInt.ToString())

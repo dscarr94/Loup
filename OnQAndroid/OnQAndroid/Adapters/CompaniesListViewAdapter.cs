@@ -153,7 +153,7 @@ namespace OnQAndroid
         private async void UpdateIsFavorite(bool newIsFavorite, int companyid)
         {
             var firebase = new FirebaseClient(FirebaseURL);
-            var allFavorites = await firebase.Child(favoritesFileName).OnceAsync<Favorite>();
+            var allFavorites = await firebase.Child("favorites").Child(favoritesFileName).OnceAsync<Favorite>();
             string key = "";
             string name = "";
 
@@ -171,7 +171,7 @@ namespace OnQAndroid
             updateFavorite.isFavorite = newIsFavorite;
             updateFavorite.name = name;
 
-            await firebase.Child(favoritesFileName).Child(key).PutAsync(updateFavorite);
+            await firebase.Child("favorites").Child(favoritesFileName).Child(key).PutAsync(updateFavorite);
         }
     }
 }

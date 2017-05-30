@@ -70,7 +70,7 @@ namespace OnQAndroid.Fragments
         {
             progressBar.Visibility = ViewStates.Visible;
             var firebase = new FirebaseClient(FirebaseURL);
-            var companyItems = await firebase.Child(myAttributes.cfid.ToString()).OnceAsync<Company>();
+            var companyItems = await firebase.Child("careerfairs").Child(myAttributes.cfid.ToString()).OnceAsync<Company>();
 
             foreach (var company in companyItems)
             {
@@ -102,7 +102,7 @@ namespace OnQAndroid.Fragments
             if (checkedIn == true)
             {
                 bool qExists = false;
-                var myQs = await firebase.Child(fileName_myQs).OnceAsync<StudentQ>();
+                var myQs = await firebase.Child("qs").Child(fileName_myQs).OnceAsync<StudentQ>();
 
                 foreach (var q in myQs)
                 {
@@ -120,8 +120,8 @@ namespace OnQAndroid.Fragments
                 }
                 else
                 {
-                    var Qs = await firebase.Child(fileName_Q).OnceAsync<Queue>();
-                    var thisCareerFair = await firebase.Child(fileName_careerFair).OnceAsync<Company>();
+                    var Qs = await firebase.Child("qs").Child(fileName_Q).OnceAsync<Queue>();
+                    var thisCareerFair = await firebase.Child("careerfairs").Child(fileName_careerFair).OnceAsync<Company>();
 
                     int numQs = Qs.Count; // number of people in the queue
                     int numMyQs = myQs.Count; // number of q's a student has, may want to limit???
@@ -156,9 +156,9 @@ namespace OnQAndroid.Fragments
                         }
                     }
 
-                    await firebase.Child(fileName_Q).PostAsync(newQ);
-                    await firebase.Child(fileName_myQs).PostAsync(newMyQ);
-                    await firebase.Child(fileName_careerFair).Child(companyKey).PutAsync(newCompanyInfo);
+                    await firebase.Child("qs").Child(fileName_Q).PostAsync(newQ);
+                    await firebase.Child("qs").Child(fileName_myQs).PostAsync(newMyQ);
+                    await firebase.Child("careerfairs").Child(fileName_careerFair).Child(companyKey).PutAsync(newCompanyInfo);
 
                     Toast.MakeText(this.Activity, "You are onQ in Position " + (numQs + 1).ToString() + "!", ToastLength.Short).Show();
                     progressBar.Visibility = ViewStates.Invisible;

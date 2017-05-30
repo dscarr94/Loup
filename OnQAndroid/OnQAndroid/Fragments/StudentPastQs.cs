@@ -7,6 +7,7 @@ using SQLite;
 using Firebase.Xamarin.Database;
 using OnQAndroid.FirebaseObjects;
 using System;
+using Firebase.Xamarin.Database.Query;
 
 namespace OnQAndroid.Fragments
 {
@@ -68,8 +69,8 @@ namespace OnQAndroid.Fragments
             string fileName_pastQs = "pastqs_" + myAttributes.typeid.ToString();
             string fileName_favs = "fav_" + myAttributes.cfid.ToString() + "_" + myAttributes.typeid.ToString();
 
-            var pastQs = await firebase.Child(fileName_pastQs).OnceAsync<StudentQ>();
-            var myFavs = await firebase.Child(fileName_favs).OnceAsync<Favorite>();
+            var pastQs = await firebase.Child("pastqs").Child(fileName_pastQs).OnceAsync<StudentQ>();
+            var myFavs = await firebase.Child("favorites").Child(fileName_favs).OnceAsync<Favorite>();
             List<string> companies = new List<string>();
             List<bool> favorites = new List<bool>();
             List<int> companyIds = new List<int>();

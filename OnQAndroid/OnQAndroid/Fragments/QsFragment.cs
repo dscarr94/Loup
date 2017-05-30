@@ -7,6 +7,7 @@ using SQLite;
 using Firebase.Xamarin.Database;
 using OnQAndroid.FirebaseObjects;
 using System.Threading.Tasks;
+using Firebase.Xamarin.Database.Query;
 
 namespace OnQAndroid
 {
@@ -100,7 +101,7 @@ namespace OnQAndroid
             var firebase = new FirebaseClient(FirebaseURL);
 
             string myQsFilename = "myqs_" + myAttributes.cfid.ToString() + "_" + myAttributes.typeid.ToString();
-            var myQs = await firebase.Child(myQsFilename).OnceAsync<StudentQ>();
+            var myQs = await firebase.Child("qs").Child(myQsFilename).OnceAsync<StudentQ>();
 
             numQs = myQs.Count;
         }
@@ -128,7 +129,7 @@ namespace OnQAndroid
             var firebase = new FirebaseClient(FirebaseURL);
 
             string myCompanyQFilename = "qs_" + myAttributes.cfid.ToString() + "_" + myAttributes.attribute1;
-            var myCompanyQ = await firebase.Child(myCompanyQFilename).OnceAsync<Queue>();
+            var myCompanyQ = await firebase.Child("qs").Child(myCompanyQFilename).OnceAsync<Queue>();
 
             numStudents = myCompanyQ.Count;
         }

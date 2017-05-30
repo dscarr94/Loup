@@ -239,6 +239,7 @@ C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\bin\Debug\Refractored.Page
 C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\bin\Debug\SQLite-net.xml
 C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\bin\Debug\SQLite-net.dll.mdb
 C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\bin\Debug\Validation.xml
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\OnQAndroid.csprojResolveAssemblyReference.cache
 C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\XbdMerge\Xamarin.Android.Support.Annotations.dll.stamp
 C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\XbdMerge\Xamarin.Android.Support.Compat.dll.stamp
 C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\XbdMerge\Xamarin.Android.Support.Core.UI.dll.stamp
@@ -347,10 +348,11 @@ C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\rig
 C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\color\textcolorswitcher.xml
 C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\values\styles.xml
 C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\dotarray.png
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\registerblack.png
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\openscreen.png
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\openscreensmall.png
 C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\R.cs.flag
 C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\uploadflags.txt
-C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\registerblack.png
-C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\OnQAndroid.csprojResolveAssemblyReference.cache
 C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\bin\Debug\OnQAndroid.dll.mdb
 C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\android\assets\OnQAndroid.dll.mdb
 C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\android\assets\Refractored.PagerSlidingTabStrip.dll.mdb

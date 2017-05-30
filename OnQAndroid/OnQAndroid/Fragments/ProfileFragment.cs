@@ -9,6 +9,7 @@ using System.IO;
 using SQLite;
 using Firebase.Xamarin.Database;
 using OnQAndroid.FirebaseObjects;
+using Firebase.Xamarin.Database.Query;
 
 namespace OnQAndroid
 {
@@ -113,7 +114,7 @@ namespace OnQAndroid
             List<string> studentNames = new List<string>();
             List<string> studentRatings = new List<string>();
 
-            var pastQs = await firebase.Child(fileName_pastQs).OnceAsync<PastQ>();
+            var pastQs = await firebase.Child("pastqs").Child(fileName_pastQs).OnceAsync<PastQ>();
 
             foreach (var pastq in pastQs)
             {
@@ -138,7 +139,7 @@ namespace OnQAndroid
             List<string> mCompanies = new List<string>();
             string fileName = "fav_" + myAttributes.cfid.ToString() + "_" + myAttributes.typeid.ToString();
 
-            var favItems = await firebase.Child(fileName).OnceAsync<Favorite>();
+            var favItems = await firebase.Child("favorites").Child(fileName).OnceAsync<Favorite>();
 
             foreach (var item in favItems)
             {

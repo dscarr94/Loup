@@ -7,6 +7,7 @@ using Android.Widget;
 using SQLite;
 using Firebase.Xamarin.Database;
 using OnQAndroid.FirebaseObjects;
+using Firebase.Xamarin.Database.Query;
 
 namespace OnQAndroid
 {
@@ -219,7 +220,7 @@ namespace OnQAndroid
             List<string> gpaPreferences = new List<string>();
 
             string majorFileName = "mps_" + myAttributes.cfid.ToString() + "_" + myAttributes.attribute1;
-            var majorPrefs = await firebase.Child(majorFileName).OnceAsync<MajorPreference>();
+            var majorPrefs = await firebase.Child("candidatepreferences").Child(majorFileName).OnceAsync<MajorPreference>();
             numMPs = majorPrefs.Count();
             foreach (var mp in majorPrefs)
             {
@@ -227,7 +228,7 @@ namespace OnQAndroid
             }
 
             string gradtermFileName = "gtps_" + myAttributes.cfid.ToString() + "_" + myAttributes.attribute1;
-            var gradtermPrefs = await firebase.Child(gradtermFileName).OnceAsync<GradTermPreference>();
+            var gradtermPrefs = await firebase.Child("candidatepreferences").Child(gradtermFileName).OnceAsync<GradTermPreference>();
             numGTPs = gradtermPrefs.Count();
             foreach (var gtp in gradtermPrefs)
             {
@@ -235,7 +236,7 @@ namespace OnQAndroid
             }
 
             string gpaFileName = "gpas_" + myAttributes.cfid.ToString() + "_" + myAttributes.attribute1;
-            var gpaPrefs = await firebase.Child(gpaFileName).OnceAsync<GPAPreference>();
+            var gpaPrefs = await firebase.Child("candidatepreferences").Child(gpaFileName).OnceAsync<GPAPreference>();
             numGPAs = gpaPrefs.Count();
             foreach (var gpap in gpaPrefs)
             {
@@ -414,7 +415,7 @@ namespace OnQAndroid
                 }
             }
 
-            var myCFcompanies = await firebase.Child(myAttributes.cfid.ToString()).OnceAsync<Company>();
+            var myCFcompanies = await firebase.Child("careerfairs").Child(myAttributes.cfid.ToString()).OnceAsync<Company>();
             List<string> mWaitTimes = new List<string>();
             List<string> mNumStudents = new List<string>();
 
@@ -431,7 +432,7 @@ namespace OnQAndroid
             }
 
             string favoritesFileName = "fav_" + myAttributes.cfid.ToString() + "_" + myAttributes.typeid.ToString();
-            var myFavorites = await firebase.Child(favoritesFileName).OnceAsync<Favorite>();
+            var myFavorites = await firebase.Child("favorites").Child(favoritesFileName).OnceAsync<Favorite>();
             List<bool> favList = new List<bool>();
 
             foreach (var favorite in myFavorites)
@@ -502,9 +503,9 @@ namespace OnQAndroid
             string gradtermFileName = "gtps_" + myAttributes.cfid.ToString() + "_" + myAttributes.attribute1;
             string gpaFileName = "gpas_" + myAttributes.cfid.ToString() + "_" + myAttributes.attribute1;
 
-            await firebase.Child(majorFileName).DeleteAsync();
-            await firebase.Child(gradtermFileName).DeleteAsync();
-            await firebase.Child(gpaFileName).DeleteAsync();
+            await firebase.Child("candidatepreferences").Child(majorFileName).DeleteAsync();
+            await firebase.Child("candidatepreferences").Child(gradtermFileName).DeleteAsync();
+            await firebase.Child("candidatepreferences").Child(gpaFileName).DeleteAsync();
 
             if (isHMAll == true)
             {
@@ -518,7 +519,7 @@ namespace OnQAndroid
                     majorPrefs1.id = "1";
                     majorPrefs1.major = hmspinner1.SelectedItem.ToString();
 
-                    await firebase.Child(majorFileName).PostAsync(majorPrefs1);
+                    await firebase.Child("candidatepreferences").Child(majorFileName).PostAsync(majorPrefs1);
                 }
                 if (numMPs >= 2)
                 {
@@ -526,7 +527,7 @@ namespace OnQAndroid
                     majorPrefs2.id = "2";
                     majorPrefs2.major = hmspinner2.SelectedItem.ToString();
 
-                    await firebase.Child(majorFileName).PostAsync(majorPrefs2);
+                    await firebase.Child("candidatepreferences").Child(majorFileName).PostAsync(majorPrefs2);
                 }
                 if (numMPs >= 3)
                 {
@@ -534,7 +535,7 @@ namespace OnQAndroid
                     majorPrefs3.id = "3";
                     majorPrefs3.major = hmspinner3.SelectedItem.ToString();
 
-                    await firebase.Child(majorFileName).PostAsync(majorPrefs3);
+                    await firebase.Child("candidatepreferences").Child(majorFileName).PostAsync(majorPrefs3);
                 }
                 if (numMPs >= 4)
                 {
@@ -542,7 +543,7 @@ namespace OnQAndroid
                     majorPrefs4.id = "4";
                     majorPrefs4.major = hmspinner4.SelectedItem.ToString();
 
-                    await firebase.Child(majorFileName).PostAsync(majorPrefs4);
+                    await firebase.Child("candidatepreferences").Child(majorFileName).PostAsync(majorPrefs4);
                 }
                 if (numMPs >= 5)
                 {
@@ -550,7 +551,7 @@ namespace OnQAndroid
                     majorPrefs5.id = "5";
                     majorPrefs5.major = hmspinner5.SelectedItem.ToString();
 
-                    await firebase.Child(majorFileName).PostAsync(majorPrefs5);
+                    await firebase.Child("candidatepreferences").Child(majorFileName).PostAsync(majorPrefs5);
                 }
             }
             if (isHGTAll == true)
@@ -565,7 +566,7 @@ namespace OnQAndroid
                     gradtermPrefs1.id = "1";
                     gradtermPrefs1.gradterm = hgtspinner1.SelectedItem.ToString();
 
-                    await firebase.Child(gradtermFileName).PostAsync(gradtermPrefs1);
+                    await firebase.Child("candidatepreferences").Child(gradtermFileName).PostAsync(gradtermPrefs1);
                 }
                 if (numGTPs >= 2)
                 {
@@ -573,7 +574,7 @@ namespace OnQAndroid
                     gradtermPrefs2.id = "2";
                     gradtermPrefs2.gradterm = hgtspinner2.SelectedItem.ToString();
 
-                    await firebase.Child(gradtermFileName).PostAsync(gradtermPrefs2);
+                    await firebase.Child("candidatepreferences").Child(gradtermFileName).PostAsync(gradtermPrefs2);
                 }
                 if (numGTPs >= 3)
                 {
@@ -581,7 +582,7 @@ namespace OnQAndroid
                     gradtermPrefs3.id = "3";
                     gradtermPrefs3.gradterm = hgtspinner3.SelectedItem.ToString();
 
-                    await firebase.Child(gradtermFileName).PostAsync(gradtermPrefs3);
+                    await firebase.Child("candidatepreferences").Child(gradtermFileName).PostAsync(gradtermPrefs3);
                 }
             }
             if (isMinGPANone == true)
@@ -596,7 +597,7 @@ namespace OnQAndroid
                     gpaPrefs.id = "1";
                     gpaPrefs.gpa = minGPAspinner.SelectedItem.ToString();
 
-                    await firebase.Child(gpaFileName).PostAsync(gpaPrefs);
+                    await firebase.Child("candidatepreferences").Child(gpaFileName).PostAsync(gpaPrefs);
                 }
             }
             progressBar.Visibility = ViewStates.Invisible;

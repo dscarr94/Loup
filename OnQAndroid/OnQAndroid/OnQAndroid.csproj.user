@@ -3,6 +3,6 @@
   <PropertyGroup>
     <SelectedDevice>Samsung -SM-G870A</SelectedDevice>
     <DefaultDevice>Android_ARMv7a</DefaultDevice>
-    <AndroidDesignerPreferredDevice>Nexus 7 2013</AndroidDesignerPreferredDevice>
+    <AndroidDesignerPreferredDevice>Nexus 5</AndroidDesignerPreferredDevice>
   </PropertyGroup>
 </Project>

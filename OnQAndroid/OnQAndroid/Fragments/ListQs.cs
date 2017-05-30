@@ -70,7 +70,7 @@ namespace OnQAndroid.Fragments
             progressBar.Visibility = ViewStates.Visible;
             var firebase = new FirebaseClient(FirebaseURL);
 
-            var thisQ = await firebase.Child("qs_" + myAttributes.cfid.ToString() + "_" + myAttributes.attribute1).OnceAsync<Queue>();
+            var thisQ = await firebase.Child("qs").Child("qs_" + myAttributes.cfid.ToString() + "_" + myAttributes.attribute1).OnceAsync<Queue>();
 
             List<string> mItems = new List<string>();
             foreach (var q in thisQ)
@@ -98,8 +98,8 @@ namespace OnQAndroid.Fragments
 
             var firebase = new FirebaseClient(FirebaseURL);
 
-            var companyQ = await firebase.Child(fileName_companyQ).OnceAsync<Queue>();
-            var studentQ = await firebase.Child(fileName_studentQ).OnceAsync<StudentQ>();
+            var companyQ = await firebase.Child("qs").Child(fileName_companyQ).OnceAsync<Queue>();
+            var studentQ = await firebase.Child("qs").Child(fileName_studentQ).OnceAsync<StudentQ>();
 
             int numStudentsInQ = companyQ.Count;
 
@@ -116,11 +116,11 @@ namespace OnQAndroid.Fragments
                     newQ.studentname = q.Object.studentname;
                     string thisKey = q.Key;
 
-                    await firebase.Child(fileName_companyQ).Child(thisKey).PutAsync(newQ);
+                    await firebase.Child("qs").Child(fileName_companyQ).Child(thisKey).PutAsync(newQ);
 
                     string fileName_thisStudentQ = "myqs_" + myAttributes.cfid.ToString() + "_" + q.Object.studentid;
 
-                    var thisStudentQ = await firebase.Child(fileName_thisStudentQ).OnceAsync<StudentQ>();
+                    var thisStudentQ = await firebase.Child("qs").Child(fileName_thisStudentQ).OnceAsync<StudentQ>();
                     foreach (var p in thisStudentQ)
                     {
                         if (p.Object.company == myAttributes.attribute1)
@@ -129,14 +129,14 @@ namespace OnQAndroid.Fragments
                             StudentQ newStudentQ = new StudentQ();
                             newStudentQ.position = newPos.ToString();
                             newStudentQ.company = myAttributes.attribute1;
-                            await firebase.Child(fileName_thisStudentQ).Child(companyKey).PutAsync(newStudentQ);
+                            await firebase.Child("qs").Child(fileName_thisStudentQ).Child(companyKey).PutAsync(newStudentQ);
                         }
                     }
                 }
                 else
                 {
                     key1 = q.Key;
-                    await firebase.Child(fileName_companyQ).Child(key1).DeleteAsync();
+                    await firebase.Child("qs").Child(fileName_companyQ).Child(key1).DeleteAsync();
                 }
             }
 
@@ -145,13 +145,13 @@ namespace OnQAndroid.Fragments
                 if (q.Object.company == myAttributes.attribute1)
                 {
                     string thisKey = q.Key;
-                    await firebase.Child(fileName_studentQ).Child(thisKey).DeleteAsync();
+                    await firebase.Child("qs").Child(fileName_studentQ).Child(thisKey).DeleteAsync();
                 }
             }
 
             string fileName_careerFair = myAttributes.cfid.ToString();
 
-            var thisCareerFair = await firebase.Child(fileName_careerFair).OnceAsync<Company>();
+            var thisCareerFair = await firebase.Child("careerfairs").Child(fileName_careerFair).OnceAsync<Company>();
             Company newCompanyInfo = new Company();
             string thisCompanyKey = "";
 
@@ -171,7 +171,7 @@ namespace OnQAndroid.Fragments
                 }
             }
 
-            await firebase.Child(fileName_careerFair).Child(thisCompanyKey).PutAsync(newCompanyInfo);
+            await firebase.Child("careerfairs").Child(fileName_careerFair).Child(thisCompanyKey).PutAsync(newCompanyInfo);
 
             progressBar.Visibility = ViewStates.Invisible;
             Android.Support.V4.App.FragmentTransaction trans = FragmentManager.BeginTransaction();

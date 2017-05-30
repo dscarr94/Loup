@@ -97,7 +97,7 @@ namespace OnQAndroid
             {
                 string favorites_fileName = "fav_" + myCFID + "_" + myAttributes.typeid.ToString();
 
-                var allCompanies = await firebase.Child(myAttributes.cfid.ToString()).OnceAsync<Company>();
+                var allCompanies = await firebase.Child("careerfairs").Child(myAttributes.cfid.ToString()).OnceAsync<Company>();
 
                 int numCompanies = allCompanies.Count();
                 foreach (var company in allCompanies)
@@ -106,7 +106,7 @@ namespace OnQAndroid
                     item.companyid = company.Object.companyid;
                     item.name = company.Object.name;
                     item.isFavorite = false;
-                    await firebase.Child(favorites_fileName).PostAsync(item);
+                    await firebase.Child("favorites").Child(favorites_fileName).PostAsync(item);
                 }
 
                 Android.Support.V4.App.FragmentTransaction trans = FragmentManager.BeginTransaction();
@@ -118,7 +118,7 @@ namespace OnQAndroid
 
             else if (myAttributes.type == "Recruiter")
             {
-                var allCompanies = await firebase.Child(myAttributes.cfid.ToString()).OnceAsync<Company>();
+                var allCompanies = await firebase.Child("careerfairs").Child(myAttributes.cfid.ToString()).OnceAsync<Company>();
 
                 Company newCompany = new Company();
                 string companyKey = "";
@@ -139,7 +139,7 @@ namespace OnQAndroid
                     }
                 }
 
-                await firebase.Child(myAttributes.cfid.ToString()).Child(companyKey).PutAsync(newCompany);
+                await firebase.Child("careerfairs").Child(myAttributes.cfid.ToString()).Child(companyKey).PutAsync(newCompany);
 
                 Android.Support.V4.App.FragmentTransaction trans = FragmentManager.BeginTransaction();
                 trans.Replace(Resource.Id.register_root_frame, new RegisterFragment());

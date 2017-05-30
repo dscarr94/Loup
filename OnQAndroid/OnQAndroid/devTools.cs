@@ -6,6 +6,7 @@ using SQLite;
 using OnQAndroid.FirebaseObjects;
 using Firebase.Xamarin.Database;
 using Android.Views;
+using Firebase.Xamarin.Database.Query;
 
 namespace OnQAndroid
 {
@@ -99,12 +100,12 @@ namespace OnQAndroid
             newCompany6.numstudents = "0";
 
             var firebase = new FirebaseClient(FirebaseURL);
-            var item1 = await firebase.Child("12345678").PostAsync(newCompany1);
-            var item2 = await firebase.Child("12345678").PostAsync(newCompany2);
-            var item3 = await firebase.Child("12345678").PostAsync(newCompany3);
-            var item4 = await firebase.Child("12345678").PostAsync(newCompany4);
-            var item5 = await firebase.Child("12345678").PostAsync(newCompany5);
-            var item6 = await firebase.Child("12345678").PostAsync(newCompany6);
+            var item1 = await firebase.Child("careerfairs").Child("12345678").PostAsync(newCompany1);
+            var item2 = await firebase.Child("careerfairs").Child("12345678").PostAsync(newCompany2);
+            var item3 = await firebase.Child("careerfairs").Child("12345678").PostAsync(newCompany3);
+            var item4 = await firebase.Child("careerfairs").Child("12345678").PostAsync(newCompany4);
+            var item5 = await firebase.Child("careerfairs").Child("12345678").PostAsync(newCompany5);
+            var item6 = await firebase.Child("careerfairs").Child("12345678").PostAsync(newCompany6);
 
             Cfid newcfid = new Cfid();
             newcfid.id = "1";
