@@ -145,12 +145,24 @@ namespace OnQAndroid.Fragments
 
             string fileName_pastQs = "pastqs_" + myAttributes.attribute1;
 
+            var pastQs = await firebase.Child(fileName_pastQs).OnceAsync<PastQ>();
+            string time = "";
+
+            foreach (var q in pastQs)
+            {
+                if (q.Object.studentid == studentid.ToString())
+                {
+                    time = q.Object.time;
+                }
+            }
+
             PastQ updatePastQ = new PastQ();
 
             updatePastQ.studentid = studentid.ToString();
             updatePastQ.name = candidateName.Text;
             updatePastQ.notes = notes.Text;
             updatePastQ.rating = newRating.ToString();
+            updatePastQ.time = time;
 
             await firebase.Child(fileName_pastQs).Child(pastQkey).PutAsync(updatePastQ);
 

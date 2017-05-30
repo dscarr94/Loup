@@ -92,7 +92,7 @@ namespace OnQAndroid.Fragments
                     if (q == company.Object.name)
                     {
                         long partialWaitTime = Convert.ToInt64(company.Object.waittime);
-                        long totalWaitTime = partialWaitTime * Convert.ToInt32(mPositions[position]);
+                        long totalWaitTime = partialWaitTime * (Convert.ToInt32(mPositions[position])-1); // -1 because they are already in the line
                         TimeSpan ts = TimeSpan.FromTicks(totalWaitTime);
                         string waittime = String.Format("{0:00}:{1:00}:{2:00}", ts.Hours, ts.Minutes, ts.Seconds);
                         mWaitTimes.Add(waittime);

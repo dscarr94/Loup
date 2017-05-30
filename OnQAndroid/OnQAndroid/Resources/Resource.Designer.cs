@@ -3482,26 +3482,26 @@ namespace OnQAndroid
 			// aapt resource value: 0x7f020055
 			public const int avd_hide_password = 2130837589;
 			
-			// aapt resource value: 0x7f0200a8
-			public const int avd_hide_password_1 = 2130837672;
-			
 			// aapt resource value: 0x7f0200a9
-			public const int avd_hide_password_2 = 2130837673;
+			public const int avd_hide_password_1 = 2130837673;
 			
 			// aapt resource value: 0x7f0200aa
-			public const int avd_hide_password_3 = 2130837674;
+			public const int avd_hide_password_2 = 2130837674;
+			
+			// aapt resource value: 0x7f0200ab
+			public const int avd_hide_password_3 = 2130837675;
 			
 			// aapt resource value: 0x7f020056
 			public const int avd_show_password = 2130837590;
 			
-			// aapt resource value: 0x7f0200ab
-			public const int avd_show_password_1 = 2130837675;
-			
 			// aapt resource value: 0x7f0200ac
-			public const int avd_show_password_2 = 2130837676;
+			public const int avd_show_password_1 = 2130837676;
 			
 			// aapt resource value: 0x7f0200ad
-			public const int avd_show_password_3 = 2130837677;
+			public const int avd_show_password_2 = 2130837677;
+			
+			// aapt resource value: 0x7f0200ae
+			public const int avd_show_password_3 = 2130837678;
 			
 			// aapt resource value: 0x7f020057
 			public const int back = 2130837591;
@@ -3662,11 +3662,11 @@ namespace OnQAndroid
 			// aapt resource value: 0x7f02008b
 			public const int notification_icon_background = 2130837643;
 			
-			// aapt resource value: 0x7f0200a6
-			public const int notification_template_icon_bg = 2130837670;
-			
 			// aapt resource value: 0x7f0200a7
-			public const int notification_template_icon_low_bg = 2130837671;
+			public const int notification_template_icon_bg = 2130837671;
+			
+			// aapt resource value: 0x7f0200a8
+			public const int notification_template_icon_low_bg = 2130837672;
 			
 			// aapt resource value: 0x7f02008c
 			public const int notification_tile_bg = 2130837644;
@@ -3720,31 +3720,34 @@ namespace OnQAndroid
 			public const int register = 2130837660;
 			
 			// aapt resource value: 0x7f02009d
-			public const int rightarrow = 2130837661;
+			public const int registerblack = 2130837661;
 			
 			// aapt resource value: 0x7f02009e
-			public const int roundedbutton = 2130837662;
+			public const int rightarrow = 2130837662;
 			
 			// aapt resource value: 0x7f02009f
-			public const int scrollhand = 2130837663;
+			public const int roundedbutton = 2130837663;
 			
 			// aapt resource value: 0x7f0200a0
-			public const int selectyourschool = 2130837664;
+			public const int scrollhand = 2130837664;
 			
 			// aapt resource value: 0x7f0200a1
-			public const int starfilled = 2130837665;
+			public const int selectyourschool = 2130837665;
 			
 			// aapt resource value: 0x7f0200a2
-			public const int starunfilled = 2130837666;
+			public const int starfilled = 2130837666;
 			
 			// aapt resource value: 0x7f0200a3
-			public const int stryker = 2130837667;
+			public const int starunfilled = 2130837667;
 			
 			// aapt resource value: 0x7f0200a4
-			public const int turquoisebutton = 2130837668;
+			public const int stryker = 2130837668;
 			
 			// aapt resource value: 0x7f0200a5
-			public const int x = 2130837669;
+			public const int turquoisebutton = 2130837669;
+			
+			// aapt resource value: 0x7f0200a6
+			public const int x = 2130837670;
 			
 			static Drawable()
 			{
@@ -3762,8 +3765,8 @@ namespace OnQAndroid
 			// aapt resource value: 0x7f0a014c
 			public const int AdvanceButton = 2131362124;
 			
-			// aapt resource value: 0x7f0a00bc
-			public const int CSIdentify = 2131361980;
+			// aapt resource value: 0x7f0a00be
+			public const int CSIdentify = 2131361982;
 			
 			// aapt resource value: 0x7f0a0133
 			public const int ConfirmNewPassword = 2131362099;
@@ -3810,8 +3813,8 @@ namespace OnQAndroid
 			// aapt resource value: 0x7f0a0150
 			public const int SkipButton = 2131362128;
 			
-			// aapt resource value: 0x7f0a00c0
-			public const int TFemail = 2131361984;
+			// aapt resource value: 0x7f0a00c1
+			public const int TFemail = 2131361985;
 			
 			// aapt resource value: 0x7f0a00c2
 			public const int TFpassword = 2131361986;
@@ -3969,8 +3972,8 @@ namespace OnQAndroid
 			// aapt resource value: 0x7f0a0098
 			public const int cfImage = 2131361944;
 			
-			// aapt resource value: 0x7f0a00b8
-			public const int cfName = 2131361976;
+			// aapt resource value: 0x7f0a00bb
+			public const int cfName = 2131361979;
 			
 			// aapt resource value: 0x7f0a0064
 			public const int checkbox = 2131361892;
@@ -4023,8 +4026,8 @@ namespace OnQAndroid
 			// aapt resource value: 0x7f0a0057
 			public const int contentPanel = 2131361879;
 			
-			// aapt resource value: 0x7f0a00b5
-			public const int content_fragment = 2131361973;
+			// aapt resource value: 0x7f0a00b8
+			public const int content_fragment = 2131361976;
 			
 			// aapt resource value: 0x7f0a009f
 			public const int currentQs = 2131361951;
@@ -4440,8 +4443,8 @@ namespace OnQAndroid
 			// aapt resource value: 0x7f0a00f6
 			public const int rak = 2131362038;
 			
-			// aapt resource value: 0x7f0a00bb
-			public const int recruiterIdentify = 2131361979;
+			// aapt resource value: 0x7f0a00bd
+			public const int recruiterIdentify = 2131361981;
 			
 			// aapt resource value: 0x7f0a0129
 			public const int registerButton = 2131362089;
@@ -4464,8 +4467,8 @@ namespace OnQAndroid
 			// aapt resource value: 0x7f0a00d5
 			public const int right_side = 2131362005;
 			
-			// aapt resource value: 0x7f0a00be
-			public const int rootLayout = 2131361982;
+			// aapt resource value: 0x7f0a00bf
+			public const int rootLayout = 2131361983;
 			
 			// aapt resource value: 0x7f0a0115
 			public const int saveChangesButton = 2131362069;
@@ -4500,8 +4503,8 @@ namespace OnQAndroid
 			// aapt resource value: 0x7f0a0091
 			public const int scrollView1 = 2131361937;
 			
-			// aapt resource value: 0x7f0a00bf
-			public const int scrollView2 = 2131361983;
+			// aapt resource value: 0x7f0a00c0
+			public const int scrollView2 = 2131361984;
 			
 			// aapt resource value: 0x7f0a0047
 			public const int scrollable = 2131361863;
@@ -4572,11 +4575,11 @@ namespace OnQAndroid
 			// aapt resource value: 0x7f0a008a
 			public const int space2 = 2131361930;
 			
-			// aapt resource value: 0x7f0a00bd
-			public const int space3 = 2131361981;
+			// aapt resource value: 0x7f0a00b5
+			public const int space3 = 2131361973;
 			
-			// aapt resource value: 0x7f0a00b9
-			public const int space4 = 2131361977;
+			// aapt resource value: 0x7f0a00b7
+			public const int space4 = 2131361975;
 			
 			// aapt resource value: 0x7f0a0055
 			public const int spacer = 2131361877;
@@ -4605,8 +4608,8 @@ namespace OnQAndroid
 			// aapt resource value: 0x7f0a00d0
 			public const int status_bar_latest_event_content = 2131362000;
 			
-			// aapt resource value: 0x7f0a00ba
-			public const int studentIdentify = 2131361978;
+			// aapt resource value: 0x7f0a00bc
+			public const int studentIdentify = 2131361980;
 			
 			// aapt resource value: 0x7f0a00ea
 			public const int studentProfile = 2131362026;
@@ -4623,8 +4626,8 @@ namespace OnQAndroid
 			// aapt resource value: 0x7f0a001a
 			public const int tabMode = 2131361818;
 			
-			// aapt resource value: 0x7f0a00b6
-			public const int tabs = 2131361974;
+			// aapt resource value: 0x7f0a00b9
+			public const int tabs = 2131361977;
 			
 			// aapt resource value: 0x7f0a00e0
 			public const int text = 2131362016;
@@ -4659,8 +4662,8 @@ namespace OnQAndroid
 			// aapt resource value: 0x7f0a007e
 			public const int textView2 = 2131361918;
 			
-			// aapt resource value: 0x7f0a00c1
-			public const int textView3 = 2131361985;
+			// aapt resource value: 0x7f0a00b6
+			public const int textView3 = 2131361974;
 			
 			// aapt resource value: 0x7f0a008c
 			public const int textView4 = 2131361932;
@@ -4755,8 +4758,8 @@ namespace OnQAndroid
 			// aapt resource value: 0x7f0a000e
 			public const int view_offset_helper = 2131361806;
 			
-			// aapt resource value: 0x7f0a00b7
-			public const int viewpager = 2131361975;
+			// aapt resource value: 0x7f0a00ba
+			public const int viewpager = 2131361978;
 			
 			// aapt resource value: 0x7f0a0151
 			public const int visible = 2131362129;
