@@ -8,6 +8,7 @@ using Android.Views.InputMethods;
 using SQLite;
 using Android.Support.V4.View;
 using Firebase.Xamarin.Database;
+using OnQAndroid.FirebaseObjects;
 
 namespace OnQAndroid
 {
@@ -89,7 +90,7 @@ namespace OnQAndroid
             bool cfExists = false;
 
             var firebase = new FirebaseClient(FirebaseURL);
-            var cfItems = await firebase.Child("cfids").OnceAsync<Cfids>();
+            var cfItems = await firebase.Child("cfids").OnceAsync<Cfid>();
             string cfName = "";
 
             foreach (var item in cfItems)

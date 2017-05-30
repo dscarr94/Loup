@@ -236,31 +236,18 @@
     <Compile Include="Adapters\QsListViewAdapter.cs" />
     <Compile Include="Adapters\QueueListViewAdapter.cs" />
     <Compile Include="Fragments\StudentQsPresent.cs" />
-    <Compile Include="SQLite Tables\FavoritesTable.cs" />
     <Compile Include="Fragments\CompaniesFragment.cs" />
     <Compile Include="homeScreen2.cs" />
     <Compile Include="Adapters\HomeScreenAdapter.cs" />
-    <Compile Include="SQLite Tables\GPAPreferences.cs" />
-    <Compile Include="SQLite Tables\GradTermPreferences.cs" />
-    <Compile Include="SQLite Tables\MajorPreferences.cs" />
-    <Compile Include="SQLite Tables\MyAttributes.cs" />
-    <Compile Include="SQLite Tables\Cfids.cs" />
-    <Compile Include="SQLite Tables\Companies.cs" />
+    <Compile Include="SQLite\MyAttributes.cs" />
     <Compile Include="SignUpSignIn\csBuildProfile.cs" />
     <Compile Include="SignUpSignIn\IdentifyUserType.cs" />
     <Compile Include="SignUpSignIn\LoginSignup.cs" />
-    <Compile Include="SQLite Tables\LoginTable.cs" />
     <Compile Include="SignUpSignIn\MainActivity.cs" />
     <Compile Include="Adapters\CompaniesListViewAdapter.cs" />
     <Compile Include="SignUpSignIn\passwordRecover.cs" />
     <Compile Include="Fragments\ProfileFragment.cs" />
     <Compile Include="SignUpSignIn\recruiterBuildProfile.cs" />
-    <Compile Include="SQLite Tables\MyFavorites.cs" />
-    <Compile Include="SQLite Tables\MyPastQueue.cs" />
-    <Compile Include="SQLite Tables\MyQueue.cs" />
-    <Compile Include="SQLite Tables\PastQueue.cs" />
-    <Compile Include="SQLite Tables\Queue.cs" />
-    <Compile Include="SQLite Tables\RecruiterTable.cs" />
     <Compile Include="Fragments\RegisterFragment.cs" />
     <Compile Include="Fragments\RegisterRootFragment.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
@@ -268,7 +255,6 @@
     <Compile Include="SignUpSignIn\selectSchool.cs" />
     <Compile Include="SignUpSignIn\signupScreen.cs" />
     <Compile Include="SignUpSignIn\studentBuildProfile.cs" />
-    <Compile Include="SQLite Tables\StudentTable.cs" />
     <Compile Include="SignUpSignIn\successScreen.cs" />
     <Compile Include="SignUpSignIn\uploadResume.cs" />
   </ItemGroup>
@@ -506,9 +492,7 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\starunfilled.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Retired\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\scrollhand.png" />
   </ItemGroup>

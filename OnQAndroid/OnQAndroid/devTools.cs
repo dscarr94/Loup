@@ -44,6 +44,9 @@ namespace OnQAndroid
             newCompany1.description = "Description 1";
             newCompany1.website = "https://newsroom.fb.com/";
             newCompany1.rak = "facebook123";
+            newCompany1.checkedIn = false;
+            newCompany1.waittime = "3000000000";
+            newCompany1.numstudents = "0";
 
             Company newCompany2 = new Company();
             newCompany2.companyid = "2";
@@ -51,6 +54,9 @@ namespace OnQAndroid
             newCompany2.description = "Description 2";
             newCompany2.website = "https://www.google.com/intl/en/about/products/";
             newCompany2.rak = "google123";
+            newCompany2.checkedIn = false;
+            newCompany2.waittime = "3000000000";
+            newCompany2.numstudents = "0";
 
             Company newCompany3 = new Company();
             newCompany3.companyid = "3";
@@ -58,6 +64,9 @@ namespace OnQAndroid
             newCompany3.description = "Description 3";
             newCompany3.website = "http://www.stryker.com/en-us/index.htm";
             newCompany3.rak = "stryker123";
+            newCompany3.checkedIn = false;
+            newCompany3.waittime = "3000000000";
+            newCompany3.numstudents = "0";
 
             Company newCompany4 = new Company();
             newCompany4.companyid = "4";
@@ -65,6 +74,9 @@ namespace OnQAndroid
             newCompany4.description = "Description 4";
             newCompany4.website = "http://www.rocket.com/";
             newCompany4.rak = "ar123";
+            newCompany4.checkedIn = false;
+            newCompany4.waittime = "3000000000";
+            newCompany4.numstudents = "0";
 
             Company newCompany5 = new Company();
             newCompany5.companyid = "5";
@@ -72,6 +84,9 @@ namespace OnQAndroid
             newCompany5.description = "Description 5";
             newCompany5.website = "http://www.boeing.com/";
             newCompany5.rak = "boeing123";
+            newCompany5.checkedIn = false;
+            newCompany5.waittime = "3000000000";
+            newCompany5.numstudents = "0";
 
             Company newCompany6 = new Company();
             newCompany6.companyid = "6";
@@ -79,6 +94,9 @@ namespace OnQAndroid
             newCompany6.description = "Description 6";
             newCompany6.website = "https://www.amazon.com/p/feature/rzekmvyjojcp6uc";
             newCompany6.rak = "amazon123";
+            newCompany6.checkedIn = false;
+            newCompany6.waittime = "3000000000";
+            newCompany6.numstudents = "0";
 
             var firebase = new FirebaseClient(FirebaseURL);
             var item1 = await firebase.Child("12345678").PostAsync(newCompany1);
@@ -157,7 +175,7 @@ namespace OnQAndroid
 
         private void CleanUp_Click(object sender, EventArgs e)
         {
-            string dbpath_user = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "user.db3");
+            /*string dbpath_user = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "user.db3");
             var db_user = new SQLiteConnection(dbpath_user);
 
             int numUsers = db_user.Table<LoginTable>().Count();
@@ -198,27 +216,27 @@ namespace OnQAndroid
                 this.DeleteDatabase(dbpath_prefs);
                 this.DeleteDatabase(dbpath_qs);
                 this.DeleteDatabase(dbpath_pastqs);
-            }
-            Toast.MakeText(this, "All Clean!", ToastLength.Short).Show();
+            }*/
+            Toast.MakeText(this, "Nothing Happened", ToastLength.Short).Show();
         }
 
         private void DeleteCF_Click(object sender, EventArgs e)
         {
-            string dbpath_myCF = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "12345678.db3");
+            /*string dbpath_myCF = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "12345678.db3");
             var db_myCF = new SQLiteConnection(dbpath_myCF);
 
             string dbpath_cfids = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "CFIDs.db3");
             var db_cfids = new SQLiteConnection(dbpath_cfids);
 
             db_cfids.DeleteAll<Cfids>();
-            db_myCF.DeleteAll<Companies>();
+            db_myCF.DeleteAll<Companies>();*/
 
-            Toast.MakeText(this, "Career Fair Deleted", ToastLength.Short).Show();
+            Toast.MakeText(this, "Nothing Happned", ToastLength.Short).Show();
         }
 
         private void DeleteUserData_Click(object sender, EventArgs e)
         {
-            string dbpath_user = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "user.db3");
+            /*string dbpath_user = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "user.db3");
             var db_user = new SQLiteConnection(dbpath_user);
 
             db_user.DeleteAll<LoginTable>();
@@ -234,17 +252,17 @@ namespace OnQAndroid
 
             this.DeleteDatabase(dbpath_attributes);
 
-            /*var db_usernew = new SQLiteConnection(dbpath_user);
+            var db_usernew = new SQLiteConnection(dbpath_user);
             db_usernew.CreateTable<LoginTable>();
             db_usernew.CreateTable<StudentTable>();
             db_usernew.CreateTable<RecruiterTable>();*/
 
-            Toast.MakeText(this, "User Data Deleted", ToastLength.Short).Show();
+            Toast.MakeText(this, "Nothing Happned", ToastLength.Short).Show();
         }
 
         private void GenerateCF_Click(object sender, EventArgs e)
         {
-            string dbpath_cfids = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "CFIDs.db3");
+            /*string dbpath_cfids = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "CFIDs.db3");
             string dbpath_myCF = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "12345678.db3");
             string dbpath_allcompanies = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "allcompanies.db3");
 
@@ -317,9 +335,9 @@ namespace OnQAndroid
             db_allcompanies.InsertOrReplace(newCompany3);
             db_allcompanies.InsertOrReplace(newCompany4);
             db_allcompanies.InsertOrReplace(newCompany5);
-            db_allcompanies.InsertOrReplace(newCompany6);
+            db_allcompanies.InsertOrReplace(newCompany6);*/
 
-            Toast.MakeText(this, "Career Fair Generated", ToastLength.Short).Show();
+            Toast.MakeText(this, "Nothing Happened", ToastLength.Short).Show();
         }
     }
 }
