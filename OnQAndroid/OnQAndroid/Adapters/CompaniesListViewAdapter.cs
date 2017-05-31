@@ -10,6 +10,7 @@ using System;
 using Firebase.Xamarin.Database;
 using OnQAndroid.FirebaseObjects;
 using Firebase.Xamarin.Database.Query;
+using Android.Views.InputMethods;
 
 namespace OnQAndroid
 {
@@ -22,17 +23,19 @@ namespace OnQAndroid
         private List<string> mNumStudents;
         private const string FirebaseURL = "https://onqfirebase.firebaseio.com/";
         bool isFavorite;
-        public string companyid;
+        public int companyid;
         public string favoritesFileName;
+        private List<string> mCompanyIds;
         
 
-        public CompaniesListViewAdapter(Context context, List<string> items, List<bool> favs, List<string> times, List<string> numStudents)
+        public CompaniesListViewAdapter(Context context, List<string> items, List<bool> favs, List<string> times, List<string> numStudents, List<string> companyIds)
         {
             mItems = items;
             mContext = context;
             mFavs = favs;
             mTimes = times;
             mNumStudents = numStudents;
+            mCompanyIds = companyIds;
         }
         public override int Count
         {
@@ -64,7 +67,7 @@ namespace OnQAndroid
             var myAttributes = db_attributes.Get<MyAttributes>(1);
             int myCFID = myAttributes.cfid;
 
-            companyid = (position + 1).ToString();
+            companyid = Convert.ToInt32(mCompanyIds[position]);
 
             favoritesFileName = "fav_" + myCFID.ToString() + "_" + myAttributes.typeid.ToString();
 
@@ -103,42 +106,58 @@ namespace OnQAndroid
 
             q_ll.Click += (sender, e) =>
             {
+                companyid = Convert.ToInt32(mCompanyIds[position]);
+
+                InputMethodManager imm = (InputMethodManager)mContext.ApplicationContext.GetSystemService(Context.InputMethodService);
+                imm.HideSoftInputFromWindow(q_ll.WindowToken, 0);
+
                 Android.Support.V4.App.FragmentTransaction trans = ((FragmentActivity)mContext).SupportFragmentManager.BeginTransaction();
                 Fragments.confirmQ fragment = new Fragments.confirmQ();
                 Bundle arguments = new Bundle();
-                arguments.PutInt("CompanyInt", position + 1);
+                arguments.PutInt("CompanyInt", companyid);
                 fragment.Arguments = arguments;
                 trans.Replace(Resource.Id.companies_root_frame, fragment);
                 trans.Commit();
             };
+
             favorite.Click += (sender, e) =>
             {
+                companyid = Convert.ToInt32(mCompanyIds[position]);
+
+                InputMethodManager imm = (InputMethodManager)mContext.ApplicationContext.GetSystemService(Context.InputMethodService);
+                imm.HideSoftInputFromWindow(favorite.WindowToken, 0);
+
                 bool thisFavorite = mFavs[position];
                 if (thisFavorite == true)
                 {
                     star.SetImageResource(Resource.Drawable.starunfilled);
                     bool newFavorite = false;
                     mFavs[position] = false;
-                    UpdateIsFavorite(newFavorite, position + 1);
+                    UpdateIsFavorite(newFavorite, companyid);
                 }
                 else if (thisFavorite == false)
                 {
                     star.SetImageResource(Resource.Drawable.starfilled);
                     bool newFavorite = true;
                     mFavs[position] = true;
-                    UpdateIsFavorite(newFavorite, position + 1);
+                    UpdateIsFavorite(newFavorite, companyid);
                 }
             };
 
             companyInfo.Click += (sender, e) =>
             {
+                companyid = Convert.ToInt32(mCompanyIds[position]);
+
+                InputMethodManager imm = (InputMethodManager)mContext.ApplicationContext.GetSystemService(Context.InputMethodService);
+                imm.HideSoftInputFromWindow(companyInfo.WindowToken, 0);
+
                 Android.Support.V4.App.FragmentTransaction trans = ((FragmentActivity)mContext).SupportFragmentManager.BeginTransaction();
 
                 CompanyInfoFragment fragment = new CompanyInfoFragment();
 
                 Bundle arguments = new Bundle();
 
-                arguments.PutInt("CompanyInt", position + 1);
+                arguments.PutInt("CompanyInt", companyid);
 
                 arguments.PutString("Sender", "Companies");
                 fragment.Arguments = arguments;

@@ -36,6 +36,9 @@ namespace OnQAndroid.Fragments
         ViewGroup mContainer;
         string student_id1;
         ProgressBar progressBar;
+        Button drop;
+        Button pull;
+
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             mContainer = container;
@@ -44,8 +47,8 @@ namespace OnQAndroid.Fragments
             progressBar = view.FindViewById<ProgressBar>(Resource.Id.circularProgress);
             queue = view.FindViewById<ListView>(Resource.Id.queuelist);
             candidateName = view.FindViewById<TextView>(Resource.Id.candidateName1);
-            Button drop = view.FindViewById<Button>(Resource.Id.dropbutton);
-            Button pull = view.FindViewById<Button>(Resource.Id.pullbutton);
+            drop = view.FindViewById<Button>(Resource.Id.dropbutton);
+            pull = view.FindViewById<Button>(Resource.Id.pullbutton);
             ImageView backButton = view.FindViewById<ImageView>(Resource.Id.backButton);
             backButton.Click += (sender, e) =>
             {
@@ -92,6 +95,8 @@ namespace OnQAndroid.Fragments
 
         private async void Drop_Click(object sender, EventArgs e)
         {
+            drop.Enabled = false;
+            pull.Enabled = false;
             progressBar.Visibility = ViewStates.Visible;
             string fileName_companyQ = "qs_" + myAttributes.cfid.ToString() + "_" + myAttributes.attribute1;
             string fileName_studentQ = "myqs_" + myAttributes.cfid.ToString() + "_" + student_id1;
@@ -181,6 +186,8 @@ namespace OnQAndroid.Fragments
 
         private void Pull_Click(object sender, EventArgs e)
         {
+            pull.Enabled = false;
+            drop.Enabled = false;
             Android.Support.V4.App.FragmentTransaction trans = FragmentManager.BeginTransaction();
             Bundle arguments = new Bundle();
             arguments.PutString("StudentId", student_id1);

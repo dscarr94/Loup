@@ -1,4 +1,5 @@
 using System;
+using Android.Content;
 using System.Collections.Generic;
 using System.Linq;
 using Android.OS;
@@ -8,6 +9,7 @@ using SQLite;
 using Firebase.Xamarin.Database;
 using OnQAndroid.FirebaseObjects;
 using Firebase.Xamarin.Database.Query;
+using Android.Views.InputMethods;
 
 namespace OnQAndroid
 {
@@ -18,7 +20,7 @@ namespace OnQAndroid
             // Required empty public constructor
         }
 
-        public static CompaniesFragment newInstance()
+        public static CompaniesFragment NewInstance()
         {
             CompaniesFragment fragment = new OnQAndroid.CompaniesFragment();
             return fragment;
@@ -56,6 +58,14 @@ namespace OnQAndroid
         ListView mListView;
         ViewGroup mContainer;
         ProgressBar progressBar;
+        ImageView magGlass;
+        CompaniesListViewAdapter mAdapter;
+        List<string> mWaitTimes;
+        List<bool> mFavList;
+        List<string> mNumStudents;
+        EditText mSearchField;
+        LinearLayout rootLayout;
+        List<string> mCompanyIds;
 
         private const string FirebaseURL = "https://onqfirebase.firebaseio.com/";
 
@@ -85,10 +95,45 @@ namespace OnQAndroid
                     mListView = view.FindViewById<ListView>(Resource.Id.listView1);
                     cfName = view.FindViewById<TextView>(Resource.Id.cfName);
                     progressBar = view.FindViewById<ProgressBar>(Resource.Id.circularProgress);
+                    magGlass = view.FindViewById<ImageView>(Resource.Id.magGlass);
+                    mSearchField = view.FindViewById<EditText>(Resource.Id.searchCompanies);
+                    rootLayout = view.FindViewById<LinearLayout>(Resource.Id.rootLayout);
+
+                    magGlass.Enabled = false;
 
                     mItems = new List<string>();
 
                     LoadCF();
+
+                    bool searchFieldVisible = false;
+                    magGlass.Click += (sender, e) =>
+                    {
+                        if (searchFieldVisible == false)
+                        {
+                            mSearchField.Visibility = ViewStates.Visible;
+                            cfName.Visibility = ViewStates.Invisible;
+                            searchFieldVisible = true;
+                            rootLayout.ClearFocus();
+                            mSearchField.RequestFocus();
+                            InputMethodManager imm = (InputMethodManager)this.Activity.GetSystemService(Context.InputMethodService);
+                            imm.ShowSoftInput(mSearchField, 0);
+
+                        }
+                        else if (searchFieldVisible == true)
+                        {
+                            InputMethodManager imm = (InputMethodManager)this.Activity.GetSystemService(Context.InputMethodService);
+                            imm.HideSoftInputFromWindow(mSearchField.WindowToken, 0);
+                            rootLayout.RequestFocus();
+                            mSearchField.Visibility = ViewStates.Invisible;
+                            mSearchField.RequestFocus();
+                            cfName.Visibility = ViewStates.Visible;
+                            searchFieldVisible = false;
+                            mAdapter = new CompaniesListViewAdapter(mContainer.Context, mItems, mFavList, mWaitTimes, mNumStudents, mCompanyIds);
+                            mListView.Adapter = mAdapter;
+                        }
+                    };
+
+                    mSearchField.TextChanged += MSearchField_TextChanged;
 
                     return view;
                 }
@@ -192,6 +237,36 @@ namespace OnQAndroid
                     throw new NotImplementedException();
                 }
             }
+        }
+
+        private void MSearchField_TextChanged(object sender, Android.Text.TextChangedEventArgs e)
+        {
+            List<string> searchedCompanies = (from company in mItems
+                                              where company.Contains(mSearchField.Text)
+                                              select company).ToList<string>();
+
+            int position = -1;
+            List<string> searchedWaitTimes = new List<string>();
+            List<bool> searchedFavList = new List<bool>();
+            List<string> searchedNumStudents = new List<string>();
+            List<string> searchedCompanyIds = new List<string>();
+            foreach (var item in mItems)
+            {
+                position = position + 1;
+                foreach (var searcheditem in searchedCompanies)
+                {
+                    if (searcheditem == item)
+                    {
+                        searchedWaitTimes.Add(mWaitTimes[position]);
+                        searchedFavList.Add(mFavList[position]);
+                        searchedNumStudents.Add(mNumStudents[position]);
+                        searchedCompanyIds.Add(mCompanyIds[position]);
+                    }
+                }
+            }
+
+            mAdapter = new CompaniesListViewAdapter(mContainer.Context, searchedCompanies, searchedFavList, searchedWaitTimes, searchedNumStudents, searchedCompanyIds);
+            mListView.Adapter = mAdapter;
         }
 
         private async void PopulateName()
@@ -416,11 +491,13 @@ namespace OnQAndroid
             }
 
             var myCFcompanies = await firebase.Child("careerfairs").Child(myAttributes.cfid.ToString()).OnceAsync<Company>();
-            List<string> mWaitTimes = new List<string>();
-            List<string> mNumStudents = new List<string>();
+            mWaitTimes = new List<string>();
+            mNumStudents = new List<string>();
+            mCompanyIds = new List<string>();
 
             foreach (var company in myCFcompanies)
             {
+                mCompanyIds.Add(company.Object.companyid);
                 mItems.Add(company.Object.name);
                 long totalNumStudents = Convert.ToInt32(company.Object.numstudents);
                 long partialWaitTime = Convert.ToInt64(company.Object.waittime);
@@ -433,17 +510,19 @@ namespace OnQAndroid
 
             string favoritesFileName = "fav_" + myAttributes.cfid.ToString() + "_" + myAttributes.typeid.ToString();
             var myFavorites = await firebase.Child("favorites").Child(favoritesFileName).OnceAsync<Favorite>();
-            List<bool> favList = new List<bool>();
+            mFavList = new List<bool>();
 
             foreach (var favorite in myFavorites)
             {
-                favList.Add(favorite.Object.isFavorite);
+                mFavList.Add(favorite.Object.isFavorite);
             }
 
             cfName.Text = myCFName;
-            CompaniesListViewAdapter adapter = new CompaniesListViewAdapter(mContainer.Context, mItems, favList, mWaitTimes, mNumStudents);
-            mListView.Adapter = adapter;
+            mAdapter = new CompaniesListViewAdapter(mContainer.Context, mItems, mFavList, mWaitTimes, mNumStudents, mCompanyIds);
+            mListView.Adapter = mAdapter;
             progressBar.Visibility = ViewStates.Invisible;
+            magGlass.Enabled = true;
+            magGlass.Visibility = ViewStates.Visible;
         }
 
         private void Plus_gt_Click(object sender, EventArgs e)
