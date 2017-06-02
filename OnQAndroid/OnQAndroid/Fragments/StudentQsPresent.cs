@@ -8,6 +8,7 @@ using Firebase.Xamarin.Database;
 using OnQAndroid.FirebaseObjects;
 using System;
 using Firebase.Xamarin.Database.Query;
+using Android.Support.V4.Widget;
 
 namespace OnQAndroid.Fragments
 {
@@ -33,19 +34,19 @@ namespace OnQAndroid.Fragments
 
         MyAttributes myAttributes;
         private const string FirebaseURL = "https://onqfirebase.firebaseio.com/";
-        List<string> mItems;
         ListView mListView;
         ViewGroup mContainer;
         ProgressBar progressBar;
+        SwipeRefreshLayout swipeContainer;
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             mContainer = container;
             View view = inflater.Inflate(Resource.Layout.StudentQsPresent, container, false);
-            mItems = new List<string>();
             progressBar = view.FindViewById<ProgressBar>(Resource.Id.circularProgress);
             mListView = view.FindViewById<ListView>(Resource.Id.myQsListView);
             ImageView backButton = view.FindViewById<ImageView>(Resource.Id.backButton);
+            swipeContainer = view.FindViewById<SwipeRefreshLayout>(Resource.Id.swipeLayout);
             backButton.Click += (sender, e) =>
             {
                 Android.Support.V4.App.FragmentTransaction trans = FragmentManager.BeginTransaction();
@@ -59,7 +60,17 @@ namespace OnQAndroid.Fragments
 
             PopulateList();
 
+            swipeContainer.SetColorSchemeResources(Android.Resource.Color.HoloBlueLight, Android.Resource.Color.HoloGreenLight,
+                           Android.Resource.Color.HoloOrangeLight, Android.Resource.Color.HoloRedLight);
+            swipeContainer.Refresh += RefreshOnSwipe;
+
             return view;
+        }
+
+        private void RefreshOnSwipe(object sender, EventArgs e)
+        {
+            PopulateList();
+            (sender as SwipeRefreshLayout).Refreshing = false;
         }
 
         private async void PopulateList()
@@ -73,9 +84,23 @@ namespace OnQAndroid.Fragments
             var myQs = await firebase.Child("qs").Child(fileName_myQs).OnceAsync<StudentQ>();
             var myCareerFair = await firebase.Child("careerfairs").Child(fileName_myCareerFair).OnceAsync<Company>();
 
+            if (myQs.Count == 0)
+            {
+                NoQsPresent fragment = new NoQsPresent();
+                Bundle arguments = new Bundle();
+                arguments.PutString("Sender", "CurrentQs");
+                fragment.Arguments = arguments;
+
+                Android.Support.V4.App.FragmentTransaction trans = FragmentManager.BeginTransaction();
+                trans.Replace(Resource.Id.qs_root_frame, fragment);
+                trans.Commit();
+            }
+
+            List<string> mItems = new List<string>();
             List<int> companyIds = new List<int>();
             List<string> mPositions = new List<string>();
             List<string> mWaitTimes = new List<string>();
+            List<bool> favs = new List<bool>();
             int position = -1;
 
             foreach (var q in myQs)
@@ -98,7 +123,6 @@ namespace OnQAndroid.Fragments
             }
 
             string fileName_favorites = "fav_" + myAttributes.cfid.ToString() + "_" + myAttributes.typeid.ToString();
-            List <bool> favs = new List<bool>();
             var myFavs = await firebase.Child("favorites").Child(fileName_favorites).OnceAsync<Favorite>();
 
             for (int i = 0; i <= mItems.Count - 1; i++)

@@ -1,43 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/swipeLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#FFFFFF">
-    <ImageView
-        android:src="@drawable/back"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:id="@+id/backButton"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:clickable="true" />
-    <TextView
-        android:text="Current Q's"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_width="wrap_content"
-        android:layout_height="25dp"
-        android:id="@+id/textView1"
-        android:textColor="#000000"
-        android:gravity="center"
-        android:layout_gravity="center"
-        android:layout_marginTop="-25dp"
-        android:textStyle="bold" />
-    <ProgressBar
-        android:id="@+id/circularProgress"
-        android:theme="@style/CircularProgress"
-        android:visibility="invisible"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        style="@style/Widget.AppCompat.ProgressBar"
-        android:layout_gravity="right"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="-30dp" />
+    android:layout_height="match_parent">
+  <ScrollView
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:background="#FFFFFF">
     <LinearLayout
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/linearLayout1">
+        android:layout_height="match_parent"
+        android:background="#FFFFFF">
+      <ImageView
+          android:src="@drawable/back"
+          android:layout_width="30dp"
+          android:layout_height="30dp"
+          android:id="@+id/backButton"
+          android:layout_marginTop="10dp"
+          android:layout_marginLeft="10dp"
+          android:clickable="true" />
+      <TextView
+          android:text="Current Q's"
+          android:textAppearance="?android:attr/textAppearanceMedium"
+          android:layout_width="wrap_content"
+          android:layout_height="25dp"
+          android:id="@+id/textView1"
+          android:textColor="#000000"
+          android:gravity="center"
+          android:layout_gravity="center"
+          android:layout_marginTop="-25dp"
+          android:textStyle="bold" />
+      <ProgressBar
+          android:id="@+id/circularProgress"
+          android:theme="@style/CircularProgress"
+          android:visibility="invisible"
+          android:layout_width="30dp"
+          android:layout_height="30dp"
+          style="@style/Widget.AppCompat.ProgressBar"
+          android:layout_gravity="right"
+          android:layout_marginRight="10dp"
+          android:layout_marginTop="-30dp" />
+      <LinearLayout
+          android:orientation="horizontal"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:id="@+id/linearLayout1">
         <ImageView
             android:src="@drawable/camera"
             android:layout_width="150dp"
@@ -54,13 +62,13 @@
             android:gravity="center"
             android:layout_marginLeft="10dp"
             android:textStyle="bold" />
-    </LinearLayout>
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/linearLayout2"
-        android:weightSum="100">
+      </LinearLayout>
+      <LinearLayout
+          android:orientation="horizontal"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:id="@+id/linearLayout2"
+          android:weightSum="100">
         <Button
             android:text="Drop"
             android:layout_width="wrap_content"
@@ -80,12 +88,14 @@
             android:layout_marginLeft="5dp"
             android:background="@drawable/turquoisebutton"
             android:textColor="@color/textcolorswitcher" />
+      </LinearLayout>
+      <ListView
+          android:minWidth="25px"
+          android:minHeight="25px"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:id="@+id/queuelist"
+          android:layout_marginTop="5dp" />
     </LinearLayout>
-    <ListView
-        android:minWidth="25px"
-        android:minHeight="25px"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/queuelist"
-        android:layout_marginTop="5dp" />
-</LinearLayout>
+  </ScrollView>
+</android.support.v4.widget.SwipeRefreshLayout>

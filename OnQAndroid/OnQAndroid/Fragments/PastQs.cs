@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using Android.App;
 using Android.OS;
 using Android.Views;
@@ -88,8 +87,13 @@ namespace OnQAndroid.Fragments
 
             if (numpastqs == 0)
             {
+                NoQsPresent fragment = new NoQsPresent();
+                Bundle arguments = new Bundle();
+                arguments.PutString("Sender", "PastQs");
+                fragment.Arguments = arguments;
+
                 Android.Support.V4.App.FragmentTransaction trans = FragmentManager.BeginTransaction();
-                trans.Replace(Resource.Id.qs_root_frame, new Fragments.NoQsPresent());
+                trans.Replace(Resource.Id.qs_root_frame, fragment);
                 trans.Commit();
             }
             else
@@ -116,14 +120,19 @@ namespace OnQAndroid.Fragments
 
             if (numpastqs == 0)
             {
+                NoQsPresent fragment = new NoQsPresent();
+                Bundle arguments = new Bundle();
+                arguments.PutString("Sender", "PastQs");
+                fragment.Arguments = arguments;
+
                 Android.Support.V4.App.FragmentTransaction trans = FragmentManager.BeginTransaction();
-                trans.Replace(Resource.Id.qs_root_frame, new Fragments.NoQsPresent());
+                trans.Replace(Resource.Id.qs_root_frame, fragment);
                 trans.Commit();
             }
             else
             {
                 Android.Support.V4.App.FragmentTransaction trans = FragmentManager.BeginTransaction();
-                trans.Replace(Resource.Id.qs_root_frame, new Fragments.RecruiterPastQs());
+                trans.Replace(Resource.Id.qs_root_frame, new RecruiterPastQs());
                 trans.Commit();
             }
         }

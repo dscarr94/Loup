@@ -8,6 +8,7 @@ using SQLite;
 using OnQAndroid.FirebaseObjects;
 using System;
 using Firebase.Xamarin.Database.Query;
+using Android.Support.V4.Widget;
 
 namespace OnQAndroid.Fragments
 {
@@ -24,7 +25,6 @@ namespace OnQAndroid.Fragments
             return fragment;
         }
 
-        //int numStudents;
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -38,6 +38,9 @@ namespace OnQAndroid.Fragments
         ProgressBar progressBar;
         Button drop;
         Button pull;
+        SwipeRefreshLayout swipeContainer;
+
+        //public SwipeRefreshLayout SwipeContainer { get => swipeContainer; set => swipeContainer = value; }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
@@ -50,10 +53,12 @@ namespace OnQAndroid.Fragments
             drop = view.FindViewById<Button>(Resource.Id.dropbutton);
             pull = view.FindViewById<Button>(Resource.Id.pullbutton);
             ImageView backButton = view.FindViewById<ImageView>(Resource.Id.backButton);
+            swipeContainer = view.FindViewById<SwipeRefreshLayout>(Resource.Id.swipeLayout);
+
             backButton.Click += (sender, e) =>
             {
                 Android.Support.V4.App.FragmentTransaction trans = FragmentManager.BeginTransaction();
-                trans.Replace(Resource.Id.qs_root_frame, new Fragments.CurrentPastQs());
+                trans.Replace(Resource.Id.qs_root_frame, new CurrentPastQs());
                 trans.Commit();
             };
 
@@ -65,7 +70,17 @@ namespace OnQAndroid.Fragments
             drop.Click += Drop_Click;
             pull.Click += Pull_Click;
 
+            swipeContainer.SetColorSchemeResources(Android.Resource.Color.HoloBlueLight, Android.Resource.Color.HoloGreenLight,
+                                       Android.Resource.Color.HoloOrangeLight, Android.Resource.Color.HoloRedLight);
+            swipeContainer.Refresh += RefreshOnSwipe;
+
             return view;
+        }
+
+        private void RefreshOnSwipe(object sender, EventArgs e)
+        {
+            LoadQ();
+            (sender as SwipeRefreshLayout).Refreshing = false;
         }
 
         private async void LoadQ()
@@ -74,6 +89,18 @@ namespace OnQAndroid.Fragments
             var firebase = new FirebaseClient(FirebaseURL);
 
             var thisQ = await firebase.Child("qs").Child("qs_" + myAttributes.cfid.ToString() + "_" + myAttributes.attribute1).OnceAsync<Queue>();
+
+            if (thisQ.Count == 0)
+            {
+                Fragments.NoQsPresent fragment = new Fragments.NoQsPresent();
+                Bundle arguments = new Bundle();
+                arguments.PutString("Sender", "CurrentQs");
+                fragment.Arguments = arguments;
+
+                Android.Support.V4.App.FragmentTransaction trans = FragmentManager.BeginTransaction();
+                trans.Replace(Resource.Id.qs_root_frame, fragment);
+                trans.Commit();
+            }
 
             List<string> mItems = new List<string>();
             foreach (var q in thisQ)

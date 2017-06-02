@@ -10,6 +10,8 @@ using Firebase.Xamarin.Database;
 using OnQAndroid.FirebaseObjects;
 using Firebase.Xamarin.Database.Query;
 using Android.Views.InputMethods;
+using Android.Support.V4.Widget;
+using System.Threading.Tasks;
 
 namespace OnQAndroid
 {
@@ -53,19 +55,20 @@ namespace OnQAndroid
 
         MyAttributes myAttributes;
         string myCFName;
-        List<string> mItems;
         TextView cfName;
         ListView mListView;
         ViewGroup mContainer;
         ProgressBar progressBar;
         ImageView magGlass;
         CompaniesListViewAdapter mAdapter;
+        EditText mSearchField;
+        LinearLayout rootLayout;
+        List<string> mItems;
+        List<string> mCompanyIds;
         List<string> mWaitTimes;
         List<bool> mFavList;
         List<string> mNumStudents;
-        EditText mSearchField;
-        LinearLayout rootLayout;
-        List<string> mCompanyIds;
+        SwipeRefreshLayout swipeContainer;
 
         private const string FirebaseURL = "https://onqfirebase.firebaseio.com/";
 
@@ -98,12 +101,15 @@ namespace OnQAndroid
                     magGlass = view.FindViewById<ImageView>(Resource.Id.magGlass);
                     mSearchField = view.FindViewById<EditText>(Resource.Id.searchCompanies);
                     rootLayout = view.FindViewById<LinearLayout>(Resource.Id.rootLayout);
+                    swipeContainer = view.FindViewById<SwipeRefreshLayout>(Resource.Id.swipeLayout);
 
                     magGlass.Enabled = false;
 
                     mItems = new List<string>();
 
-                    LoadCF();
+#pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
+                    LoadCF(true);
+#pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
 
                     bool searchFieldVisible = false;
                     magGlass.Click += (sender, e) =>
@@ -134,6 +140,9 @@ namespace OnQAndroid
                     };
 
                     mSearchField.TextChanged += MSearchField_TextChanged;
+                    swipeContainer.SetColorSchemeResources(Android.Resource.Color.HoloBlueLight, Android.Resource.Color.HoloGreenLight,
+                                       Android.Resource.Color.HoloOrangeLight, Android.Resource.Color.HoloRedLight);
+                    swipeContainer.Refresh += RefreshOnSwipe;
 
                     return view;
                 }
@@ -167,8 +176,8 @@ namespace OnQAndroid
                     TextView HMAllText = view.FindViewById<TextView>(Resource.Id.HMAllText);
                     TextView HGTAllText = view.FindViewById<TextView>(Resource.Id.HGTAllText);
                     TextView MinGPANoneText = view.FindViewById<TextView>(Resource.Id.MinGPANoneText);
-                    Space plus1extender = view.FindViewById<Space>(Resource.Id.plusspace1);
-                    Space plus2extender = view.FindViewById<Space>(Resource.Id.plusspace2);
+                    Android.Widget.Space plus1extender = view.FindViewById<Android.Widget.Space>(Resource.Id.plusspace1);
+                    Android.Widget.Space plus2extender = view.FindViewById<Android.Widget.Space>(Resource.Id.plusspace2);
 
                     // Change name to my CF name
                     PopulateName();                   
@@ -267,6 +276,12 @@ namespace OnQAndroid
 
             mAdapter = new CompaniesListViewAdapter(mContainer.Context, searchedCompanies, searchedFavList, searchedWaitTimes, searchedNumStudents, searchedCompanyIds);
             mListView.Adapter = mAdapter;
+        }
+
+        private async void RefreshOnSwipe(object sender, EventArgs e)
+        {
+            await LoadCF(false);
+            (sender as SwipeRefreshLayout).Refreshing = false;
         }
 
         private async void PopulateName()
@@ -474,9 +489,12 @@ namespace OnQAndroid
             progressBar.Visibility = ViewStates.Invisible;
         }
 
-        private async void LoadCF()
+        private async Task LoadCF(bool onStart)
         {
-            progressBar.Visibility = ViewStates.Visible;
+            if (onStart == true)
+            {
+                progressBar.Visibility = ViewStates.Visible;
+            }
             var firebase = new FirebaseClient(FirebaseURL);
 
             var cfItems = await firebase.Child("cfids").OnceAsync<Cfid>();
@@ -491,6 +509,8 @@ namespace OnQAndroid
             }
 
             var myCFcompanies = await firebase.Child("careerfairs").Child(myAttributes.cfid.ToString()).OnceAsync<Company>();
+            mItems = new List<string>();
+            mFavList = new List<bool>();
             mWaitTimes = new List<string>();
             mNumStudents = new List<string>();
             mCompanyIds = new List<string>();
@@ -520,7 +540,10 @@ namespace OnQAndroid
             cfName.Text = myCFName;
             mAdapter = new CompaniesListViewAdapter(mContainer.Context, mItems, mFavList, mWaitTimes, mNumStudents, mCompanyIds);
             mListView.Adapter = mAdapter;
-            progressBar.Visibility = ViewStates.Invisible;
+            if (onStart == true)
+            {
+                progressBar.Visibility = ViewStates.Invisible;
+            }
             magGlass.Enabled = true;
             magGlass.Visibility = ViewStates.Visible;
         }
@@ -682,31 +705,6 @@ namespace OnQAndroid
             progressBar.Visibility = ViewStates.Invisible;
             Toast.MakeText(this.Activity, "Changes Saved", ToastLength.Short).Show();
         }
-
-        /*private void Hmspinner1_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
-        {
-            Spinner hmSpinner1 = (Spinner)sender;
-        }
-
-        private void Hmspinner2_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
-        {
-            Spinner hmspinner2 = (Spinner)sender;
-        }
-
-        private void Hmspinner3_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
-        {
-            Spinner hmspinner3 = (Spinner)sender;
-        }
-
-        private void Hmspinner4_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
-        {
-            Spinner hmspinner4 = (Spinner)sender;
-        }
-
-        private void Hmspinner5_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
-        {
-            Spinner hmspinner5 = (Spinner)sender;
-        }*/
 
         private void HGTAllRadio_Click(object sender, EventArgs e)
         {

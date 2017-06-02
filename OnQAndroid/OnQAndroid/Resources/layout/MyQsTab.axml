@@ -1,26 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/swipeLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:minWidth="25px"
-    android:minHeight="25px"
-    android:background="#FFFFFF">
-    <ImageView
-        android:src="@drawable/back"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:id="@+id/backButton"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:clickable="true" />
-    <TextView
-        android:text="No Q's to Display"
-        android:textAppearance="?android:attr/textAppearanceMedium"
+    android:layout_height="match_parent">
+  <ScrollView
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:background="#FFFFFF">
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView1"
-        android:textColor="#B4B4B4"
-        android:layout_marginTop="10dp"
-        android:gravity="center" />
-</LinearLayout>
+        android:layout_height="match_parent"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:background="#FFFFFF">
+      <ImageView
+          android:src="@drawable/back"
+          android:layout_width="30dp"
+          android:layout_height="30dp"
+          android:id="@+id/backButton"
+          android:layout_marginTop="10dp"
+          android:layout_marginLeft="10dp"
+          android:clickable="true" />
+      <TextView
+          android:text="No Q's to Display"
+          android:textAppearance="?android:attr/textAppearanceMedium"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:id="@+id/textView1"
+          android:textColor="#B4B4B4"
+          android:layout_marginTop="10dp"
+          android:gravity="center" />
+    </LinearLayout>
+  </ScrollView>
+</android.support.v4.widget.SwipeRefreshLayout>

@@ -35,7 +35,6 @@ namespace OnQAndroid.Fragments
 
             currentQs.Click += CurrentQs_Click;
             pastQs.Click += PastQs_Click;
-            // return inflater.Inflate(Resource.Layout.YourFragment, container, false);
 
             return view;
         }

@@ -10,9 +10,9 @@
         android:layout_height="match_parent"
         android:src="@drawable/openscreensmall"
         android:scaleType="centerInside"
-        android:layout_marginLeft="-65dp"
-        android:layout_marginRight="-70dp"
-        android:layout_marginTop="-70dp"
+        android:layout_marginLeft="-45dp"
+        android:layout_marginRight="-45dp"
+        android:layout_marginTop="-110dp"
         android:layout_marginBottom="-70dp" />
     <ProgressBar
         style="?android:attr/progressBarStyleHorizontal"

@@ -84,8 +84,13 @@ namespace OnQAndroid
 
             if (numQs == 0)
             {
+                Fragments.NoQsPresent fragment = new Fragments.NoQsPresent();
+                Bundle arguments = new Bundle();
+                arguments.PutString("Sender", "CurrentQs");
+                fragment.Arguments = arguments;
+
                 Android.Support.V4.App.FragmentTransaction trans = FragmentManager.BeginTransaction();
-                trans.Replace(Resource.Id.qs_root_frame, new Fragments.NoQsPresent());
+                trans.Replace(Resource.Id.qs_root_frame, fragment);
                 trans.Commit();
             }
             else
@@ -112,8 +117,13 @@ namespace OnQAndroid
 
             if (numStudents == 0)
             {
+                Fragments.NoQsPresent fragment = new Fragments.NoQsPresent();
+                Bundle arguments = new Bundle();
+                arguments.PutString("Sender", "CurrentQs");
+                fragment.Arguments = arguments;
+
                 Android.Support.V4.App.FragmentTransaction trans = FragmentManager.BeginTransaction();
-                trans.Replace(Resource.Id.qs_root_frame, new Fragments.NoQsPresent());
+                trans.Replace(Resource.Id.qs_root_frame, fragment);
                 trans.Commit();
             }
             else

@@ -3482,26 +3482,26 @@ namespace OnQAndroid
 			// aapt resource value: 0x7f020055
 			public const int avd_hide_password = 2130837589;
 			
-			// aapt resource value: 0x7f0200ac
-			public const int avd_hide_password_1 = 2130837676;
-			
 			// aapt resource value: 0x7f0200ad
-			public const int avd_hide_password_2 = 2130837677;
+			public const int avd_hide_password_1 = 2130837677;
 			
 			// aapt resource value: 0x7f0200ae
-			public const int avd_hide_password_3 = 2130837678;
+			public const int avd_hide_password_2 = 2130837678;
+			
+			// aapt resource value: 0x7f0200af
+			public const int avd_hide_password_3 = 2130837679;
 			
 			// aapt resource value: 0x7f020056
 			public const int avd_show_password = 2130837590;
 			
-			// aapt resource value: 0x7f0200af
-			public const int avd_show_password_1 = 2130837679;
-			
 			// aapt resource value: 0x7f0200b0
-			public const int avd_show_password_2 = 2130837680;
+			public const int avd_show_password_1 = 2130837680;
 			
 			// aapt resource value: 0x7f0200b1
-			public const int avd_show_password_3 = 2130837681;
+			public const int avd_show_password_2 = 2130837681;
+			
+			// aapt resource value: 0x7f0200b2
+			public const int avd_show_password_3 = 2130837682;
 			
 			// aapt resource value: 0x7f020057
 			public const int back = 2130837591;
@@ -3630,133 +3630,136 @@ namespace OnQAndroid
 			public const int img12345678 = 2130837632;
 			
 			// aapt resource value: 0x7f020081
-			public const int info = 2130837633;
+			public const int img87654321 = 2130837633;
 			
 			// aapt resource value: 0x7f020082
-			public const int minus = 2130837634;
+			public const int info = 2130837634;
 			
 			// aapt resource value: 0x7f020083
-			public const int navigation_empty_icon = 2130837635;
+			public const int minus = 2130837635;
 			
 			// aapt resource value: 0x7f020084
-			public const int notification_action_background = 2130837636;
+			public const int navigation_empty_icon = 2130837636;
 			
 			// aapt resource value: 0x7f020085
-			public const int notification_bg = 2130837637;
+			public const int notification_action_background = 2130837637;
 			
 			// aapt resource value: 0x7f020086
-			public const int notification_bg_low = 2130837638;
+			public const int notification_bg = 2130837638;
 			
 			// aapt resource value: 0x7f020087
-			public const int notification_bg_low_normal = 2130837639;
+			public const int notification_bg_low = 2130837639;
 			
 			// aapt resource value: 0x7f020088
-			public const int notification_bg_low_pressed = 2130837640;
+			public const int notification_bg_low_normal = 2130837640;
 			
 			// aapt resource value: 0x7f020089
-			public const int notification_bg_normal = 2130837641;
+			public const int notification_bg_low_pressed = 2130837641;
 			
 			// aapt resource value: 0x7f02008a
-			public const int notification_bg_normal_pressed = 2130837642;
+			public const int notification_bg_normal = 2130837642;
 			
 			// aapt resource value: 0x7f02008b
-			public const int notification_icon_background = 2130837643;
-			
-			// aapt resource value: 0x7f0200aa
-			public const int notification_template_icon_bg = 2130837674;
-			
-			// aapt resource value: 0x7f0200ab
-			public const int notification_template_icon_low_bg = 2130837675;
+			public const int notification_bg_normal_pressed = 2130837643;
 			
 			// aapt resource value: 0x7f02008c
-			public const int notification_tile_bg = 2130837644;
+			public const int notification_icon_background = 2130837644;
+			
+			// aapt resource value: 0x7f0200ab
+			public const int notification_template_icon_bg = 2130837675;
+			
+			// aapt resource value: 0x7f0200ac
+			public const int notification_template_icon_low_bg = 2130837676;
 			
 			// aapt resource value: 0x7f02008d
-			public const int notify_panel_notification_icon_bg = 2130837645;
+			public const int notification_tile_bg = 2130837645;
 			
 			// aapt resource value: 0x7f02008e
-			public const int OnQLogo = 2130837646;
+			public const int notify_panel_notification_icon_bg = 2130837646;
 			
 			// aapt resource value: 0x7f02008f
-			public const int openscreen = 2130837647;
+			public const int OnQLogo = 2130837647;
 			
 			// aapt resource value: 0x7f020090
-			public const int openscreensmall = 2130837648;
+			public const int openscreen = 2130837648;
 			
 			// aapt resource value: 0x7f020091
-			public const int pdf2 = 2130837649;
+			public const int openscreensmall = 2130837649;
 			
 			// aapt resource value: 0x7f020092
-			public const int plus = 2130837650;
+			public const int pdf2 = 2130837650;
 			
 			// aapt resource value: 0x7f020093
-			public const int profile = 2130837651;
+			public const int plus = 2130837651;
 			
 			// aapt resource value: 0x7f020094
-			public const int psts_background_tab = 2130837652;
+			public const int profile = 2130837652;
 			
 			// aapt resource value: 0x7f020095
-			public const int Q = 2130837653;
+			public const int psts_background_tab = 2130837653;
 			
 			// aapt resource value: 0x7f020096
-			public const int qblack = 2130837654;
+			public const int Q = 2130837654;
 			
 			// aapt resource value: 0x7f020097
-			public const int Qbutton = 2130837655;
+			public const int qblack = 2130837655;
 			
 			// aapt resource value: 0x7f020098
-			public const int Qpressed = 2130837656;
+			public const int Qbutton = 2130837656;
 			
 			// aapt resource value: 0x7f020099
-			public const int QuestionMark = 2130837657;
+			public const int Qpressed = 2130837657;
 			
 			// aapt resource value: 0x7f02009a
-			public const int radio_checked = 2130837658;
+			public const int QuestionMark = 2130837658;
 			
 			// aapt resource value: 0x7f02009b
-			public const int radio_unchecked = 2130837659;
+			public const int radio_checked = 2130837659;
 			
 			// aapt resource value: 0x7f02009c
-			public const int rectangleborder = 2130837660;
+			public const int radio_unchecked = 2130837660;
 			
 			// aapt resource value: 0x7f02009d
-			public const int redbutton = 2130837661;
+			public const int rectangleborder = 2130837661;
 			
 			// aapt resource value: 0x7f02009e
-			public const int register = 2130837662;
+			public const int redbutton = 2130837662;
 			
 			// aapt resource value: 0x7f02009f
-			public const int registerblack = 2130837663;
+			public const int register = 2130837663;
 			
 			// aapt resource value: 0x7f0200a0
-			public const int rightarrow = 2130837664;
+			public const int registerblack = 2130837664;
 			
 			// aapt resource value: 0x7f0200a1
-			public const int roundedbutton = 2130837665;
+			public const int rightarrow = 2130837665;
 			
 			// aapt resource value: 0x7f0200a2
-			public const int scrollhand = 2130837666;
+			public const int roundedbutton = 2130837666;
 			
 			// aapt resource value: 0x7f0200a3
-			public const int search = 2130837667;
+			public const int scrollhand = 2130837667;
 			
 			// aapt resource value: 0x7f0200a4
-			public const int selectyourschool = 2130837668;
+			public const int search = 2130837668;
 			
 			// aapt resource value: 0x7f0200a5
-			public const int starfilled = 2130837669;
+			public const int selectyourschool = 2130837669;
 			
 			// aapt resource value: 0x7f0200a6
-			public const int starunfilled = 2130837670;
+			public const int starfilled = 2130837670;
 			
 			// aapt resource value: 0x7f0200a7
-			public const int stryker = 2130837671;
+			public const int starunfilled = 2130837671;
 			
 			// aapt resource value: 0x7f0200a8
-			public const int turquoisebutton = 2130837672;
+			public const int stryker = 2130837672;
 			
 			// aapt resource value: 0x7f0200a9
-			public const int x = 2130837673;
+			public const int turquoisebutton = 2130837673;
+			
+			// aapt resource value: 0x7f0200aa
+			public const int x = 2130837674;
 			
 			static Drawable()
 			{
@@ -3771,68 +3774,68 @@ namespace OnQAndroid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f0a014e
-			public const int AdvanceButton = 2131362126;
+			// aapt resource value: 0x7f0a014f
+			public const int AdvanceButton = 2131362127;
 			
-			// aapt resource value: 0x7f0a00c1
-			public const int CSIdentify = 2131361985;
+			// aapt resource value: 0x7f0a00c2
+			public const int CSIdentify = 2131361986;
 			
-			// aapt resource value: 0x7f0a0135
-			public const int ConfirmNewPassword = 2131362101;
-			
-			// aapt resource value: 0x7f0a0132
-			public const int FullName = 2131362098;
-			
-			// aapt resource value: 0x7f0a0114
-			public const int HGPANoneRadio = 2131362068;
-			
-			// aapt resource value: 0x7f0a010b
-			public const int HGTAllRadio = 2131362059;
-			
-			// aapt resource value: 0x7f0a010c
-			public const int HGTAllText = 2131362060;
-			
-			// aapt resource value: 0x7f0a0101
-			public const int HMAllRadio = 2131362049;
-			
-			// aapt resource value: 0x7f0a0102
-			public const int HMAllText = 2131362050;
-			
-			// aapt resource value: 0x7f0a00c5
-			public const int LoginButton = 2131361989;
-			
-			// aapt resource value: 0x7f0a0115
-			public const int MinGPANoneText = 2131362069;
+			// aapt resource value: 0x7f0a0136
+			public const int ConfirmNewPassword = 2131362102;
 			
 			// aapt resource value: 0x7f0a0133
-			public const int NewEmail = 2131362099;
+			public const int FullName = 2131362099;
+			
+			// aapt resource value: 0x7f0a0115
+			public const int HGPANoneRadio = 2131362069;
+			
+			// aapt resource value: 0x7f0a010c
+			public const int HGTAllRadio = 2131362060;
+			
+			// aapt resource value: 0x7f0a010d
+			public const int HGTAllText = 2131362061;
+			
+			// aapt resource value: 0x7f0a0102
+			public const int HMAllRadio = 2131362050;
+			
+			// aapt resource value: 0x7f0a0103
+			public const int HMAllText = 2131362051;
+			
+			// aapt resource value: 0x7f0a00c6
+			public const int LoginButton = 2131361990;
+			
+			// aapt resource value: 0x7f0a0116
+			public const int MinGPANoneText = 2131362070;
 			
 			// aapt resource value: 0x7f0a0134
-			public const int NewPassword = 2131362100;
+			public const int NewEmail = 2131362100;
 			
-			// aapt resource value: 0x7f0a00f9
-			public const int NextButton = 2131362041;
+			// aapt resource value: 0x7f0a0135
+			public const int NewPassword = 2131362101;
 			
-			// aapt resource value: 0x7f0a0150
-			public const int SelectButton = 2131362128;
-			
-			// aapt resource value: 0x7f0a00c9
-			public const int SignupButton = 2131361993;
-			
-			// aapt resource value: 0x7f0a0152
-			public const int SkipButton = 2131362130;
-			
-			// aapt resource value: 0x7f0a00c3
-			public const int TFemail = 2131361987;
-			
-			// aapt resource value: 0x7f0a00c4
-			public const int TFpassword = 2131361988;
+			// aapt resource value: 0x7f0a00fa
+			public const int NextButton = 2131362042;
 			
 			// aapt resource value: 0x7f0a0151
-			public const int UploadButton = 2131362129;
+			public const int SelectButton = 2131362129;
 			
-			// aapt resource value: 0x7f0a00d0
-			public const int action0 = 2131362000;
+			// aapt resource value: 0x7f0a00ca
+			public const int SignupButton = 2131361994;
+			
+			// aapt resource value: 0x7f0a0153
+			public const int SkipButton = 2131362131;
+			
+			// aapt resource value: 0x7f0a00c4
+			public const int TFemail = 2131361988;
+			
+			// aapt resource value: 0x7f0a00c5
+			public const int TFpassword = 2131361989;
+			
+			// aapt resource value: 0x7f0a0152
+			public const int UploadButton = 2131362130;
+			
+			// aapt resource value: 0x7f0a00d1
+			public const int action0 = 2131362001;
 			
 			// aapt resource value: 0x7f0a006d
 			public const int action_bar = 2131361901;
@@ -3855,17 +3858,17 @@ namespace OnQAndroid
 			// aapt resource value: 0x7f0a004a
 			public const int action_bar_title = 2131361866;
 			
-			// aapt resource value: 0x7f0a00cd
-			public const int action_container = 2131361997;
+			// aapt resource value: 0x7f0a00ce
+			public const int action_container = 2131361998;
 			
 			// aapt resource value: 0x7f0a006e
 			public const int action_context_bar = 2131361902;
 			
-			// aapt resource value: 0x7f0a00d4
-			public const int action_divider = 2131362004;
+			// aapt resource value: 0x7f0a00d5
+			public const int action_divider = 2131362005;
 			
-			// aapt resource value: 0x7f0a00ce
-			public const int action_image = 2131361998;
+			// aapt resource value: 0x7f0a00cf
+			public const int action_image = 2131361999;
 			
 			// aapt resource value: 0x7f0a0003
 			public const int action_menu_divider = 2131361795;
@@ -3882,11 +3885,11 @@ namespace OnQAndroid
 			// aapt resource value: 0x7f0a004c
 			public const int action_mode_close_button = 2131361868;
 			
-			// aapt resource value: 0x7f0a00cf
-			public const int action_text = 2131361999;
+			// aapt resource value: 0x7f0a00d0
+			public const int action_text = 2131362000;
 			
-			// aapt resource value: 0x7f0a00dd
-			public const int actions = 2131362013;
+			// aapt resource value: 0x7f0a00de
+			public const int actions = 2131362014;
 			
 			// aapt resource value: 0x7f0a004d
 			public const int activity_chooser_view_content = 2131361869;
@@ -3900,8 +3903,8 @@ namespace OnQAndroid
 			// aapt resource value: 0x7f0a0010
 			public const int adjust_width = 2131361808;
 			
-			// aapt resource value: 0x7f0a00cc
-			public const int advance = 2131361996;
+			// aapt resource value: 0x7f0a00cd
+			public const int advance = 2131361997;
 			
 			// aapt resource value: 0x7f0a0061
 			public const int alertTitle = 2131361889;
@@ -3930,38 +3933,38 @@ namespace OnQAndroid
 			// aapt resource value: 0x7f0a0030
 			public const int bottom = 2131361840;
 			
-			// aapt resource value: 0x7f0a00f7
-			public const int button1 = 2131362039;
+			// aapt resource value: 0x7f0a00f8
+			public const int button1 = 2131362040;
 			
 			// aapt resource value: 0x7f0a0054
 			public const int buttonPanel = 2131361876;
 			
-			// aapt resource value: 0x7f0a00ee
-			public const int cameraButton = 2131362030;
+			// aapt resource value: 0x7f0a00ef
+			public const int cameraButton = 2131362031;
 			
 			// aapt resource value: 0x7f0a009a
 			public const int cancelCF = 2131361946;
 			
-			// aapt resource value: 0x7f0a00ff
-			public const int cancelEditProfile = 2131362047;
+			// aapt resource value: 0x7f0a0100
+			public const int cancelEditProfile = 2131362048;
 			
-			// aapt resource value: 0x7f0a00d1
-			public const int cancel_action = 2131362001;
+			// aapt resource value: 0x7f0a00d2
+			public const int cancel_action = 2131362002;
 			
 			// aapt resource value: 0x7f0a009d
 			public const int cancelqbutton = 2131361949;
 			
-			// aapt resource value: 0x7f0a0141
-			public const int candidateEmail = 2131362113;
+			// aapt resource value: 0x7f0a0142
+			public const int candidateEmail = 2131362114;
+			
+			// aapt resource value: 0x7f0a00eb
+			public const int candidateName = 2131362027;
+			
+			// aapt resource value: 0x7f0a0125
+			public const int candidateName1 = 2131362085;
 			
 			// aapt resource value: 0x7f0a00ea
-			public const int candidateName = 2131362026;
-			
-			// aapt resource value: 0x7f0a0124
-			public const int candidateName1 = 2131362084;
-			
-			// aapt resource value: 0x7f0a00e9
-			public const int candidateRow = 2131362025;
+			public const int candidateRow = 2131362026;
 			
 			// aapt resource value: 0x7f0a0037
 			public const int center = 2131361847;
@@ -3975,8 +3978,8 @@ namespace OnQAndroid
 			// aapt resource value: 0x7f0a00ae
 			public const int cfGenerator = 2131361966;
 			
-			// aapt resource value: 0x7f0a012a
-			public const int cfID = 2131362090;
+			// aapt resource value: 0x7f0a012b
+			public const int cfID = 2131362091;
 			
 			// aapt resource value: 0x7f0a0098
 			public const int cfImage = 2131361944;
@@ -3987,8 +3990,8 @@ namespace OnQAndroid
 			// aapt resource value: 0x7f0a0064
 			public const int checkbox = 2131361892;
 			
-			// aapt resource value: 0x7f0a00d9
-			public const int chronometer = 2131362009;
+			// aapt resource value: 0x7f0a00da
+			public const int chronometer = 2131362010;
 			
 			// aapt resource value: 0x7f0a0096
 			public const int circularProgress = 2131361942;
@@ -4020,14 +4023,14 @@ namespace OnQAndroid
 			// aapt resource value: 0x7f0a0083
 			public const int companyName = 2131361923;
 			
-			// aapt resource value: 0x7f0a00f4
-			public const int companyPrompt = 2131362036;
+			// aapt resource value: 0x7f0a00f5
+			public const int companyPrompt = 2131362037;
 			
 			// aapt resource value: 0x7f0a0094
 			public const int companyWebsite = 2131361940;
 			
-			// aapt resource value: 0x7f0a00f5
-			public const int companyspinner = 2131362037;
+			// aapt resource value: 0x7f0a00f6
+			public const int companyspinner = 2131362038;
 			
 			// aapt resource value: 0x7f0a009e
 			public const int confirmqbutton = 2131361950;
@@ -4077,32 +4080,32 @@ namespace OnQAndroid
 			// aapt resource value: 0x7f0a00a8
 			public const int design_navigation_view = 2131361960;
 			
-			// aapt resource value: 0x7f0a00ca
-			public const int devTools = 2131361994;
+			// aapt resource value: 0x7f0a00cb
+			public const int devTools = 2131361995;
 			
-			// aapt resource value: 0x7f0a0131
-			public const int devToolsButton = 2131362097;
+			// aapt resource value: 0x7f0a0132
+			public const int devToolsButton = 2131362098;
 			
 			// aapt resource value: 0x7f0a001b
 			public const int disableHome = 2131361819;
 			
-			// aapt resource value: 0x7f0a0125
-			public const int dropbutton = 2131362085;
+			// aapt resource value: 0x7f0a0126
+			public const int dropbutton = 2131362086;
 			
-			// aapt resource value: 0x7f0a0118
-			public const int editProfile = 2131362072;
+			// aapt resource value: 0x7f0a0119
+			public const int editProfile = 2131362073;
 			
 			// aapt resource value: 0x7f0a006f
 			public const int edit_query = 2131361903;
 			
-			// aapt resource value: 0x7f0a00f2
-			public const int emailField = 2131362034;
+			// aapt resource value: 0x7f0a00f3
+			public const int emailField = 2131362035;
 			
 			// aapt resource value: 0x7f0a0029
 			public const int end = 2131361833;
 			
-			// aapt resource value: 0x7f0a00e3
-			public const int end_padder = 2131362019;
+			// aapt resource value: 0x7f0a00e4
+			public const int end_padder = 2131362020;
 			
 			// aapt resource value: 0x7f0a0032
 			public const int enterAlways = 2131361842;
@@ -4119,14 +4122,14 @@ namespace OnQAndroid
 			// aapt resource value: 0x7f0a0063
 			public const int expanded_menu = 2131361891;
 			
-			// aapt resource value: 0x7f0a0137
-			public const int facebook = 2131362103;
+			// aapt resource value: 0x7f0a0138
+			public const int facebook = 2131362104;
 			
 			// aapt resource value: 0x7f0a008d
 			public const int favorite = 2131361933;
 			
-			// aapt resource value: 0x7f0a0123
-			public const int favoritesList = 2131362083;
+			// aapt resource value: 0x7f0a0124
+			public const int favoritesList = 2131362084;
 			
 			// aapt resource value: 0x7f0a00b1
 			public const int fbCompanies = 2131361969;
@@ -4140,59 +4143,59 @@ namespace OnQAndroid
 			// aapt resource value: 0x7f0a003a
 			public const int fill_vertical = 2131361850;
 			
-			// aapt resource value: 0x7f0a0136
-			public const int finish = 2131362102;
+			// aapt resource value: 0x7f0a0137
+			public const int finish = 2131362103;
 			
 			// aapt resource value: 0x7f0a0046
 			public const int @fixed = 2131361862;
 			
-			// aapt resource value: 0x7f0a00c8
-			public const int forgotpassword = 2131361992;
+			// aapt resource value: 0x7f0a00c9
+			public const int forgotpassword = 2131361993;
 			
 			// aapt resource value: 0x7f0a00b2
 			public const int generatefbcf = 2131361970;
 			
+			// aapt resource value: 0x7f0a0146
+			public const int gpaText = 2131362118;
+			
+			// aapt resource value: 0x7f0a013c
+			public const int gpaspinner = 2131362108;
+			
+			// aapt resource value: 0x7f0a0139
+			public const int gradtermPrompt = 2131362105;
+			
 			// aapt resource value: 0x7f0a0145
-			public const int gpaText = 2131362117;
+			public const int gradtermText = 2131362117;
 			
-			// aapt resource value: 0x7f0a013b
-			public const int gpaspinner = 2131362107;
+			// aapt resource value: 0x7f0a0141
+			public const int heart = 2131362113;
 			
-			// aapt resource value: 0x7f0a0138
-			public const int gradtermPrompt = 2131362104;
-			
-			// aapt resource value: 0x7f0a0144
-			public const int gradtermText = 2131362116;
-			
-			// aapt resource value: 0x7f0a0140
-			public const int heart = 2131362112;
-			
-			// aapt resource value: 0x7f0a010f
-			public const int hgtspinner1 = 2131362063;
-			
-			// aapt resource value: 0x7f0a0111
-			public const int hgtspinner2 = 2131362065;
+			// aapt resource value: 0x7f0a0110
+			public const int hgtspinner1 = 2131362064;
 			
 			// aapt resource value: 0x7f0a0112
-			public const int hgtspinner3 = 2131362066;
+			public const int hgtspinner2 = 2131362066;
 			
-			// aapt resource value: 0x7f0a0146
-			public const int hideKeyboard = 2131362118;
+			// aapt resource value: 0x7f0a0113
+			public const int hgtspinner3 = 2131362067;
 			
-			// aapt resource value: 0x7f0a0105
-			public const int hmspinner1 = 2131362053;
+			// aapt resource value: 0x7f0a0147
+			public const int hideKeyboard = 2131362119;
 			
-			// aapt resource value: 0x7f0a0107
-			public const int hmspinner2 = 2131362055;
+			// aapt resource value: 0x7f0a0106
+			public const int hmspinner1 = 2131362054;
 			
 			// aapt resource value: 0x7f0a0108
-			public const int hmspinner3 = 2131362056;
+			public const int hmspinner2 = 2131362056;
 			
 			// aapt resource value: 0x7f0a0109
-			public const int hmspinner4 = 2131362057;
+			public const int hmspinner3 = 2131362057;
 			
 			// aapt resource value: 0x7f0a010a
-			public const int hmspinner5 = 2131362058;
+			public const int hmspinner4 = 2131362058;
+			
+			// aapt resource value: 0x7f0a010b
+			public const int hmspinner5 = 2131362059;
 			
 			// aapt resource value: 0x7f0a0005
 			public const int home = 2131361797;
@@ -4206,8 +4209,8 @@ namespace OnQAndroid
 			// aapt resource value: 0x7f0a0052
 			public const int icon = 2131361874;
 			
-			// aapt resource value: 0x7f0a00de
-			public const int icon_group = 2131362014;
+			// aapt resource value: 0x7f0a00df
+			public const int icon_group = 2131362015;
 			
 			// aapt resource value: 0x7f0a0012
 			public const int icon_only = 2131361810;
@@ -4227,17 +4230,17 @@ namespace OnQAndroid
 			// aapt resource value: 0x7f0a0087
 			public const int imageView3 = 2131361927;
 			
-			// aapt resource value: 0x7f0a00da
-			public const int info = 2131362010;
+			// aapt resource value: 0x7f0a00db
+			public const int info = 2131362011;
 			
 			// aapt resource value: 0x7f0a0049
 			public const int italic = 2131361865;
 			
-			// aapt resource value: 0x7f0a00e4
-			public const int item_subtitle = 2131362020;
-			
 			// aapt resource value: 0x7f0a00e5
-			public const int item_title = 2131362021;
+			public const int item_subtitle = 2131362021;
+			
+			// aapt resource value: 0x7f0a00e6
+			public const int item_title = 2131362022;
 			
 			// aapt resource value: 0x7f0a0000
 			public const int item_touch_helper_previous_elevation = 2131361792;
@@ -4251,11 +4254,11 @@ namespace OnQAndroid
 			// aapt resource value: 0x7f0a0017
 			public const int light = 2131361815;
 			
-			// aapt resource value: 0x7f0a00df
-			public const int line1 = 2131362015;
+			// aapt resource value: 0x7f0a00e0
+			public const int line1 = 2131362016;
 			
-			// aapt resource value: 0x7f0a00e1
-			public const int line3 = 2131362017;
+			// aapt resource value: 0x7f0a00e2
+			public const int line3 = 2131362018;
 			
 			// aapt resource value: 0x7f0a0084
 			public const int linearLayout1 = 2131361924;
@@ -4263,23 +4266,23 @@ namespace OnQAndroid
 			// aapt resource value: 0x7f0a0099
 			public const int linearLayout2 = 2131361945;
 			
-			// aapt resource value: 0x7f0a00f0
-			public const int linearLayout3 = 2131362032;
+			// aapt resource value: 0x7f0a00f1
+			public const int linearLayout3 = 2131362033;
 			
-			// aapt resource value: 0x7f0a00ed
-			public const int linearLayout4 = 2131362029;
+			// aapt resource value: 0x7f0a00ee
+			public const int linearLayout4 = 2131362030;
 			
-			// aapt resource value: 0x7f0a00f3
-			public const int linearLayout5 = 2131362035;
+			// aapt resource value: 0x7f0a00f4
+			public const int linearLayout5 = 2131362036;
 			
-			// aapt resource value: 0x7f0a00f6
-			public const int linearLayout6 = 2131362038;
+			// aapt resource value: 0x7f0a00f7
+			public const int linearLayout6 = 2131362039;
 			
-			// aapt resource value: 0x7f0a00fc
-			public const int linearLayout7 = 2131362044;
+			// aapt resource value: 0x7f0a00fd
+			public const int linearLayout7 = 2131362045;
 			
-			// aapt resource value: 0x7f0a00fe
-			public const int linearLayout8 = 2131362046;
+			// aapt resource value: 0x7f0a00ff
+			public const int linearLayout8 = 2131362047;
 			
 			// aapt resource value: 0x7f0a0018
 			public const int listMode = 2131361816;
@@ -4293,68 +4296,68 @@ namespace OnQAndroid
 			// aapt resource value: 0x7f0a00b3
 			public const int ll_info = 2131361971;
 			
-			// aapt resource value: 0x7f0a0130
-			public const int logOutButton = 2131362096;
+			// aapt resource value: 0x7f0a0131
+			public const int logOutButton = 2131362097;
 			
 			// aapt resource value: 0x7f0a00bc
 			public const int magGlass = 2131361980;
 			
-			// aapt resource value: 0x7f0a0143
-			public const int majorText = 2131362115;
+			// aapt resource value: 0x7f0a0144
+			public const int majorText = 2131362116;
 			
-			// aapt resource value: 0x7f0a013a
-			public const int majorspinner = 2131362106;
+			// aapt resource value: 0x7f0a013b
+			public const int majorspinner = 2131362107;
 			
-			// aapt resource value: 0x7f0a0154
-			public const int masked = 2131362132;
+			// aapt resource value: 0x7f0a0155
+			public const int masked = 2131362133;
 			
-			// aapt resource value: 0x7f0a00d3
-			public const int media_actions = 2131362003;
+			// aapt resource value: 0x7f0a00d4
+			public const int media_actions = 2131362004;
 			
 			// aapt resource value: 0x7f0a002a
 			public const int middle = 2131361834;
 			
-			// aapt resource value: 0x7f0a0116
-			public const int minGPAspinner = 2131362070;
+			// aapt resource value: 0x7f0a0117
+			public const int minGPAspinner = 2131362071;
 			
 			// aapt resource value: 0x7f0a0045
 			public const int mini = 2131361861;
 			
-			// aapt resource value: 0x7f0a0110
-			public const int minus_gradterms = 2131362064;
+			// aapt resource value: 0x7f0a0111
+			public const int minus_gradterms = 2131362065;
 			
-			// aapt resource value: 0x7f0a0106
-			public const int minus_majors = 2131362054;
+			// aapt resource value: 0x7f0a0107
+			public const int minus_majors = 2131362055;
 			
 			// aapt resource value: 0x7f0a0022
 			public const int multiply = 2131361826;
 			
-			// aapt resource value: 0x7f0a011e
-			public const int myCompany = 2131362078;
+			// aapt resource value: 0x7f0a011f
+			public const int myCompany = 2131362079;
 			
-			// aapt resource value: 0x7f0a011a
-			public const int myEmail = 2131362074;
-			
-			// aapt resource value: 0x7f0a014c
-			public const int myGPA = 2131362124;
-			
-			// aapt resource value: 0x7f0a014a
-			public const int myGradterm = 2131362122;
-			
-			// aapt resource value: 0x7f0a014b
-			public const int myMajor = 2131362123;
-			
-			// aapt resource value: 0x7f0a0119
-			public const int myName = 2131362073;
+			// aapt resource value: 0x7f0a011b
+			public const int myEmail = 2131362075;
 			
 			// aapt resource value: 0x7f0a014d
-			public const int myQsListView = 2131362125;
+			public const int myGPA = 2131362125;
 			
-			// aapt resource value: 0x7f0a0149
-			public const int myUniversity = 2131362121;
+			// aapt resource value: 0x7f0a014b
+			public const int myGradterm = 2131362123;
 			
-			// aapt resource value: 0x7f0a00f1
-			public const int nameField = 2131362033;
+			// aapt resource value: 0x7f0a014c
+			public const int myMajor = 2131362124;
+			
+			// aapt resource value: 0x7f0a011a
+			public const int myName = 2131362074;
+			
+			// aapt resource value: 0x7f0a014e
+			public const int myQsListView = 2131362126;
+			
+			// aapt resource value: 0x7f0a014a
+			public const int myUniversity = 2131362122;
+			
+			// aapt resource value: 0x7f0a00f2
+			public const int nameField = 2131362034;
 			
 			// aapt resource value: 0x7f0a00a7
 			public const int navigation_header_container = 2131361959;
@@ -4362,8 +4365,8 @@ namespace OnQAndroid
 			// aapt resource value: 0x7f0a002e
 			public const int never = 2131361838;
 			
-			// aapt resource value: 0x7f0a012e
-			public const int nextButton = 2131362094;
+			// aapt resource value: 0x7f0a012f
+			public const int nextButton = 2131362095;
 			
 			// aapt resource value: 0x7f0a0011
 			public const int none = 2131361809;
@@ -4371,17 +4374,17 @@ namespace OnQAndroid
 			// aapt resource value: 0x7f0a0019
 			public const int normal = 2131361817;
 			
-			// aapt resource value: 0x7f0a0148
-			public const int notes = 2131362120;
+			// aapt resource value: 0x7f0a0149
+			public const int notes = 2131362121;
 			
-			// aapt resource value: 0x7f0a00dc
-			public const int notification_background = 2131362012;
+			// aapt resource value: 0x7f0a00dd
+			public const int notification_background = 2131362013;
+			
+			// aapt resource value: 0x7f0a00d7
+			public const int notification_main_column = 2131362007;
 			
 			// aapt resource value: 0x7f0a00d6
-			public const int notification_main_column = 2131362006;
-			
-			// aapt resource value: 0x7f0a00d5
-			public const int notification_main_column_container = 2131362005;
+			public const int notification_main_column_container = 2131362006;
 			
 			// aapt resource value: 0x7f0a003e
 			public const int parallax = 2131361854;
@@ -4392,35 +4395,35 @@ namespace OnQAndroid
 			// aapt resource value: 0x7f0a00a0
 			public const int pastQs = 2131361952;
 			
-			// aapt resource value: 0x7f0a00e6
-			public const int pastqslv = 2131362022;
+			// aapt resource value: 0x7f0a00e7
+			public const int pastqslv = 2131362023;
 			
-			// aapt resource value: 0x7f0a00ef
-			public const int photoButton2 = 2131362031;
+			// aapt resource value: 0x7f0a00f0
+			public const int photoButton2 = 2131362032;
 			
 			// aapt resource value: 0x7f0a003f
 			public const int pin = 2131361855;
 			
-			// aapt resource value: 0x7f0a010d
-			public const int plus_gt = 2131362061;
-			
-			// aapt resource value: 0x7f0a0103
-			public const int plus_majors = 2131362051;
+			// aapt resource value: 0x7f0a010e
+			public const int plus_gt = 2131362062;
 			
 			// aapt resource value: 0x7f0a0104
-			public const int plusspace1 = 2131362052;
+			public const int plus_majors = 2131362052;
 			
-			// aapt resource value: 0x7f0a010e
-			public const int plusspace2 = 2131362062;
+			// aapt resource value: 0x7f0a0105
+			public const int plusspace1 = 2131362053;
+			
+			// aapt resource value: 0x7f0a010f
+			public const int plusspace2 = 2131362063;
 			
 			// aapt resource value: 0x7f0a0086
 			public const int positionText = 2131361926;
 			
-			// aapt resource value: 0x7f0a00e7
-			public const int profile_root_frame = 2131362023;
+			// aapt resource value: 0x7f0a00e8
+			public const int profile_root_frame = 2131362024;
 			
-			// aapt resource value: 0x7f0a00cb
-			public const int progressBar1 = 2131361995;
+			// aapt resource value: 0x7f0a00cc
+			public const int progressBar1 = 2131361996;
 			
 			// aapt resource value: 0x7f0a0006
 			public const int progress_circular = 2131361798;
@@ -4428,11 +4431,11 @@ namespace OnQAndroid
 			// aapt resource value: 0x7f0a0007
 			public const int progress_horizontal = 2131361799;
 			
-			// aapt resource value: 0x7f0a00e8
-			public const int psts_tab_title = 2131362024;
+			// aapt resource value: 0x7f0a00e9
+			public const int psts_tab_title = 2131362025;
 			
-			// aapt resource value: 0x7f0a0126
-			public const int pullbutton = 2131362086;
+			// aapt resource value: 0x7f0a0127
+			public const int pullbutton = 2131362087;
 			
 			// aapt resource value: 0x7f0a009c
 			public const int q_help = 2131361948;
@@ -4440,62 +4443,62 @@ namespace OnQAndroid
 			// aapt resource value: 0x7f0a0081
 			public const int q_ll = 2131361921;
 			
-			// aapt resource value: 0x7f0a00eb
-			public const int qs_root_frame = 2131362027;
+			// aapt resource value: 0x7f0a00ec
+			public const int qs_root_frame = 2131362028;
 			
-			// aapt resource value: 0x7f0a0129
-			public const int questionMark = 2131362089;
+			// aapt resource value: 0x7f0a012a
+			public const int questionMark = 2131362090;
 			
-			// aapt resource value: 0x7f0a0127
-			public const int queuelist = 2131362087;
+			// aapt resource value: 0x7f0a0128
+			public const int queuelist = 2131362088;
 			
 			// aapt resource value: 0x7f0a0066
 			public const int radio = 2131361894;
 			
-			// aapt resource value: 0x7f0a00f8
-			public const int rak = 2131362040;
+			// aapt resource value: 0x7f0a00f9
+			public const int rak = 2131362041;
 			
-			// aapt resource value: 0x7f0a00c0
-			public const int recruiterIdentify = 2131361984;
+			// aapt resource value: 0x7f0a00c1
+			public const int recruiterIdentify = 2131361985;
 			
-			// aapt resource value: 0x7f0a012b
-			public const int registerButton = 2131362091;
+			// aapt resource value: 0x7f0a012c
+			public const int registerButton = 2131362092;
 			
-			// aapt resource value: 0x7f0a0128
-			public const int register_root_frame = 2131362088;
-			
-			// aapt resource value: 0x7f0a00c6
-			public const int rememberMe = 2131361990;
+			// aapt resource value: 0x7f0a0129
+			public const int register_root_frame = 2131362089;
 			
 			// aapt resource value: 0x7f0a00c7
-			public const int rememberMeText = 2131361991;
+			public const int rememberMe = 2131361991;
+			
+			// aapt resource value: 0x7f0a00c8
+			public const int rememberMeText = 2131361992;
 			
 			// aapt resource value: 0x7f0a003c
 			public const int right = 2131361852;
 			
-			// aapt resource value: 0x7f0a00db
-			public const int right_icon = 2131362011;
+			// aapt resource value: 0x7f0a00dc
+			public const int right_icon = 2131362012;
 			
-			// aapt resource value: 0x7f0a00d7
-			public const int right_side = 2131362007;
+			// aapt resource value: 0x7f0a00d8
+			public const int right_side = 2131362008;
 			
 			// aapt resource value: 0x7f0a00bb
 			public const int rootLayout = 2131361979;
 			
-			// aapt resource value: 0x7f0a0117
-			public const int saveChangesButton = 2131362071;
+			// aapt resource value: 0x7f0a0118
+			public const int saveChangesButton = 2131362072;
 			
-			// aapt resource value: 0x7f0a0100
-			public const int saveChangesEditProfile = 2131362048;
+			// aapt resource value: 0x7f0a0101
+			public const int saveChangesEditProfile = 2131362049;
+			
+			// aapt resource value: 0x7f0a012e
+			public const int schoolLogo = 2131362094;
 			
 			// aapt resource value: 0x7f0a012d
-			public const int schoolLogo = 2131362093;
+			public const int schoolSpinner = 2131362093;
 			
-			// aapt resource value: 0x7f0a012c
-			public const int schoolSpinner = 2131362092;
-			
-			// aapt resource value: 0x7f0a0142
-			public const int schoolText = 2131362114;
+			// aapt resource value: 0x7f0a0143
+			public const int schoolText = 2131362115;
 			
 			// aapt resource value: 0x7f0a0023
 			public const int screen = 2131361827;
@@ -4515,8 +4518,8 @@ namespace OnQAndroid
 			// aapt resource value: 0x7f0a0091
 			public const int scrollView1 = 2131361937;
 			
-			// aapt resource value: 0x7f0a00c2
-			public const int scrollView2 = 2131361986;
+			// aapt resource value: 0x7f0a00c3
+			public const int scrollView2 = 2131361987;
 			
 			// aapt resource value: 0x7f0a0047
 			public const int scrollable = 2131361863;
@@ -4557,8 +4560,8 @@ namespace OnQAndroid
 			// aapt resource value: 0x7f0a007b
 			public const int select_dialog_listview = 2131361915;
 			
-			// aapt resource value: 0x7f0a012f
-			public const int settings_root_frame = 2131362095;
+			// aapt resource value: 0x7f0a0130
+			public const int settings_root_frame = 2131362096;
 			
 			// aapt resource value: 0x7f0a0065
 			public const int shortcut = 2131361893;
@@ -4620,14 +4623,14 @@ namespace OnQAndroid
 			// aapt resource value: 0x7f0a003d
 			public const int start = 2131361853;
 			
-			// aapt resource value: 0x7f0a00d2
-			public const int status_bar_latest_event_content = 2131362002;
+			// aapt resource value: 0x7f0a00d3
+			public const int status_bar_latest_event_content = 2131362003;
 			
-			// aapt resource value: 0x7f0a00bf
-			public const int studentIdentify = 2131361983;
+			// aapt resource value: 0x7f0a00c0
+			public const int studentIdentify = 2131361984;
 			
-			// aapt resource value: 0x7f0a00ec
-			public const int studentProfile = 2131362028;
+			// aapt resource value: 0x7f0a00ed
+			public const int studentProfile = 2131362029;
 			
 			// aapt resource value: 0x7f0a0067
 			public const int submenuarrow = 2131361895;
@@ -4635,8 +4638,11 @@ namespace OnQAndroid
 			// aapt resource value: 0x7f0a0078
 			public const int submit_area = 2131361912;
 			
-			// aapt resource value: 0x7f0a014f
-			public const int tabImage = 2131362127;
+			// aapt resource value: 0x7f0a00bf
+			public const int swipeLayout = 2131361983;
+			
+			// aapt resource value: 0x7f0a0150
+			public const int tabImage = 2131362128;
 			
 			// aapt resource value: 0x7f0a001a
 			public const int tabMode = 2131361818;
@@ -4644,11 +4650,11 @@ namespace OnQAndroid
 			// aapt resource value: 0x7f0a00b9
 			public const int tabs = 2131361977;
 			
-			// aapt resource value: 0x7f0a00e2
-			public const int text = 2131362018;
+			// aapt resource value: 0x7f0a00e3
+			public const int text = 2131362019;
 			
-			// aapt resource value: 0x7f0a00e0
-			public const int text2 = 2131362016;
+			// aapt resource value: 0x7f0a00e1
+			public const int text2 = 2131362017;
 			
 			// aapt resource value: 0x7f0a005b
 			public const int textSpacerNoButtons = 2131361883;
@@ -4659,20 +4665,20 @@ namespace OnQAndroid
 			// aapt resource value: 0x7f0a007d
 			public const int textView1 = 2131361917;
 			
-			// aapt resource value: 0x7f0a011c
-			public const int textView10 = 2131362076;
-			
 			// aapt resource value: 0x7f0a011d
-			public const int textView11 = 2131362077;
+			public const int textView10 = 2131362077;
 			
-			// aapt resource value: 0x7f0a011f
-			public const int textView12 = 2131362079;
+			// aapt resource value: 0x7f0a011e
+			public const int textView11 = 2131362078;
 			
 			// aapt resource value: 0x7f0a0120
-			public const int textView13 = 2131362080;
+			public const int textView12 = 2131362080;
 			
 			// aapt resource value: 0x7f0a0121
-			public const int textView14 = 2131362081;
+			public const int textView13 = 2131362081;
+			
+			// aapt resource value: 0x7f0a0122
+			public const int textView14 = 2131362082;
 			
 			// aapt resource value: 0x7f0a007e
 			public const int textView2 = 2131361918;
@@ -4686,17 +4692,17 @@ namespace OnQAndroid
 			// aapt resource value: 0x7f0a0090
 			public const int textView5 = 2131361936;
 			
-			// aapt resource value: 0x7f0a0113
-			public const int textView6 = 2131362067;
+			// aapt resource value: 0x7f0a0114
+			public const int textView6 = 2131362068;
 			
-			// aapt resource value: 0x7f0a0147
-			public const int textView7 = 2131362119;
+			// aapt resource value: 0x7f0a0148
+			public const int textView7 = 2131362120;
 			
-			// aapt resource value: 0x7f0a0122
-			public const int textView8 = 2131362082;
+			// aapt resource value: 0x7f0a0123
+			public const int textView8 = 2131362083;
 			
-			// aapt resource value: 0x7f0a011b
-			public const int textView9 = 2131362075;
+			// aapt resource value: 0x7f0a011c
+			public const int textView9 = 2131362076;
 			
 			// aapt resource value: 0x7f0a00ac
 			public const int text_input_password_toggle = 2131361964;
@@ -4710,8 +4716,8 @@ namespace OnQAndroid
 			// aapt resource value: 0x7f0a0097
 			public const int thisCareerFair = 2131361943;
 			
-			// aapt resource value: 0x7f0a00d8
-			public const int time = 2131362008;
+			// aapt resource value: 0x7f0a00d9
+			public const int time = 2131362009;
 			
 			// aapt resource value: 0x7f0a0085
 			public const int timeText = 2131361925;
@@ -4743,26 +4749,26 @@ namespace OnQAndroid
 			// aapt resource value: 0x7f0a0009
 			public const int up = 2131361801;
 			
-			// aapt resource value: 0x7f0a00fb
-			public const int updateEmail = 2131362043;
+			// aapt resource value: 0x7f0a00fc
+			public const int updateEmail = 2131362044;
 			
-			// aapt resource value: 0x7f0a013f
-			public const int updateGPA = 2131362111;
-			
-			// aapt resource value: 0x7f0a013d
-			public const int updateGradTerm = 2131362109;
+			// aapt resource value: 0x7f0a0140
+			public const int updateGPA = 2131362112;
 			
 			// aapt resource value: 0x7f0a013e
-			public const int updateMajor = 2131362110;
+			public const int updateGradTerm = 2131362110;
 			
-			// aapt resource value: 0x7f0a00fd
-			public const int updateMyCompany = 2131362045;
+			// aapt resource value: 0x7f0a013f
+			public const int updateMajor = 2131362111;
 			
-			// aapt resource value: 0x7f0a00fa
-			public const int updateName = 2131362042;
+			// aapt resource value: 0x7f0a00fe
+			public const int updateMyCompany = 2131362046;
 			
-			// aapt resource value: 0x7f0a013c
-			public const int updateSchool = 2131362108;
+			// aapt resource value: 0x7f0a00fb
+			public const int updateName = 2131362043;
+			
+			// aapt resource value: 0x7f0a013d
+			public const int updateSchool = 2131362109;
 			
 			// aapt resource value: 0x7f0a0020
 			public const int useLogo = 2131361824;
@@ -4776,8 +4782,8 @@ namespace OnQAndroid
 			// aapt resource value: 0x7f0a00ba
 			public const int viewpager = 2131361978;
 			
-			// aapt resource value: 0x7f0a0153
-			public const int visible = 2131362131;
+			// aapt resource value: 0x7f0a0154
+			public const int visible = 2131362132;
 			
 			// aapt resource value: 0x7f0a0014
 			public const int wide = 2131361812;
@@ -4788,8 +4794,8 @@ namespace OnQAndroid
 			// aapt resource value: 0x7f0a0027
 			public const int wrap_content = 2131361831;
 			
-			// aapt resource value: 0x7f0a0139
-			public const int yearspinner = 2131362105;
+			// aapt resource value: 0x7f0a013a
+			public const int yearspinner = 2131362106;
 			
 			// aapt resource value: 0x7f0a009b
 			public const int yes = 2131361947;

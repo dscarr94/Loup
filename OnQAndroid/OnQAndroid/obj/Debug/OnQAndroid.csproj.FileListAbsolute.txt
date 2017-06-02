@@ -358,3 +358,4 @@ C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\bin\Debug\OnQAndroid.dll.m
 C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\android\assets\OnQAndroid.dll.mdb
 C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\android\assets\Refractored.PagerSlidingTabStrip.dll.mdb
 C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\android\assets\SQLite-net.dll.mdb
+C:\Users\Josh\Source\Repos\Loup\OnQAndroid\OnQAndroid\obj\Debug\res\drawable\img87654321.png
